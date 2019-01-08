@@ -1,5 +1,5 @@
 {
-  "top": {
+  "main": {
     "className": "---",
     "title": "---",
     "subtitle": "---",
@@ -12,19 +12,19 @@
         {
           "title": "---",
           "description": "---",
-          "avator": "---",
+          "image": "---",
           "link": "---"
         },
         {
           "title": "---",
           "description": "---",
-          "avator": "---",
+          "image": "---",
           "link": "---"
         },
         {
           "title": "---",
           "description": "---",
-          "avator": "---",
+          "image": "---",
           "link": "---"
         }
       ]
@@ -35,19 +35,19 @@
         {
           "title": "---",
           "description": "---",
-          "avator": "---",
+          "image": "---",
           "link": "---"
         },
         {
           "title": "---",
           "description": "---",
-          "avator": "---",
+          "image": "---",
           "link": "---"
         },
         {
           "title": "---",
           "description": "---",
-          "avator": "---",
+          "image": "---",
           "link": "---"
         }
       ]

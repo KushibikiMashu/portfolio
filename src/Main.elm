@@ -3,7 +3,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode exposing (Decoder, map3, map4, field, string, list)
+import Json.Decode exposing (Decoder, map2, map3, map4, field, string, list)
 
 -- 設計
 -- アプリケーションは関数の集合体である
@@ -36,7 +36,7 @@ main =
 type Model
     = Failure
     | Loading
-    | Succsess Intro
+    | Succsess Profile
 
 
 init : () -> (Model, Cmd Msg)
@@ -83,7 +83,7 @@ type alias Contact =
 -- UPDATE
 
 type Msg
-    = GotProfile (Result Http.Error Intro)
+    = GotProfile (Result Http.Error Profile)
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -91,8 +91,8 @@ update msg model =
     case msg of
         GotProfile result ->
             case result of
-                Ok intro ->
-                    (Succsess intro, Cmd.none)
+                Ok profile ->
+                    (Succsess profile, Cmd.none)
 
                 Err _ ->
                     (Failure, Cmd.none)
@@ -109,37 +109,41 @@ view model =
         Loading ->
             div [] [ text "Now Loading..." ]
 
-        Succsess intro ->
-            div [] [ viewApp model intro ]
+        Succsess profile ->
+            div [] [ viewApp model profile ]
 
 
-viewApp : Model -> Intro -> Html Msg
-viewApp model intro =
+viewApp : Model -> Profile -> Html Msg
+viewApp model profile =
     div []
-        [ viewTop model
+        [ viewTop
         , viewSections
         , viewContacts
-        , displayIntro intro
+        , displayProfile profile
         ]
 
 
-displayIntro : Intro -> Html msg
+displayProfile : Profile -> Html Msg
+displayProfile profile =
+    div [] [ displayIntro profile.intro ]
+
+
+displayIntro : Intro -> Html Msg
 displayIntro intro =
-    div [] 
-    [ text (intro.avator ++ intro.title) ]
+    div [] [ text (intro.avator ++ intro.title) ]
 
 
-viewTop : Model -> Html msg
-viewTop model =
+viewTop : Html Msg
+viewTop =
     div [] [ text "viewTop" ]
 
 
-viewSections : Html msg
+viewSections : Html Msg
 viewSections =
     div [] [ text "viewSections" ]
 
 
-viewContacts : Html msg
+viewContacts : Html Msg
 viewContacts =
     div [] [ text "viewContacts" ]
 
@@ -155,9 +159,13 @@ getProfile =
     }
 
 
-profileDecoder : Decoder Intro
+profileDecoder : Decoder Profile
 profileDecoder =
-    field "intro" introDecoder
+    map3 Profile
+        (field "intro" introDecoder)
+        (field "sections" (list sectionDecoder) )
+        (field "contacts" (list contactDecoder) )
+
 
 introDecoder : Decoder Intro
 introDecoder =
@@ -166,6 +174,31 @@ introDecoder =
         (field "title" string)
         (field "subtitle" string)
         (field "avator" string)
+
+
+sectionDecoder : Decoder Section
+sectionDecoder =
+    map2 Section
+        (field "title" string)
+        (field "items" (list itemDecoder) )
+
+
+itemDecoder : Decoder Item
+itemDecoder =
+    map4 Item
+        (field "title" string)
+        (field "description" string)
+        (field "image" string)
+        (field "link" string)
+
+
+contactDecoder : Decoder Contact
+contactDecoder =
+    map3 Contact
+        (field "name" string)
+        (field "icon" string)
+        (field "link" string)
+
 
 -- SUBSCRIPTIONS
 

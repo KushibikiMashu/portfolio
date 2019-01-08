@@ -58,6 +58,43 @@ profileDecoder =
     field "main" (field "className" string)
 
 
+type alias Main =
+    { className : String
+    , title : String
+    , subtitle : String
+    , avator : String
+    }
+
+
+type alias Sections =
+    { sections : Section }
+
+
+type alias Section =
+    { title : String
+    , items : List Item
+    }
+
+
+type alias Item =
+    { title : String
+    , description : String
+    , image : String
+    , link : String
+    }
+
+
+type alias Contacts =
+    { contacts : List Contact }
+
+
+type alias Contact =
+    { name : String
+    , icon : String
+    , link : String
+    }
+
+
 -- UPDATE
 
 type Msg

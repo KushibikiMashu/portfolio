@@ -109,18 +109,24 @@ view model =
         Loading ->
             div [] [ text "Now Loading..." ]
 
-        Succsess url ->
-            div [] [ viewApp model url ]
+        Succsess intro ->
+            div [] [ viewApp model intro ]
 
 
 viewApp : Model -> Intro -> Html Msg
-viewApp model url =
+viewApp model intro =
     div []
         [ viewTop model
         , viewSections
         , viewContacts
-        , text url.avator
+        , displayIntro intro
         ]
+
+
+displayIntro : Intro -> Html msg
+displayIntro intro =
+    div [] 
+    [ text (intro.avator ++ intro.title) ]
 
 
 viewTop : Model -> Html msg

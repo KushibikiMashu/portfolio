@@ -44,22 +44,18 @@ init _ =
     (Loading, getProfile)
 
 
---type alias Top = 
---    { className
---    ,
---    }
-
 getProfile : Cmd Msg
 getProfile =
     Http.get
-    { url = "/data.json"
+    { url = "http://localhost:8000/src/data.json"
+    -- 後でurlは変更する。相対パスで指定できると良い
     , expect = Http.expectJson GotProfile profileDecoder
     }
 
 
 profileDecoder : Decoder String
 profileDecoder =
-    field "top" (field "className" string)
+    field "main" (field "className" string)
 
 
 -- UPDATE
@@ -67,9 +63,10 @@ profileDecoder =
 type Msg
     = GotProfile (Result Http.Error String)
 
+
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
-    case msg of 
+    case msg of
         GotProfile result ->
             case result of
                 Ok url ->
@@ -83,14 +80,28 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ viewTop
-        , viewSections
-        , viewContacts
-        ]
+    div [] [ viewApp model ]
 
-viewTop : Html msg
-viewTop =
+viewApp : Model -> Html Msg
+viewApp model =
+    case model of
+        Failure ->
+            div [] [ text "Can't load JSON file."]
+
+        Loading ->
+            div [] [ text "Now Loading..." ]
+
+        Succsess url ->
+            div []
+                [ viewTop model
+                , viewSections
+                , viewContacts
+                , text url
+                ]
+
+
+viewTop : Model -> Html msg
+viewTop model =
     div [] [ text "viewTop" ]
 
 

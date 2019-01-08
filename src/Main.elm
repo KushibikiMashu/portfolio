@@ -3,7 +3,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode exposing (Decoder, field, string)
+import Json.Decode exposing (Decoder, map3, map4, field, string, list)
 
 -- 設計
 -- アプリケーションは関数の集合体である
@@ -36,7 +36,7 @@ main =
 type Model
     = Failure
     | Loading
-    | Succsess String
+    | Succsess Intro
 
 
 init : () -> (Model, Cmd Msg)
@@ -44,30 +44,19 @@ init _ =
     (Loading, getProfile)
 
 
-getProfile : Cmd Msg
-getProfile =
-    Http.get
-    { url = "http://localhost:8000/src/data.json"
-    -- 後でurlは変更する。相対パスで指定できると良い
-    , expect = Http.expectJson GotProfile profileDecoder
+type alias Profile =
+    { intro : Intro
+    , sections : List Section
+    , contacts : List Contact
     }
 
 
-profileDecoder : Decoder String
-profileDecoder =
-    field "main" (field "className" string)
-
-
-type alias Main =
+type alias Intro =
     { className : String
     , title : String
     , subtitle : String
     , avator : String
     }
-
-
-type alias Sections =
-    { sections : Section }
 
 
 type alias Section =
@@ -84,10 +73,6 @@ type alias Item =
     }
 
 
-type alias Contacts =
-    { contacts : List Contact }
-
-
 type alias Contact =
     { name : String
     , icon : String
@@ -98,7 +83,7 @@ type alias Contact =
 -- UPDATE
 
 type Msg
-    = GotProfile (Result Http.Error String)
+    = GotProfile (Result Http.Error Intro)
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -106,8 +91,8 @@ update msg model =
     case msg of
         GotProfile result ->
             case result of
-                Ok url ->
-                    (Succsess url, Cmd.none)
+                Ok intro ->
+                    (Succsess intro, Cmd.none)
 
                 Err _ ->
                     (Failure, Cmd.none)
@@ -117,10 +102,6 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [] [ viewApp model ]
-
-viewApp : Model -> Html Msg
-viewApp model =
     case model of
         Failure ->
             div [] [ text "Can't load JSON file."]
@@ -129,12 +110,17 @@ viewApp model =
             div [] [ text "Now Loading..." ]
 
         Succsess url ->
-            div []
-                [ viewTop model
-                , viewSections
-                , viewContacts
-                , text url
-                ]
+            div [] [ viewApp model url ]
+
+
+viewApp : Model -> Intro -> Html Msg
+viewApp model url =
+    div []
+        [ viewTop model
+        , viewSections
+        , viewContacts
+        , text url.avator
+        ]
 
 
 viewTop : Model -> Html msg
@@ -151,6 +137,29 @@ viewContacts : Html msg
 viewContacts =
     div [] [ text "viewContacts" ]
 
+
+-- HTTP
+
+getProfile : Cmd Msg
+getProfile =
+    Http.get
+    { url = "http://localhost:8000/src/data.json"
+    -- 後でurlは変更する。相対パスで指定できると良い
+    , expect = Http.expectJson GotProfile profileDecoder
+    }
+
+
+profileDecoder : Decoder Intro
+profileDecoder =
+    field "intro" introDecoder
+
+introDecoder : Decoder Intro
+introDecoder =
+    map4 Intro
+        (field "className" string)
+        (field "title" string)
+        (field "subtitle" string)
+        (field "avator" string)
 
 -- SUBSCRIPTIONS
 

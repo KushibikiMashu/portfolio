@@ -1,9 +1,9 @@
 {
-  "main": {
-    "className": "---",
-    "title": "---",
-    "subtitle": "---",
-    "avator": "---"
+  "intro": {
+    "className": "className",
+    "title": "title",
+    "subtitle": "subtitle",
+    "avator": "avator"
   },
   "sections": [
     {

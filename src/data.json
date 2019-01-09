@@ -1,7 +1,7 @@
 {
   "intro": {
     "className": "className",
-    "title": "title",
+    "title": "intro",
     "subtitle": "subtitle",
     "avator": "avator"
   },
@@ -10,19 +10,19 @@
       "title": "ABOUT",
       "items": [
         {
-          "title": "---",
+          "title": "about1",
           "description": "---",
           "image": "---",
           "link": "---"
         },
         {
-          "title": "---",
+          "title": "about2",
           "description": "---",
           "image": "---",
           "link": "---"
         },
         {
-          "title": "---",
+          "title": "about3",
           "description": "---",
           "image": "---",
           "link": "---"
@@ -33,19 +33,19 @@
       "title": "PORTFOLIO",
       "items": [
         {
-          "title": "---",
+          "title": "PORTFOLIO1",
           "description": "---",
           "image": "---",
           "link": "---"
         },
         {
-          "title": "---",
+          "title": "PORTFOLIO2",
           "description": "---",
           "image": "---",
           "link": "---"
         },
         {
-          "title": "---",
+          "title": "PORTFOLIO3",
           "description": "---",
           "image": "---",
           "link": "---"
@@ -55,22 +55,22 @@
   ],
   "contacts": [
     {
-      "name": "---",
+      "name": "twitter",
       "icon": "---",
       "link": "---"
     },
     {
-      "name": "---",
+      "name": "facebook",
       "icon": "---",
       "link": "---"
     },
     {
-      "name": "---",
+      "name": "linkedIn",
       "icon": "---",
       "link": "---"
     },
     {
-      "name": "---",
+      "name": "GitHub",
       "icon": "---",
       "link": "---"
     }

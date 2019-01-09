@@ -12,13 +12,8 @@ import Json.Decode exposing (Decoder, map2, map3, map4, field, string, list)
 -- コンポーネント思考をしない
 -- 関数は一つのことだけをする
 
--- model
-
 -- update
 -- クリックされる
-
--- view
--- top, about, portfolio, contact
 
 -- MAIN
 
@@ -115,37 +110,55 @@ view model =
 
 viewApp : Model -> Profile -> Html Msg
 viewApp model profile =
+    let
+        intro = profile.intro
+        sections = profile.sections
+        contacts = profile.contacts
+    in
+        div []
+            [ viewIntro intro
+            , viewSections sections
+            , viewContacts contacts
+            ]
+
+
+viewIntro : Intro -> Html Msg
+viewIntro intro =
+    div [] [ text intro.title ]
+
+
+viewSections : List Section -> Html Msg
+viewSections sections =
+    div [] 
+        (List.map displaySection sections)
+
+
+displaySection : Section -> Html Msg
+displaySection section =
+    let
+        title = section.title
+        items = section.items
+    in
+        div []
+            [ div [] [ text title ]
+            , div [] (List.map displayItems items)
+            ]
+
+
+displayItems : Item -> Html Msg
+displayItems item =
+    div [] [ text item.title ]
+
+
+viewContacts : List Contact -> Html Msg
+viewContacts contacts =
     div []
-        [ viewTop
-        , viewSections
-        , viewContacts
-        , displayProfile profile
-        ]
+        (List.map displayContact contacts)
 
 
-displayProfile : Profile -> Html Msg
-displayProfile profile =
-    div [] [ displayIntro profile.intro ]
-
-
-displayIntro : Intro -> Html Msg
-displayIntro intro =
-    div [] [ text (intro.avator ++ intro.title) ]
-
-
-viewTop : Html Msg
-viewTop =
-    div [] [ text "viewTop" ]
-
-
-viewSections : Html Msg
-viewSections =
-    div [] [ text "viewSections" ]
-
-
-viewContacts : Html Msg
-viewContacts =
-    div [] [ text "viewContacts" ]
+displayContact : Contact -> Html Msg
+displayContact contact =
+    div [] [ text contact.name ]
 
 
 -- HTTP

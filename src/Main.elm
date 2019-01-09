@@ -14,6 +14,7 @@ import Json.Decode exposing (Decoder, map2, map3, map4, field, string, list)
 
 -- update
 -- クリックされる
+-- 多言語化対応で利用する？
 
 -- MAIN
 
@@ -129,8 +130,7 @@ viewIntro intro =
 
 viewSections : List Section -> Html Msg
 viewSections sections =
-    div [] 
-        (List.map displaySection sections)
+    div [] (List.map displaySection sections)
 
 
 displaySection : Section -> Html Msg
@@ -152,8 +152,7 @@ displayItems item =
 
 viewContacts : List Contact -> Html Msg
 viewContacts contacts =
-    div []
-        (List.map displayContact contacts)
+    div [] (List.map displayContact contacts)
 
 
 displayContact : Contact -> Html Msg

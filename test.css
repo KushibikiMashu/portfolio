@@ -76,18 +76,25 @@
 
 .others-item {
   position: relative;
-  width: 400px;
+  width: 360px;
   height: 440px;
 }
 
 .others-img {
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 280px;
+  height: 280px;
   background: #C4C4C4;
+  margin-left: 100px;
 }
 
 .others-title {
   position: absolute;
-  top: 380px;
+  top: 300px;
+}
+
+.footer {
+  width: 1440px;
+  height: 286px;
+  background: rgba(109, 213, 237, 0.66);
 }

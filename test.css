@@ -1,0 +1,93 @@
+.page {
+  /*height: 960px;*/
+  height: 48rem;
+  width: 1440px;
+}
+
+.bg-linear-default {
+  background: linear-gradient(90.1deg, rgba(172, 182, 229, 0.66) 0.06%, rgba(134, 253, 232, 0.8) 99.94%, rgba(109, 213, 237, 0.75) 99.94%, rgba(109, 213, 237, 0.66) 99.94%);
+}
+
+.w-100px {
+  width: 96px;
+}
+
+.select-positon {
+  position: absolute;
+  left: 1214px;
+  top: 22px;
+}
+
+.intro-font {
+    font-family: Noto Sans JP;
+    font-style: normal;
+    line-height: normal;
+}
+
+.intro-title {
+  position: absolute;
+  left: 136px;
+  top: 450px;
+}
+
+.intro-name {
+  font-weight: bold;
+  font-size: 56px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #000000;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.intro-subtitle {
+  font-weight: normal;
+  font-size: 48px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.round {
+  border-radius: 50%; 
+}
+
+.profile {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  left: 655px;
+  top: 50px;
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.profile-sub {
+  position: absolute;
+  width: 185px;
+  height: 185px;
+  left: 1071px;
+  top: 466px;
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.others-container {
+  display: flex;
+}
+
+.others-item {
+  position: relative;
+  width: 400px;
+  height: 440px;
+}
+
+.others-img {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: #C4C4C4;
+}
+
+.others-title {
+  position: absolute;
+  top: 380px;
+}

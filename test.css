@@ -30,39 +30,61 @@
   top: 450px;
 }*/
 
-.intro-name {
-  font-weight: bold;
+/*.intro-name {
   font-size: 56px;
   text-align: center;
   letter-spacing: -0.04em;
-  color: #000000;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .intro-subtitle {
-  font-weight: normal;
   font-size: 48px;
   text-align: center;
   letter-spacing: 0.02em;
-  color: #000000;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+}*/
 
 .rotate-1\/8 {
   transform: rotate(-45deg);
 }
 
-.card-icon-career {
+.text-4rem {
+  font-size: 4rem;
+}
+
+.text-5rem {
+  font-size: 5rem;
+}
+
+.text-6rem {
   font-size: 6rem;
 }
 
-.card-icon {
+.text-7rem {
+  font-size: 7rem;
+}
+
+.text-8rem {
   font-size: 8rem;
 }
 
+.w-128 {
+  width: 32rem;
+}
+
+.h-128 {
+  height: 32rem;
+}
+
+.stroke {
+  /*-webkit-text-stroke: 5px #FFF;*/
+  -webkit-text-stroke: 1px #FFF;
+}
+
+/*
 .round {
   border-radius: 50%; 
-}
+}*/
 
 /*.profile {
   position: absolute;

@@ -313,6 +313,7 @@ module.exports = {
   */
 
   leading: {
+    'narrow': 0.75,
     'none': 1,
     'tight': 1.25,
     'normal': 1.5,
@@ -490,6 +491,7 @@ module.exports = {
     'auto': 'auto',
     'px': '1px',
     '120px': '120px',
+    '320px': '320px',
     '1': '0.25rem',
     '2': '0.5rem',
     '3': '0.75rem',
@@ -541,6 +543,7 @@ module.exports = {
     'auto': 'auto',
     'px': '1px',
     '220px': '220px',
+    '320px': '320px',
     '614px': '614px',
     '1': '0.25rem',
     '2': '0.5rem',
@@ -600,6 +603,8 @@ module.exports = {
 
   minHeight: {
     '0': '0',
+    '614': '614px',
+    '700': '700px',
     'full': '100%',
     'screen': '100vh',
   },
@@ -651,6 +656,7 @@ module.exports = {
   */
 
   maxHeight: {
+    '614': '614px',
     'full': '100%',
     'screen': '100vh',
   },

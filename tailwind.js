@@ -543,6 +543,7 @@ module.exports = {
   height: {
     'auto': 'auto',
     'px': '1px',
+    '128px': '128px',
     '136px': '136px',
     '220px': '220px',
     '320px': '320px',
@@ -605,6 +606,7 @@ module.exports = {
 
   minHeight: {
     '0': '0',
+    '128': '128px',
     '614': '614px',
     '700': '700px',
     'full': '100%',

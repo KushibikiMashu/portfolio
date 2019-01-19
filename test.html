@@ -36,53 +36,54 @@
       </div>
     </div>
   </div>
-  <section class="max-w-xl mx-auto container">
-    <h1 class="section-title">ABOUT</h1>
-    <div class="mx-auto md:flex md:items-center md:items-baseline">
-      <div class="card">
-        <div class="about-card-title">Career</div>
-        <i class="fas fa-shoe-prints py-6 w-full text-center text-6rem md:text-5rem rotate-1/8 text-red-darker"></i>
-        <div class="px-8 py-4">
-          <p class="text-grey-darker text-base">
-            1991年生まれ、2015年京都大学法学部卒業、2015年伊藤忠商事に経理として入社、2017年に退社し、海外旅行。プログラミングを独学した後、2018年1月よりエンジニアとして転職。10月より現在、都内IT企業にてサーバーサイドエンジニアとして働く。
-          </p>
+  <div class="max-w-xl mx-auto container">
+    <section>
+      <h1 class="section-title">ABOUT</h1>
+      <div class="card-container">
+        <div class="card">
+          <div class="about-card-title">Career</div>
+          <i class="fas fa-shoe-prints py-6 w-full text-center text-6rem md:text-5rem rotate-1/8 text-red-darker"></i>
+          <div class="px-8 py-4">
+            <p class="card-text md:h-128px">
+              1991年生まれ、2015年京都大学法学部卒業、2015年伊藤忠商事に経理として入社、2017年に退社し、海外旅行へ。独学でプログラミングを学んだ後、2018年1月よりエンジニアとして転職。10月より現在、都内のIT企業にてサーバーサイドエンジニアとして働く。
+            </p>
+          </div>
+          <div class="px-5 pt-2 pb-4">
+            <span class="tooltip">#法学部卒</span>
+            <span class="tooltip">#経理経験</span>
+            <span class="tooltip">#エンジニア</span>
+          </div>
         </div>
-        <div class="px-6 pt-2 pb-4">
-          <span class="tooltip">#法学部卒</span>
-          <span class="tooltip">#経理経験</span>
-          <span class="tooltip">#エンジニア</span>
-          <span class="tooltip">#海外旅行</span>
+        <div class="card mt-8 md:mt-0 md:ml-6">
+          <div class="about-card-title">Skills</div>
+          <i class="fas fa-code py-2 md:py-4 w-full text-6rem text-center text-blue-dark"></i>
+          <div class="px-8 py-4">
+            <p class="card-text md:h-128px">
+              PHP(Laravel, WordPress, Yii), React。英語(TOEIC 850)、中国語(HSK筆記6級、口試中級)。簿記3級、FASS検定Aランク。このサイトはElmとTailwind CSSで作成しています。
+            </p>
+          </div>
+          <div class="px-5 pt-2 pb-4">
+            <span class="tooltip">#photography</span>
+            <span class="tooltip">#travel</span>
+            <span class="tooltip">#winter</span>
+          </div>
+        </div>
+        <div class="card mt-8 md:mt-0 md:ml-6">
+          <div class="about-card-title">Interest</div>
+          <i class="fas fa-star py-2 md:py-4 w-full text-6rem text-center text-yellow-dark"></i>
+          <div class="px-8 py-4">
+            <p class="card-text md:h-128px">
+              プログラミング・日本語ラップ・ウィスキー・旅行・歴史・哲学・企業分析・水泳・英語・食べ歩き・カフェ巡り。何より学ぶことが好き。
+            </p>
+          </div>
+          <div class="px-5 pt-2 pb-4">
+            <span class="tooltip">#photography</span>
+            <span class="tooltip">#travel</span>
+            <span class="tooltip">#winter</span>
+          </div>
         </div>
       </div>
-      <div class="card mt-8 md:mt-0 md:ml-5">
-        <div class="about-card-title">Skills</div>
-        <i class="fas fa-code py-2 md:py-4 w-full text-6rem text-center text-blue-dark"></i>
-        <div class="px-8 py-4">
-          <p class="text-grey-darker text-base">
-            PHP(Laravel, WordPress, Yii), React。英語(TOEIC 850)、中国語(HSK筆記6級、口試中級)。簿記3級、FASS検定Aランク。このサイトはElmとTailwind CSSで作成しています。
-          </p>
-        </div>
-        <div class="px-6 pt-2 pb-4">
-          <span class="tooltip">#photography</span>
-          <span class="tooltip">#travel</span>
-          <span class="tooltip">#winter</span>
-        </div>
-      </div>
-      <div class="card mt-8 md:mt-0 md:ml-5">
-        <div class="about-card-title">Interest</div>
-        <i class="fas fa-star py-2 md:py-4 w-full text-6rem text-center text-yellow-dark"></i>
-        <div class="px-8 py-4">
-          <p class="text-grey-darker text-base">
-            プログラミング・日本語ラップ・ウィスキー・旅行・歴史・哲学・企業分析・水泳・英語・食べ歩き・カフェ巡り。何より学ぶことが好き。
-          </p>
-        </div>
-        <div class="px-6 pt-2 pb-4">
-          <span class="tooltip">#photography</span>
-          <span class="tooltip">#travel</span>
-          <span class="tooltip">#winter</span>
-        </div>
-      </div>
-    </div>
+    </section>
     <div class="languages-container">
       <div class="pt-5 pb-5">
         <h1 class="text-center">LANGUAGES</h1>
@@ -91,9 +92,9 @@
     <div class="languages-container">
       <h1 class="w-full text-center pt-5 pb-5">DEVELOPMENT SKILLS</h1>
     </div>
-    <div class="Portfolio-container">
+    <section>
       <h1 class="w-full text-center pt-5 pb-5">PORTFOLIO</h1>
-      <div class="mx-auto mt-5 md:flex md:items-center md:items-baseline">
+      <div class="card-container mt-5">
         <div class="card">
           <div class="flex items-center pt-3 pb-3 pl-5">
             <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
@@ -101,67 +102,67 @@
           </div>
           <img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
           <div class="px-8 py-4">
-            <p class="text-grey-darker text-base">
+            <p class="card-text">
               日本語ラップファンのためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を時系列で表示。(2018/12)
             </p>
           </div>
-          <div class="px-6 pt-2 pb-4">
+          <div class="px-5 pt-2 pb-4">
             <span class="tooltip">#Laravel</span>
             <span class="tooltip">#React</span>
             <span class="tooltip">#Material-UI</span>
           </div>
         </div>
-        <div class="card mt-8 md:mt-0 md:ml-5">
+        <div class="card mt-8 md:mt-0 md:ml-6">
           <div class="flex items-center pt-3 pb-3 pl-5">
             <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
             <div class="portfolio-card-title">Bitcoin Chart</div>
           </div>
           <img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
           <div class="px-8 py-4">
-            <p class="text-grey-darker text-base">
+            <p class="card-text">
               ビットコインの取引所ごとの価格差に着目し、グラフで価格を可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。(since 2018/7)
             </p>
           </div>
-          <div class="px-6 pt-2 pb-4">
+          <div class="px-5 pt-2 pb-4">
             <span class="tooltip">#Laravel</span>
             <span class="tooltip">#React</span>
             <span class="tooltip">#Material-UI</span>
           </div>
         </div>
-        <div class="card mt-8 md:mt-0 md:ml-5">
+        <div class="card mt-8 md:mt-0 md:ml-6">
           <div class="flex items-center pt-3 pb-3 pl-5">
             <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
             <div class="portfolio-card-title">ウィスキー蒸留所NAVI</div>
           </div>
           <img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
           <div class="px-8 py-4">
-            <p class="text-grey-darker text-base">
+            <p class="card-text">
               国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができます。(2018/5)
             </p>
           </div>
-          <div class="px-6 pt-2 pb-4">
+          <div class="px-5 pt-2 pb-4">
             <span class="tooltip">#Laravel</span>
             <span class="tooltip">#React</span>
             <span class="tooltip">#Material-UI</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
   <div>
     <h1 class="w-full text-center pt-5 pb-5">OTHERS</h1>
   </div>
-  <div class="h-220px bg-turquoise opacity-2/3">
-    <h1 class="section-title text-white">CONTACT</h1>
+  <div class="bg-turquoise opacity-2/3">
+    <h1 class="w-full text-center py-5 text-3xl md:text-2xl text-white">CONTACT</h1>
     <div class="text-center">
-      <i class="fab fa-twitter text-white" style="font-size: 4rem"></i>
-      <i class="fab fa-facebook ml-3 text-white" style="font-size: 4rem"></i>
-      <i class="fab fa-linkedin ml-3 text-white" style="font-size: 4rem"></i>
-      <i class="fab fa-github ml-3 text-white" style="font-size: 4rem"></i>
+      <i class="fab fa-twitter text-5xl md:text-4xl text-white"></i>
+      <i class="fab fa-facebook ml-5 text-5xl md:text-4xl text-white"></i>
+      <i class="fab fa-linkedin ml-5 text-5xl md:text-4xl text-white"></i>
+      <i class="fab fa-github ml-5 text-5xl md:text-4xl text-white"></i>
     </div>
-    <div class="text-center pt-5 pb-3">
-      <p class="text-lg text-white">by MASHU KUSHIBIKI</p>
-      <p class="text-lg text-white">created with Elm</p>
+    <div class="text-center pt-4 pb-3">
+      <p class="text-base md:text-sm text-white">by MASHU KUSHIBIKI</p>
+      <p class="text-base md:text-sm text-white">created with Elm</p>
     </div>
   </div>
   <script>

@@ -40,46 +40,31 @@
     <section>
       <h1 class="section-title">ABOUT</h1>
       <div class="card-container">
-        <div class="card">
+        <div class="card md:mx-3">
           <div class="about-card-title">Career</div>
           <i class="fas fa-shoe-prints py-6 w-full text-center text-4rem md:text-5xl rotate-1/8 text-red-darker"></i>
-          <div class="px-8 py-4">
-            <p class="card-text md:h-128px">
+          <div class="px-8 py-6">
+            <p class="card-text md:h-48">
               1991年生まれ、2015年京都大学法学部卒業、2015年伊藤忠商事に経理として入社、2017年に退社し、海外旅行へ。独学でプログラミングを学んだ後、2018年1月よりエンジニアとして転職。10月より現在、都内のIT企業にてサーバーサイドエンジニアとして働く。
             </p>
           </div>
-          <div class="px-5 pt-2 pb-4">
-            <span class="tooltip">#法学部卒</span>
-            <span class="tooltip">#経理経験</span>
-            <span class="tooltip">#エンジニア</span>
-          </div>
         </div>
-        <div class="card mt-8 md:mt-0 md:ml-6">
+        <div class="card mt-8 md:mt-0 md:mx-3">
           <div class="about-card-title">Skills</div>
           <i class="fas fa-code py-2 md:py-4 w-full text-4rem text-center text-blue-dark"></i>
-          <div class="px-8 py-4">
-            <p class="card-text md:h-128px">
+          <div class="px-8 py-6">
+            <p class="card-text md:h-48">
               PHP(Laravel, WordPress, Yii), React。英語(TOEIC 850)、中国語(HSK筆記6級、口試中級)。簿記3級、FASS検定Aランク。このサイトはElmとTailwind CSSで作成しています。
             </p>
           </div>
-          <div class="px-5 pt-2 pb-4">
-            <span class="tooltip">#photography</span>
-            <span class="tooltip">#travel</span>
-            <span class="tooltip">#winter</span>
-          </div>
         </div>
-        <div class="card mt-8 md:mt-0 md:ml-6">
+        <div class="card mt-8 md:mt-0 md:mx-3">
           <div class="about-card-title">Interest</div>
           <i class="fas fa-star py-2 md:py-4 w-full text-4rem text-center text-yellow-dark"></i>
-          <div class="px-8 py-4">
-            <p class="card-text md:h-128px">
+          <div class="px-8 py-6">
+            <p class="card-text md:h-48">
               プログラミング・日本語ラップ・ウィスキー・旅行・歴史・哲学・企業分析・水泳・英語・食べ歩き・カフェ巡り。何より学ぶことが好き。
             </p>
-          </div>
-          <div class="px-5 pt-2 pb-4">
-            <span class="tooltip">#photography</span>
-            <span class="tooltip">#travel</span>
-            <span class="tooltip">#winter</span>
           </div>
         </div>
       </div>
@@ -95,9 +80,9 @@
     <section>
       <h1 class="section-title">PORTFOLIO</h1>
       <div class="card-container">
-        <div class="card hover:shadow-lg">
+        <div class="card portfolio-card md:mx-3">
           <div class="flex items-center p-3">
-            <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
+            <i class="fas fa-music card-avatar text-white bg-blue-dark"></i>
             <div class="portfolio-card-title">HIPSTY</div>
           </div>
           <img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
@@ -110,11 +95,14 @@
             <span class="tooltip">#Laravel</span>
             <span class="tooltip">#React</span>
             <span class="tooltip">#Material-UI</span>
+            <span class="tooltip">#Docker</span>
+            <span class="tooltip">#EC2</span>
+            <span class="tooltip">#Route53</span>
           </div>
         </div>
-        <div class="card hover:shadow-lg mt-8 md:mt-0 md:ml-6">
+        <div class="card portfolio-card mt-8 md:mt-0 md:mx-3">
           <div class="flex items-center p-3">
-            <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
+            <i class="fab fa-bitcoin text-2.5rem text-yellow-dark mr-4"></i>
             <div class="portfolio-card-title">Bitcoin Chart</div>
           </div>
           <img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
@@ -124,14 +112,15 @@
             </p>
           </div>
           <div class="px-5 pt-2 pb-4">
-            <span class="tooltip">#Laravel</span>
-            <span class="tooltip">#React</span>
-            <span class="tooltip">#Material-UI</span>
+            <span class="tooltip">#PHP</span>
+            <span class="tooltip">#Bootstrap4</span>
+            <span class="tooltip">#Highcharts</span>
+            <span class="tooltip">#MySQL</span>
           </div>
         </div>
-        <div class="card hover:shadow-lg mt-8 md:mt-0 md:ml-6">
+        <div class="card portfolio-card mt-8 md:mt-0 md:mx-3">
           <div class="flex items-center p-3">
-            <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
+            <i class="fas fa-glass-whiskey card-avatar text-white bg-orange-darker"></i>
             <div class="portfolio-card-title">ウィスキー蒸留所NAVI</div>
           </div>
           <img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
@@ -141,9 +130,9 @@
             </p>
           </div>
           <div class="px-5 pt-2 pb-4">
-            <span class="tooltip">#Laravel</span>
-            <span class="tooltip">#React</span>
-            <span class="tooltip">#Material-UI</span>
+            <span class="tooltip">#HTML</span>
+            <span class="tooltip">#Bootstrap4</span>
+            <span class="tooltip">#jQuery</span>
           </div>
         </div>
       </div>
@@ -153,14 +142,14 @@
     <h1 class="w-full text-center pt-5 pb-5">OTHERS</h1>
   </div>
   <div class="bg-grey-lighter">
-    <h1 class="w-full text-center py-4 text-3xl md:text-2xl">CONTACT</h1>
+    <h1 class="w-full text-center py-4 text-3xl md:text-2xl text-grey-darkest">CONTACT</h1>
     <div class="text-center">
       <i class="fab fa-twitter-square text-twitter text-5xl"></i>
       <i class="fab fa-facebook text-facebook text-5xl ml-8"></i>
       <i class="fab fa-linkedin text-linkedin text-5xl ml-8"></i>
       <i class="fab fa-github text-github text-5xl ml-8"></i>
     </div>
-    <div class="text-center pt-4 pb-3">
+    <div class="text-center pt-4 pb-3 text-grey-darker">
       <p class="text-base md:text-sm">by MASHU KUSHIBIKI</p>
       <p class="text-base md:text-sm">created with Elm</p>
     </div>

@@ -91,12 +91,12 @@
 }
 
 .section-title {
-  @apply w-full text-center py-5 text-4xl;
+  @apply w-full text-center py-5 text-4xl text-grey-darkest;
 }
 
 @screen md {
   .card-container {
-    @apply flex items-center items-baseline mx-2;
+    @apply flex items-start mx-2;
   }
 }
 
@@ -110,12 +110,20 @@
   }
 }
 
+hover:portfolio-card {
+  @apply shadow-lg;
+}
+
 .about-card-title {
   @apply font-bold text-xl py-4 text-center;
 }
 
 .portfolio-card-title {
   @apply font-bold text-xl mb-1;
+}
+
+.card-avatar {
+  @apply p-2 mr-4 text-2xl rounded-full;
 }
 
 .card-text {

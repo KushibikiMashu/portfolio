@@ -101,11 +101,7 @@
 }
 
 .card {
-  @apply max-w-sm w-5/6 rounded overflow-hidden shadow-md mx-auto border border-grey-light;
-}
-
-.card:hover {
-  @apply shadow-lg;
+  @apply max-w-sm w-5/6 rounded overflow-hidden shadow mx-auto border border-grey-light;
 }
 
 @screen md {
@@ -115,7 +111,7 @@
 }
 
 .about-card-title {
-  @apply font-bold text-3xl py-4 text-center;
+  @apply font-bold text-xl py-4 text-center;
 }
 
 .portfolio-card-title {

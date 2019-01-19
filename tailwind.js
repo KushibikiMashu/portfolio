@@ -129,6 +129,10 @@ let colors = {
   'pink-lightest': '#ffebef',
 
   'turquoise': '#6DD5ED',
+  "twitter": "#55acee",
+  "facebook": "#3b5998",
+  "linkedin": "#0077B5",
+  "github": "#333333",
 }
 
 module.exports = {

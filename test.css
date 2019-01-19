@@ -110,10 +110,6 @@
   }
 }
 
-hover:portfolio-card {
-  @apply shadow-lg;
-}
-
 .about-card-title {
   @apply font-bold text-xl py-4 text-center;
 }

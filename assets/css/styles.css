@@ -890,6 +890,30 @@ table {
   background-color: #ffebef;
 }
 
+.bg-turquoise {
+  background-color: #6dd5ed;
+}
+
+.bg-bitcoin-chart {
+  background-color: #12bbad;
+}
+
+.bg-twitter {
+  background-color: #55acee;
+}
+
+.bg-facebook {
+  background-color: #3b5998;
+}
+
+.bg-linkedin {
+  background-color: #0077b5;
+}
+
+.bg-github {
+  background-color: #333;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -1182,6 +1206,30 @@ table {
   background-color: #ffebef;
 }
 
+.hover\:bg-turquoise:hover {
+  background-color: #6dd5ed;
+}
+
+.hover\:bg-bitcoin-chart:hover {
+  background-color: #12bbad;
+}
+
+.hover\:bg-twitter:hover {
+  background-color: #55acee;
+}
+
+.hover\:bg-facebook:hover {
+  background-color: #3b5998;
+}
+
+.hover\:bg-linkedin:hover {
+  background-color: #0077b5;
+}
+
+.hover\:bg-github:hover {
+  background-color: #333;
+}
+
 .focus\:bg-transparent:focus {
   background-color: transparent;
 }
@@ -1472,6 +1520,30 @@ table {
 
 .focus\:bg-pink-lightest:focus {
   background-color: #ffebef;
+}
+
+.focus\:bg-turquoise:focus {
+  background-color: #6dd5ed;
+}
+
+.focus\:bg-bitcoin-chart:focus {
+  background-color: #12bbad;
+}
+
+.focus\:bg-twitter:focus {
+  background-color: #55acee;
+}
+
+.focus\:bg-facebook:focus {
+  background-color: #3b5998;
+}
+
+.focus\:bg-linkedin:focus {
+  background-color: #0077b5;
+}
+
+.focus\:bg-github:focus {
+  background-color: #333;
 }
 
 .bg-bottom {
@@ -1838,6 +1910,30 @@ table {
   border-color: #ffebef;
 }
 
+.border-turquoise {
+  border-color: #6dd5ed;
+}
+
+.border-bitcoin-chart {
+  border-color: #12bbad;
+}
+
+.border-twitter {
+  border-color: #55acee;
+}
+
+.border-facebook {
+  border-color: #3b5998;
+}
+
+.border-linkedin {
+  border-color: #0077b5;
+}
+
+.border-github {
+  border-color: #333;
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -2130,6 +2226,30 @@ table {
   border-color: #ffebef;
 }
 
+.hover\:border-turquoise:hover {
+  border-color: #6dd5ed;
+}
+
+.hover\:border-bitcoin-chart:hover {
+  border-color: #12bbad;
+}
+
+.hover\:border-twitter:hover {
+  border-color: #55acee;
+}
+
+.hover\:border-facebook:hover {
+  border-color: #3b5998;
+}
+
+.hover\:border-linkedin:hover {
+  border-color: #0077b5;
+}
+
+.hover\:border-github:hover {
+  border-color: #333;
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -2420,6 +2540,30 @@ table {
 
 .focus\:border-pink-lightest:focus {
   border-color: #ffebef;
+}
+
+.focus\:border-turquoise:focus {
+  border-color: #6dd5ed;
+}
+
+.focus\:border-bitcoin-chart:focus {
+  border-color: #12bbad;
+}
+
+.focus\:border-twitter:focus {
+  border-color: #55acee;
+}
+
+.focus\:border-facebook:focus {
+  border-color: #3b5998;
+}
+
+.focus\:border-linkedin:focus {
+  border-color: #0077b5;
+}
+
+.focus\:border-github:focus {
+  border-color: #333;
 }
 
 .rounded-none {
@@ -3132,6 +3276,10 @@ table {
   height: 16rem;
 }
 
+.h-128 {
+  height: 32rem;
+}
+
 .h-auto {
   height: auto;
 }
@@ -3140,12 +3288,28 @@ table {
   height: 1px;
 }
 
+.h-74px {
+  height: 74px;
+}
+
+.h-136px {
+  height: 136px;
+}
+
+.h-320px {
+  height: 320px;
+}
+
 .h-full {
   height: 100%;
 }
 
 .h-screen {
   height: 100vh;
+}
+
+.leading-narrow {
+  line-height: .75;
 }
 
 .leading-none {
@@ -3644,6 +3808,10 @@ table {
   margin-left: 1px;
 }
 
+.max-h-614 {
+  max-height: 614px;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -3694,6 +3862,18 @@ table {
 
 .min-h-0 {
   min-height: 0;
+}
+
+.min-h-128 {
+  min-height: 128px;
+}
+
+.min-h-614 {
+  min-height: 614px;
+}
+
+.min-h-700 {
+  min-height: 700px;
 }
 
 .min-h-full {
@@ -4180,6 +4360,10 @@ table {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.opacity-2\/3 {
+  opacity: .667;
 }
 
 .outline-none {
@@ -5177,6 +5361,30 @@ table {
   color: #ffebef;
 }
 
+.text-turquoise {
+  color: #6dd5ed;
+}
+
+.text-bitcoin-chart {
+  color: #12bbad;
+}
+
+.text-twitter {
+  color: #55acee;
+}
+
+.text-facebook {
+  color: #3b5998;
+}
+
+.text-linkedin {
+  color: #0077b5;
+}
+
+.text-github {
+  color: #333;
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -5467,6 +5675,30 @@ table {
 
 .hover\:text-pink-lightest:hover {
   color: #ffebef;
+}
+
+.hover\:text-turquoise:hover {
+  color: #6dd5ed;
+}
+
+.hover\:text-bitcoin-chart:hover {
+  color: #12bbad;
+}
+
+.hover\:text-twitter:hover {
+  color: #55acee;
+}
+
+.hover\:text-facebook:hover {
+  color: #3b5998;
+}
+
+.hover\:text-linkedin:hover {
+  color: #0077b5;
+}
+
+.hover\:text-github:hover {
+  color: #333;
 }
 
 .focus\:text-transparent:focus {
@@ -5761,6 +5993,30 @@ table {
   color: #ffebef;
 }
 
+.focus\:text-turquoise:focus {
+  color: #6dd5ed;
+}
+
+.focus\:text-bitcoin-chart:focus {
+  color: #12bbad;
+}
+
+.focus\:text-twitter:focus {
+  color: #55acee;
+}
+
+.focus\:text-facebook:focus {
+  color: #3b5998;
+}
+
+.focus\:text-linkedin:focus {
+  color: #0077b5;
+}
+
+.focus\:text-github:focus {
+  color: #333;
+}
+
 .text-xs {
   font-size: .75rem;
 }
@@ -5793,8 +6049,32 @@ table {
   font-size: 2.25rem;
 }
 
+.text-2\.5rem {
+  font-size: 2.5rem;
+}
+
 .text-5xl {
   font-size: 3rem;
+}
+
+.text-4rem {
+  font-size: 4rem;
+}
+
+.text-5rem {
+  font-size: 5rem;
+}
+
+.text-6rem {
+  font-size: 6rem;
+}
+
+.text-7rem {
+  font-size: 7rem;
+}
+
+.text-8rem {
+  font-size: 8rem;
 }
 
 .italic {
@@ -6083,12 +6363,24 @@ table {
   width: 16rem;
 }
 
+.w-128 {
+  width: 32rem;
+}
+
 .w-auto {
   width: auto;
 }
 
 .w-px {
   width: 1px;
+}
+
+.w-136px {
+  width: 136px;
+}
+
+.w-320px {
+  width: 320px;
 }
 
 .w-1\/2 {
@@ -6186,144 +6478,117 @@ table {
  * @import "utilities/skew-transforms";
  */
 
-.page {
-  /*height: 960px;*/
-  height: 48rem;
-  width: 1440px;
-}
-
-.bg-linear-default {
+.bg-linear-intro {
   background: linear-gradient(90.1deg, rgba(172, 182, 229, .66) .06%, rgba(134, 253, 232, .8) 99.94%, rgba(109, 213, 237, .75) 99.94%, rgba(109, 213, 237, .66) 99.94%);
 }
 
-.w-120px {
-  width: 120px;
-}
-
-/*
-.select-positon {
-  position: absolute;
-  left: 1214px;
-  top: 22px;
-}*/
-
-.intro-font {
+.base-font {
   font-family: Noto Sans JP;
   font-style: normal;
   line-height: normal;
 }
-
-/*
-.intro-title {
-  position: absolute;
-  left: 136px;
-  top: 450px;
-}*/
-
-/*.intro-name {
-  font-size: 56px;
-  text-align: center;
-  letter-spacing: -0.04em;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.intro-subtitle {
-  font-size: 48px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}*/
 
 .rotate-1\/8 {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-.text-4rem {
-  font-size: 4rem;
-}
-
-.text-5rem {
-  font-size: 5rem;
-}
-
-.text-6rem {
-  font-size: 6rem;
-}
-
-.text-7rem {
-  font-size: 7rem;
-}
-
-.text-8rem {
-  font-size: 8rem;
-}
-
-.w-128 {
-  width: 32rem;
-}
-
-.h-128 {
-  height: 32rem;
-}
-
-.stroke {
-  /*-webkit-text-stroke: 5px #FFF;*/
+.stroke-w-1 {
+          text-stroke: 1px #fff;
   -webkit-text-stroke: 1px #fff;
 }
 
-/*
-.round {
-  border-radius: 50%; 
-}*/
-
-/*.profile {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  left: 655px;
-  top: 50px;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25);
+.stroke-w-2 {
+          text-stroke: 2px #fff;
+  -webkit-text-stroke: 2px #fff;
 }
 
-.profile-sub {
-  position: absolute;
-  width: 185px;
-  height: 185px;
-  left: 1071px;
-  top: 466px;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25);
-}*/
-
-.others-container {
-  display: flex;
+.stroke-w-3 {
+          text-stroke: 3px #fff;
+  -webkit-text-stroke: 3px #fff;
 }
 
-/*
-.others-item {
-  position: relative;
-  width: 360px;
-  height: 440px;
-}*/
-
-/*
-.others-img {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  background: #C4C4C4;
-  margin-left: 100px;
-}*/
-
-.others-title {
-  position: absolute;
-  top: 300px;
+.section-title {
+  width: 100%;
+  text-align: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: 2.25rem;
+  color: #3d4852;
 }
 
-.footer {
-  max-width: 1440px;
-  height: 220px;
-  background: rgba(109, 213, 237, .66);
+@media (min-width: 768px) {
+  .card-container {
+    display: flex;
+    align-items: flex-start;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}
+
+.card {
+  max-width: 30rem;
+  width: 83.33333%;
+  border-radius: .25rem;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 1px;
+  border-color: #dae1e7;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 33.33333%;
+  }
+}
+
+.about-card-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.portfolio-card-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: .25rem;
+  color: #3d4852;
+}
+
+.card-avatar {
+  padding: .5rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  border-radius: 9999px;
+}
+
+.card-text {
+  color: #606f7b;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-text {
+    font-size: .875rem;
+  }
+}
+
+.tooltip {
+  display: inline-block;
+  background-color: #f1f5f8;
+  border-radius: 9999px;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: .875rem;
+  font-weight: 600;
+  color: #606f7b;
+  margin-right: .25rem;
+  margin-top: .25rem;
 }
 
 @media (min-width: 576px) {
@@ -6642,6 +6907,30 @@ table {
     background-color: #ffebef;
   }
 
+  .sm\:bg-turquoise {
+    background-color: #6dd5ed;
+  }
+
+  .sm\:bg-bitcoin-chart {
+    background-color: #12bbad;
+  }
+
+  .sm\:bg-twitter {
+    background-color: #55acee;
+  }
+
+  .sm\:bg-facebook {
+    background-color: #3b5998;
+  }
+
+  .sm\:bg-linkedin {
+    background-color: #0077b5;
+  }
+
+  .sm\:bg-github {
+    background-color: #333;
+  }
+
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -6934,6 +7223,30 @@ table {
     background-color: #ffebef;
   }
 
+  .sm\:hover\:bg-turquoise:hover {
+    background-color: #6dd5ed;
+  }
+
+  .sm\:hover\:bg-bitcoin-chart:hover {
+    background-color: #12bbad;
+  }
+
+  .sm\:hover\:bg-twitter:hover {
+    background-color: #55acee;
+  }
+
+  .sm\:hover\:bg-facebook:hover {
+    background-color: #3b5998;
+  }
+
+  .sm\:hover\:bg-linkedin:hover {
+    background-color: #0077b5;
+  }
+
+  .sm\:hover\:bg-github:hover {
+    background-color: #333;
+  }
+
   .sm\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -7224,6 +7537,30 @@ table {
 
   .sm\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .sm\:focus\:bg-turquoise:focus {
+    background-color: #6dd5ed;
+  }
+
+  .sm\:focus\:bg-bitcoin-chart:focus {
+    background-color: #12bbad;
+  }
+
+  .sm\:focus\:bg-twitter:focus {
+    background-color: #55acee;
+  }
+
+  .sm\:focus\:bg-facebook:focus {
+    background-color: #3b5998;
+  }
+
+  .sm\:focus\:bg-linkedin:focus {
+    background-color: #0077b5;
+  }
+
+  .sm\:focus\:bg-github:focus {
+    background-color: #333;
   }
 
   .sm\:bg-bottom {
@@ -7582,6 +7919,30 @@ table {
     border-color: #ffebef;
   }
 
+  .sm\:border-turquoise {
+    border-color: #6dd5ed;
+  }
+
+  .sm\:border-bitcoin-chart {
+    border-color: #12bbad;
+  }
+
+  .sm\:border-twitter {
+    border-color: #55acee;
+  }
+
+  .sm\:border-facebook {
+    border-color: #3b5998;
+  }
+
+  .sm\:border-linkedin {
+    border-color: #0077b5;
+  }
+
+  .sm\:border-github {
+    border-color: #333;
+  }
+
   .sm\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -7874,6 +8235,30 @@ table {
     border-color: #ffebef;
   }
 
+  .sm\:hover\:border-turquoise:hover {
+    border-color: #6dd5ed;
+  }
+
+  .sm\:hover\:border-bitcoin-chart:hover {
+    border-color: #12bbad;
+  }
+
+  .sm\:hover\:border-twitter:hover {
+    border-color: #55acee;
+  }
+
+  .sm\:hover\:border-facebook:hover {
+    border-color: #3b5998;
+  }
+
+  .sm\:hover\:border-linkedin:hover {
+    border-color: #0077b5;
+  }
+
+  .sm\:hover\:border-github:hover {
+    border-color: #333;
+  }
+
   .sm\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -8164,6 +8549,30 @@ table {
 
   .sm\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .sm\:focus\:border-turquoise:focus {
+    border-color: #6dd5ed;
+  }
+
+  .sm\:focus\:border-bitcoin-chart:focus {
+    border-color: #12bbad;
+  }
+
+  .sm\:focus\:border-twitter:focus {
+    border-color: #55acee;
+  }
+
+  .sm\:focus\:border-facebook:focus {
+    border-color: #3b5998;
+  }
+
+  .sm\:focus\:border-linkedin:focus {
+    border-color: #0077b5;
+  }
+
+  .sm\:focus\:border-github:focus {
+    border-color: #333;
   }
 
   .sm\:rounded-none {
@@ -8876,6 +9285,10 @@ table {
     height: 16rem;
   }
 
+  .sm\:h-128 {
+    height: 32rem;
+  }
+
   .sm\:h-auto {
     height: auto;
   }
@@ -8884,12 +9297,28 @@ table {
     height: 1px;
   }
 
+  .sm\:h-74px {
+    height: 74px;
+  }
+
+  .sm\:h-136px {
+    height: 136px;
+  }
+
+  .sm\:h-320px {
+    height: 320px;
+  }
+
   .sm\:h-full {
     height: 100%;
   }
 
   .sm\:h-screen {
     height: 100vh;
+  }
+
+  .sm\:leading-narrow {
+    line-height: .75;
   }
 
   .sm\:leading-none {
@@ -9388,6 +9817,10 @@ table {
     margin-left: 1px;
   }
 
+  .sm\:max-h-614 {
+    max-height: 614px;
+  }
+
   .sm\:max-h-full {
     max-height: 100%;
   }
@@ -9438,6 +9871,18 @@ table {
 
   .sm\:min-h-0 {
     min-height: 0;
+  }
+
+  .sm\:min-h-128 {
+    min-height: 128px;
+  }
+
+  .sm\:min-h-614 {
+    min-height: 614px;
+  }
+
+  .sm\:min-h-700 {
+    min-height: 700px;
   }
 
   .sm\:min-h-full {
@@ -9924,6 +10369,10 @@ table {
 
   .sm\:opacity-100 {
     opacity: 1;
+  }
+
+  .sm\:opacity-2\/3 {
+    opacity: .667;
   }
 
   .sm\:overflow-auto {
@@ -10905,6 +11354,30 @@ table {
     color: #ffebef;
   }
 
+  .sm\:text-turquoise {
+    color: #6dd5ed;
+  }
+
+  .sm\:text-bitcoin-chart {
+    color: #12bbad;
+  }
+
+  .sm\:text-twitter {
+    color: #55acee;
+  }
+
+  .sm\:text-facebook {
+    color: #3b5998;
+  }
+
+  .sm\:text-linkedin {
+    color: #0077b5;
+  }
+
+  .sm\:text-github {
+    color: #333;
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -11195,6 +11668,30 @@ table {
 
   .sm\:hover\:text-pink-lightest:hover {
     color: #ffebef;
+  }
+
+  .sm\:hover\:text-turquoise:hover {
+    color: #6dd5ed;
+  }
+
+  .sm\:hover\:text-bitcoin-chart:hover {
+    color: #12bbad;
+  }
+
+  .sm\:hover\:text-twitter:hover {
+    color: #55acee;
+  }
+
+  .sm\:hover\:text-facebook:hover {
+    color: #3b5998;
+  }
+
+  .sm\:hover\:text-linkedin:hover {
+    color: #0077b5;
+  }
+
+  .sm\:hover\:text-github:hover {
+    color: #333;
   }
 
   .sm\:focus\:text-transparent:focus {
@@ -11489,6 +11986,30 @@ table {
     color: #ffebef;
   }
 
+  .sm\:focus\:text-turquoise:focus {
+    color: #6dd5ed;
+  }
+
+  .sm\:focus\:text-bitcoin-chart:focus {
+    color: #12bbad;
+  }
+
+  .sm\:focus\:text-twitter:focus {
+    color: #55acee;
+  }
+
+  .sm\:focus\:text-facebook:focus {
+    color: #3b5998;
+  }
+
+  .sm\:focus\:text-linkedin:focus {
+    color: #0077b5;
+  }
+
+  .sm\:focus\:text-github:focus {
+    color: #333;
+  }
+
   .sm\:text-xs {
     font-size: .75rem;
   }
@@ -11521,8 +12042,32 @@ table {
     font-size: 2.25rem;
   }
 
+  .text-2\.sm\:5rem {
+    font-size: 2.5rem;
+  }
+
   .sm\:text-5xl {
     font-size: 3rem;
+  }
+
+  .sm\:text-4rem {
+    font-size: 4rem;
+  }
+
+  .sm\:text-5rem {
+    font-size: 5rem;
+  }
+
+  .sm\:text-6rem {
+    font-size: 6rem;
+  }
+
+  .sm\:text-7rem {
+    font-size: 7rem;
+  }
+
+  .sm\:text-8rem {
+    font-size: 8rem;
   }
 
   .sm\:italic {
@@ -11811,12 +12356,24 @@ table {
     width: 16rem;
   }
 
+  .sm\:w-128 {
+    width: 32rem;
+  }
+
   .sm\:w-auto {
     width: auto;
   }
 
   .sm\:w-px {
     width: 1px;
+  }
+
+  .sm\:w-136px {
+    width: 136px;
+  }
+
+  .sm\:w-320px {
+    width: 320px;
   }
 
   .sm\:w-1\/2 {
@@ -12216,6 +12773,30 @@ table {
     background-color: #ffebef;
   }
 
+  .md\:bg-turquoise {
+    background-color: #6dd5ed;
+  }
+
+  .md\:bg-bitcoin-chart {
+    background-color: #12bbad;
+  }
+
+  .md\:bg-twitter {
+    background-color: #55acee;
+  }
+
+  .md\:bg-facebook {
+    background-color: #3b5998;
+  }
+
+  .md\:bg-linkedin {
+    background-color: #0077b5;
+  }
+
+  .md\:bg-github {
+    background-color: #333;
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -12508,6 +13089,30 @@ table {
     background-color: #ffebef;
   }
 
+  .md\:hover\:bg-turquoise:hover {
+    background-color: #6dd5ed;
+  }
+
+  .md\:hover\:bg-bitcoin-chart:hover {
+    background-color: #12bbad;
+  }
+
+  .md\:hover\:bg-twitter:hover {
+    background-color: #55acee;
+  }
+
+  .md\:hover\:bg-facebook:hover {
+    background-color: #3b5998;
+  }
+
+  .md\:hover\:bg-linkedin:hover {
+    background-color: #0077b5;
+  }
+
+  .md\:hover\:bg-github:hover {
+    background-color: #333;
+  }
+
   .md\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -12798,6 +13403,30 @@ table {
 
   .md\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .md\:focus\:bg-turquoise:focus {
+    background-color: #6dd5ed;
+  }
+
+  .md\:focus\:bg-bitcoin-chart:focus {
+    background-color: #12bbad;
+  }
+
+  .md\:focus\:bg-twitter:focus {
+    background-color: #55acee;
+  }
+
+  .md\:focus\:bg-facebook:focus {
+    background-color: #3b5998;
+  }
+
+  .md\:focus\:bg-linkedin:focus {
+    background-color: #0077b5;
+  }
+
+  .md\:focus\:bg-github:focus {
+    background-color: #333;
   }
 
   .md\:bg-bottom {
@@ -13156,6 +13785,30 @@ table {
     border-color: #ffebef;
   }
 
+  .md\:border-turquoise {
+    border-color: #6dd5ed;
+  }
+
+  .md\:border-bitcoin-chart {
+    border-color: #12bbad;
+  }
+
+  .md\:border-twitter {
+    border-color: #55acee;
+  }
+
+  .md\:border-facebook {
+    border-color: #3b5998;
+  }
+
+  .md\:border-linkedin {
+    border-color: #0077b5;
+  }
+
+  .md\:border-github {
+    border-color: #333;
+  }
+
   .md\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -13448,6 +14101,30 @@ table {
     border-color: #ffebef;
   }
 
+  .md\:hover\:border-turquoise:hover {
+    border-color: #6dd5ed;
+  }
+
+  .md\:hover\:border-bitcoin-chart:hover {
+    border-color: #12bbad;
+  }
+
+  .md\:hover\:border-twitter:hover {
+    border-color: #55acee;
+  }
+
+  .md\:hover\:border-facebook:hover {
+    border-color: #3b5998;
+  }
+
+  .md\:hover\:border-linkedin:hover {
+    border-color: #0077b5;
+  }
+
+  .md\:hover\:border-github:hover {
+    border-color: #333;
+  }
+
   .md\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -13738,6 +14415,30 @@ table {
 
   .md\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .md\:focus\:border-turquoise:focus {
+    border-color: #6dd5ed;
+  }
+
+  .md\:focus\:border-bitcoin-chart:focus {
+    border-color: #12bbad;
+  }
+
+  .md\:focus\:border-twitter:focus {
+    border-color: #55acee;
+  }
+
+  .md\:focus\:border-facebook:focus {
+    border-color: #3b5998;
+  }
+
+  .md\:focus\:border-linkedin:focus {
+    border-color: #0077b5;
+  }
+
+  .md\:focus\:border-github:focus {
+    border-color: #333;
   }
 
   .md\:rounded-none {
@@ -14450,6 +15151,10 @@ table {
     height: 16rem;
   }
 
+  .md\:h-128 {
+    height: 32rem;
+  }
+
   .md\:h-auto {
     height: auto;
   }
@@ -14458,12 +15163,28 @@ table {
     height: 1px;
   }
 
+  .md\:h-74px {
+    height: 74px;
+  }
+
+  .md\:h-136px {
+    height: 136px;
+  }
+
+  .md\:h-320px {
+    height: 320px;
+  }
+
   .md\:h-full {
     height: 100%;
   }
 
   .md\:h-screen {
     height: 100vh;
+  }
+
+  .md\:leading-narrow {
+    line-height: .75;
   }
 
   .md\:leading-none {
@@ -14962,6 +15683,10 @@ table {
     margin-left: 1px;
   }
 
+  .md\:max-h-614 {
+    max-height: 614px;
+  }
+
   .md\:max-h-full {
     max-height: 100%;
   }
@@ -15012,6 +15737,18 @@ table {
 
   .md\:min-h-0 {
     min-height: 0;
+  }
+
+  .md\:min-h-128 {
+    min-height: 128px;
+  }
+
+  .md\:min-h-614 {
+    min-height: 614px;
+  }
+
+  .md\:min-h-700 {
+    min-height: 700px;
   }
 
   .md\:min-h-full {
@@ -15498,6 +16235,10 @@ table {
 
   .md\:opacity-100 {
     opacity: 1;
+  }
+
+  .md\:opacity-2\/3 {
+    opacity: .667;
   }
 
   .md\:overflow-auto {
@@ -16479,6 +17220,30 @@ table {
     color: #ffebef;
   }
 
+  .md\:text-turquoise {
+    color: #6dd5ed;
+  }
+
+  .md\:text-bitcoin-chart {
+    color: #12bbad;
+  }
+
+  .md\:text-twitter {
+    color: #55acee;
+  }
+
+  .md\:text-facebook {
+    color: #3b5998;
+  }
+
+  .md\:text-linkedin {
+    color: #0077b5;
+  }
+
+  .md\:text-github {
+    color: #333;
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -16769,6 +17534,30 @@ table {
 
   .md\:hover\:text-pink-lightest:hover {
     color: #ffebef;
+  }
+
+  .md\:hover\:text-turquoise:hover {
+    color: #6dd5ed;
+  }
+
+  .md\:hover\:text-bitcoin-chart:hover {
+    color: #12bbad;
+  }
+
+  .md\:hover\:text-twitter:hover {
+    color: #55acee;
+  }
+
+  .md\:hover\:text-facebook:hover {
+    color: #3b5998;
+  }
+
+  .md\:hover\:text-linkedin:hover {
+    color: #0077b5;
+  }
+
+  .md\:hover\:text-github:hover {
+    color: #333;
   }
 
   .md\:focus\:text-transparent:focus {
@@ -17063,6 +17852,30 @@ table {
     color: #ffebef;
   }
 
+  .md\:focus\:text-turquoise:focus {
+    color: #6dd5ed;
+  }
+
+  .md\:focus\:text-bitcoin-chart:focus {
+    color: #12bbad;
+  }
+
+  .md\:focus\:text-twitter:focus {
+    color: #55acee;
+  }
+
+  .md\:focus\:text-facebook:focus {
+    color: #3b5998;
+  }
+
+  .md\:focus\:text-linkedin:focus {
+    color: #0077b5;
+  }
+
+  .md\:focus\:text-github:focus {
+    color: #333;
+  }
+
   .md\:text-xs {
     font-size: .75rem;
   }
@@ -17095,8 +17908,32 @@ table {
     font-size: 2.25rem;
   }
 
+  .text-2\.md\:5rem {
+    font-size: 2.5rem;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
+  }
+
+  .md\:text-4rem {
+    font-size: 4rem;
+  }
+
+  .md\:text-5rem {
+    font-size: 5rem;
+  }
+
+  .md\:text-6rem {
+    font-size: 6rem;
+  }
+
+  .md\:text-7rem {
+    font-size: 7rem;
+  }
+
+  .md\:text-8rem {
+    font-size: 8rem;
   }
 
   .md\:italic {
@@ -17385,12 +18222,24 @@ table {
     width: 16rem;
   }
 
+  .md\:w-128 {
+    width: 32rem;
+  }
+
   .md\:w-auto {
     width: auto;
   }
 
   .md\:w-px {
     width: 1px;
+  }
+
+  .md\:w-136px {
+    width: 136px;
+  }
+
+  .md\:w-320px {
+    width: 320px;
   }
 
   .md\:w-1\/2 {
@@ -17790,6 +18639,30 @@ table {
     background-color: #ffebef;
   }
 
+  .lg\:bg-turquoise {
+    background-color: #6dd5ed;
+  }
+
+  .lg\:bg-bitcoin-chart {
+    background-color: #12bbad;
+  }
+
+  .lg\:bg-twitter {
+    background-color: #55acee;
+  }
+
+  .lg\:bg-facebook {
+    background-color: #3b5998;
+  }
+
+  .lg\:bg-linkedin {
+    background-color: #0077b5;
+  }
+
+  .lg\:bg-github {
+    background-color: #333;
+  }
+
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -18082,6 +18955,30 @@ table {
     background-color: #ffebef;
   }
 
+  .lg\:hover\:bg-turquoise:hover {
+    background-color: #6dd5ed;
+  }
+
+  .lg\:hover\:bg-bitcoin-chart:hover {
+    background-color: #12bbad;
+  }
+
+  .lg\:hover\:bg-twitter:hover {
+    background-color: #55acee;
+  }
+
+  .lg\:hover\:bg-facebook:hover {
+    background-color: #3b5998;
+  }
+
+  .lg\:hover\:bg-linkedin:hover {
+    background-color: #0077b5;
+  }
+
+  .lg\:hover\:bg-github:hover {
+    background-color: #333;
+  }
+
   .lg\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -18372,6 +19269,30 @@ table {
 
   .lg\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .lg\:focus\:bg-turquoise:focus {
+    background-color: #6dd5ed;
+  }
+
+  .lg\:focus\:bg-bitcoin-chart:focus {
+    background-color: #12bbad;
+  }
+
+  .lg\:focus\:bg-twitter:focus {
+    background-color: #55acee;
+  }
+
+  .lg\:focus\:bg-facebook:focus {
+    background-color: #3b5998;
+  }
+
+  .lg\:focus\:bg-linkedin:focus {
+    background-color: #0077b5;
+  }
+
+  .lg\:focus\:bg-github:focus {
+    background-color: #333;
   }
 
   .lg\:bg-bottom {
@@ -18730,6 +19651,30 @@ table {
     border-color: #ffebef;
   }
 
+  .lg\:border-turquoise {
+    border-color: #6dd5ed;
+  }
+
+  .lg\:border-bitcoin-chart {
+    border-color: #12bbad;
+  }
+
+  .lg\:border-twitter {
+    border-color: #55acee;
+  }
+
+  .lg\:border-facebook {
+    border-color: #3b5998;
+  }
+
+  .lg\:border-linkedin {
+    border-color: #0077b5;
+  }
+
+  .lg\:border-github {
+    border-color: #333;
+  }
+
   .lg\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -19022,6 +19967,30 @@ table {
     border-color: #ffebef;
   }
 
+  .lg\:hover\:border-turquoise:hover {
+    border-color: #6dd5ed;
+  }
+
+  .lg\:hover\:border-bitcoin-chart:hover {
+    border-color: #12bbad;
+  }
+
+  .lg\:hover\:border-twitter:hover {
+    border-color: #55acee;
+  }
+
+  .lg\:hover\:border-facebook:hover {
+    border-color: #3b5998;
+  }
+
+  .lg\:hover\:border-linkedin:hover {
+    border-color: #0077b5;
+  }
+
+  .lg\:hover\:border-github:hover {
+    border-color: #333;
+  }
+
   .lg\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -19312,6 +20281,30 @@ table {
 
   .lg\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .lg\:focus\:border-turquoise:focus {
+    border-color: #6dd5ed;
+  }
+
+  .lg\:focus\:border-bitcoin-chart:focus {
+    border-color: #12bbad;
+  }
+
+  .lg\:focus\:border-twitter:focus {
+    border-color: #55acee;
+  }
+
+  .lg\:focus\:border-facebook:focus {
+    border-color: #3b5998;
+  }
+
+  .lg\:focus\:border-linkedin:focus {
+    border-color: #0077b5;
+  }
+
+  .lg\:focus\:border-github:focus {
+    border-color: #333;
   }
 
   .lg\:rounded-none {
@@ -20024,6 +21017,10 @@ table {
     height: 16rem;
   }
 
+  .lg\:h-128 {
+    height: 32rem;
+  }
+
   .lg\:h-auto {
     height: auto;
   }
@@ -20032,12 +21029,28 @@ table {
     height: 1px;
   }
 
+  .lg\:h-74px {
+    height: 74px;
+  }
+
+  .lg\:h-136px {
+    height: 136px;
+  }
+
+  .lg\:h-320px {
+    height: 320px;
+  }
+
   .lg\:h-full {
     height: 100%;
   }
 
   .lg\:h-screen {
     height: 100vh;
+  }
+
+  .lg\:leading-narrow {
+    line-height: .75;
   }
 
   .lg\:leading-none {
@@ -20536,6 +21549,10 @@ table {
     margin-left: 1px;
   }
 
+  .lg\:max-h-614 {
+    max-height: 614px;
+  }
+
   .lg\:max-h-full {
     max-height: 100%;
   }
@@ -20586,6 +21603,18 @@ table {
 
   .lg\:min-h-0 {
     min-height: 0;
+  }
+
+  .lg\:min-h-128 {
+    min-height: 128px;
+  }
+
+  .lg\:min-h-614 {
+    min-height: 614px;
+  }
+
+  .lg\:min-h-700 {
+    min-height: 700px;
   }
 
   .lg\:min-h-full {
@@ -21072,6 +22101,10 @@ table {
 
   .lg\:opacity-100 {
     opacity: 1;
+  }
+
+  .lg\:opacity-2\/3 {
+    opacity: .667;
   }
 
   .lg\:overflow-auto {
@@ -22053,6 +23086,30 @@ table {
     color: #ffebef;
   }
 
+  .lg\:text-turquoise {
+    color: #6dd5ed;
+  }
+
+  .lg\:text-bitcoin-chart {
+    color: #12bbad;
+  }
+
+  .lg\:text-twitter {
+    color: #55acee;
+  }
+
+  .lg\:text-facebook {
+    color: #3b5998;
+  }
+
+  .lg\:text-linkedin {
+    color: #0077b5;
+  }
+
+  .lg\:text-github {
+    color: #333;
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -22343,6 +23400,30 @@ table {
 
   .lg\:hover\:text-pink-lightest:hover {
     color: #ffebef;
+  }
+
+  .lg\:hover\:text-turquoise:hover {
+    color: #6dd5ed;
+  }
+
+  .lg\:hover\:text-bitcoin-chart:hover {
+    color: #12bbad;
+  }
+
+  .lg\:hover\:text-twitter:hover {
+    color: #55acee;
+  }
+
+  .lg\:hover\:text-facebook:hover {
+    color: #3b5998;
+  }
+
+  .lg\:hover\:text-linkedin:hover {
+    color: #0077b5;
+  }
+
+  .lg\:hover\:text-github:hover {
+    color: #333;
   }
 
   .lg\:focus\:text-transparent:focus {
@@ -22637,6 +23718,30 @@ table {
     color: #ffebef;
   }
 
+  .lg\:focus\:text-turquoise:focus {
+    color: #6dd5ed;
+  }
+
+  .lg\:focus\:text-bitcoin-chart:focus {
+    color: #12bbad;
+  }
+
+  .lg\:focus\:text-twitter:focus {
+    color: #55acee;
+  }
+
+  .lg\:focus\:text-facebook:focus {
+    color: #3b5998;
+  }
+
+  .lg\:focus\:text-linkedin:focus {
+    color: #0077b5;
+  }
+
+  .lg\:focus\:text-github:focus {
+    color: #333;
+  }
+
   .lg\:text-xs {
     font-size: .75rem;
   }
@@ -22669,8 +23774,32 @@ table {
     font-size: 2.25rem;
   }
 
+  .text-2\.lg\:5rem {
+    font-size: 2.5rem;
+  }
+
   .lg\:text-5xl {
     font-size: 3rem;
+  }
+
+  .lg\:text-4rem {
+    font-size: 4rem;
+  }
+
+  .lg\:text-5rem {
+    font-size: 5rem;
+  }
+
+  .lg\:text-6rem {
+    font-size: 6rem;
+  }
+
+  .lg\:text-7rem {
+    font-size: 7rem;
+  }
+
+  .lg\:text-8rem {
+    font-size: 8rem;
   }
 
   .lg\:italic {
@@ -22959,12 +24088,24 @@ table {
     width: 16rem;
   }
 
+  .lg\:w-128 {
+    width: 32rem;
+  }
+
   .lg\:w-auto {
     width: auto;
   }
 
   .lg\:w-px {
     width: 1px;
+  }
+
+  .lg\:w-136px {
+    width: 136px;
+  }
+
+  .lg\:w-320px {
+    width: 320px;
   }
 
   .lg\:w-1\/2 {
@@ -23364,6 +24505,30 @@ table {
     background-color: #ffebef;
   }
 
+  .xl\:bg-turquoise {
+    background-color: #6dd5ed;
+  }
+
+  .xl\:bg-bitcoin-chart {
+    background-color: #12bbad;
+  }
+
+  .xl\:bg-twitter {
+    background-color: #55acee;
+  }
+
+  .xl\:bg-facebook {
+    background-color: #3b5998;
+  }
+
+  .xl\:bg-linkedin {
+    background-color: #0077b5;
+  }
+
+  .xl\:bg-github {
+    background-color: #333;
+  }
+
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -23656,6 +24821,30 @@ table {
     background-color: #ffebef;
   }
 
+  .xl\:hover\:bg-turquoise:hover {
+    background-color: #6dd5ed;
+  }
+
+  .xl\:hover\:bg-bitcoin-chart:hover {
+    background-color: #12bbad;
+  }
+
+  .xl\:hover\:bg-twitter:hover {
+    background-color: #55acee;
+  }
+
+  .xl\:hover\:bg-facebook:hover {
+    background-color: #3b5998;
+  }
+
+  .xl\:hover\:bg-linkedin:hover {
+    background-color: #0077b5;
+  }
+
+  .xl\:hover\:bg-github:hover {
+    background-color: #333;
+  }
+
   .xl\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -23946,6 +25135,30 @@ table {
 
   .xl\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .xl\:focus\:bg-turquoise:focus {
+    background-color: #6dd5ed;
+  }
+
+  .xl\:focus\:bg-bitcoin-chart:focus {
+    background-color: #12bbad;
+  }
+
+  .xl\:focus\:bg-twitter:focus {
+    background-color: #55acee;
+  }
+
+  .xl\:focus\:bg-facebook:focus {
+    background-color: #3b5998;
+  }
+
+  .xl\:focus\:bg-linkedin:focus {
+    background-color: #0077b5;
+  }
+
+  .xl\:focus\:bg-github:focus {
+    background-color: #333;
   }
 
   .xl\:bg-bottom {
@@ -24304,6 +25517,30 @@ table {
     border-color: #ffebef;
   }
 
+  .xl\:border-turquoise {
+    border-color: #6dd5ed;
+  }
+
+  .xl\:border-bitcoin-chart {
+    border-color: #12bbad;
+  }
+
+  .xl\:border-twitter {
+    border-color: #55acee;
+  }
+
+  .xl\:border-facebook {
+    border-color: #3b5998;
+  }
+
+  .xl\:border-linkedin {
+    border-color: #0077b5;
+  }
+
+  .xl\:border-github {
+    border-color: #333;
+  }
+
   .xl\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -24596,6 +25833,30 @@ table {
     border-color: #ffebef;
   }
 
+  .xl\:hover\:border-turquoise:hover {
+    border-color: #6dd5ed;
+  }
+
+  .xl\:hover\:border-bitcoin-chart:hover {
+    border-color: #12bbad;
+  }
+
+  .xl\:hover\:border-twitter:hover {
+    border-color: #55acee;
+  }
+
+  .xl\:hover\:border-facebook:hover {
+    border-color: #3b5998;
+  }
+
+  .xl\:hover\:border-linkedin:hover {
+    border-color: #0077b5;
+  }
+
+  .xl\:hover\:border-github:hover {
+    border-color: #333;
+  }
+
   .xl\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -24886,6 +26147,30 @@ table {
 
   .xl\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .xl\:focus\:border-turquoise:focus {
+    border-color: #6dd5ed;
+  }
+
+  .xl\:focus\:border-bitcoin-chart:focus {
+    border-color: #12bbad;
+  }
+
+  .xl\:focus\:border-twitter:focus {
+    border-color: #55acee;
+  }
+
+  .xl\:focus\:border-facebook:focus {
+    border-color: #3b5998;
+  }
+
+  .xl\:focus\:border-linkedin:focus {
+    border-color: #0077b5;
+  }
+
+  .xl\:focus\:border-github:focus {
+    border-color: #333;
   }
 
   .xl\:rounded-none {
@@ -25598,6 +26883,10 @@ table {
     height: 16rem;
   }
 
+  .xl\:h-128 {
+    height: 32rem;
+  }
+
   .xl\:h-auto {
     height: auto;
   }
@@ -25606,12 +26895,28 @@ table {
     height: 1px;
   }
 
+  .xl\:h-74px {
+    height: 74px;
+  }
+
+  .xl\:h-136px {
+    height: 136px;
+  }
+
+  .xl\:h-320px {
+    height: 320px;
+  }
+
   .xl\:h-full {
     height: 100%;
   }
 
   .xl\:h-screen {
     height: 100vh;
+  }
+
+  .xl\:leading-narrow {
+    line-height: .75;
   }
 
   .xl\:leading-none {
@@ -26110,6 +27415,10 @@ table {
     margin-left: 1px;
   }
 
+  .xl\:max-h-614 {
+    max-height: 614px;
+  }
+
   .xl\:max-h-full {
     max-height: 100%;
   }
@@ -26160,6 +27469,18 @@ table {
 
   .xl\:min-h-0 {
     min-height: 0;
+  }
+
+  .xl\:min-h-128 {
+    min-height: 128px;
+  }
+
+  .xl\:min-h-614 {
+    min-height: 614px;
+  }
+
+  .xl\:min-h-700 {
+    min-height: 700px;
   }
 
   .xl\:min-h-full {
@@ -26646,6 +27967,10 @@ table {
 
   .xl\:opacity-100 {
     opacity: 1;
+  }
+
+  .xl\:opacity-2\/3 {
+    opacity: .667;
   }
 
   .xl\:overflow-auto {
@@ -27627,6 +28952,30 @@ table {
     color: #ffebef;
   }
 
+  .xl\:text-turquoise {
+    color: #6dd5ed;
+  }
+
+  .xl\:text-bitcoin-chart {
+    color: #12bbad;
+  }
+
+  .xl\:text-twitter {
+    color: #55acee;
+  }
+
+  .xl\:text-facebook {
+    color: #3b5998;
+  }
+
+  .xl\:text-linkedin {
+    color: #0077b5;
+  }
+
+  .xl\:text-github {
+    color: #333;
+  }
+
   .xl\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -27917,6 +29266,30 @@ table {
 
   .xl\:hover\:text-pink-lightest:hover {
     color: #ffebef;
+  }
+
+  .xl\:hover\:text-turquoise:hover {
+    color: #6dd5ed;
+  }
+
+  .xl\:hover\:text-bitcoin-chart:hover {
+    color: #12bbad;
+  }
+
+  .xl\:hover\:text-twitter:hover {
+    color: #55acee;
+  }
+
+  .xl\:hover\:text-facebook:hover {
+    color: #3b5998;
+  }
+
+  .xl\:hover\:text-linkedin:hover {
+    color: #0077b5;
+  }
+
+  .xl\:hover\:text-github:hover {
+    color: #333;
   }
 
   .xl\:focus\:text-transparent:focus {
@@ -28211,6 +29584,30 @@ table {
     color: #ffebef;
   }
 
+  .xl\:focus\:text-turquoise:focus {
+    color: #6dd5ed;
+  }
+
+  .xl\:focus\:text-bitcoin-chart:focus {
+    color: #12bbad;
+  }
+
+  .xl\:focus\:text-twitter:focus {
+    color: #55acee;
+  }
+
+  .xl\:focus\:text-facebook:focus {
+    color: #3b5998;
+  }
+
+  .xl\:focus\:text-linkedin:focus {
+    color: #0077b5;
+  }
+
+  .xl\:focus\:text-github:focus {
+    color: #333;
+  }
+
   .xl\:text-xs {
     font-size: .75rem;
   }
@@ -28243,8 +29640,32 @@ table {
     font-size: 2.25rem;
   }
 
+  .text-2\.xl\:5rem {
+    font-size: 2.5rem;
+  }
+
   .xl\:text-5xl {
     font-size: 3rem;
+  }
+
+  .xl\:text-4rem {
+    font-size: 4rem;
+  }
+
+  .xl\:text-5rem {
+    font-size: 5rem;
+  }
+
+  .xl\:text-6rem {
+    font-size: 6rem;
+  }
+
+  .xl\:text-7rem {
+    font-size: 7rem;
+  }
+
+  .xl\:text-8rem {
+    font-size: 8rem;
   }
 
   .xl\:italic {
@@ -28533,12 +29954,24 @@ table {
     width: 16rem;
   }
 
+  .xl\:w-128 {
+    width: 32rem;
+  }
+
   .xl\:w-auto {
     width: auto;
   }
 
   .xl\:w-px {
     width: 1px;
+  }
+
+  .xl\:w-136px {
+    width: 136px;
+  }
+
+  .xl\:w-320px {
+    width: 320px;
   }
 
   .xl\:w-1\/2 {

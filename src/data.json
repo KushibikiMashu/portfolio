@@ -35,20 +35,20 @@
         {
           "title": "HIPSTY",
           "description": "日本語ラップファンのためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を時系列で表示。Laravel + React + Material-UI + Docker",
-          "image": "---",
+          "image": "/hipsty.png",
           "link": "https://hipsty.net"
         },
         {
           "title": "Bitcoin Chart",
           "description": "ビットコインの取引所ごとの価格差に着目し、グラフで価格を可視化したサイト。アービトラージ（裁定取引）で利用して貰うことを想定して作成しました。PHP + JS(HIGHCHARTS) + Bootstrap 4",
-          "image": "---",
-          "link": "http://bitcoin-chart.info"
+          "image": "/bitcoin_chart.png",
+          "link": "https://bitcoin-chart.info"
         },
         {
           "title": "ウィスキー蒸留所NAVI",
           "description": "国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができます。HTML + CSS + jQuery",
-          "image": "---",
-          "link": "http://japanese-whisky-nav.net/index.html"
+          "image": "/whisky_distilleries.png",
+          "link": "https://japanese-whisky-nav.net"
         }
       ]
     }

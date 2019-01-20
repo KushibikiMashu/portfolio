@@ -28,9 +28,9 @@
       </div>
       <div class="relative mt-2">
         <div class="round text-center text-center lg:text-right">
-          <img class="w-320px md:w-128 h-320px md:h-128 w-rem rounded-full" src="/images/me.jpg" alt="Picture of myself">
+          <img class="w-320px md:w-128 h-320px md:h-128 w-rem rounded-full" src="/portfolio/images/me.jpg" alt="Picture of myself">
           <a href="https://twitter.com/Panda_Program">
-            <img class="hidden lg:block w-136px h-136px rounded-full absolute pin-b md:pin-r bg-white border-solid" src="/images/panda.png" alt="Painting of panda">
+            <img class="hidden lg:block w-136px h-136px rounded-full absolute pin-b md:pin-r bg-white border-solid" src="/portfolio/images/panda.png" alt="Painting of panda">
           </a>
         </div>
         <div class="base-font text-center lg:text-left absolute pin-b hidden lg:block">
@@ -95,7 +95,7 @@
               <i class="fas fa-music card-avatar text-white bg-blue-darkest"></i>
               <div class="portfolio-card-title">HIPSTY</div>
             </div>
-            <img class="w-full" src="/images/hipsty.png" alt="Music videos of Japanese HIPHOP">
+            <img class="w-full" src="/portfolio/images/hipsty.png" alt="Music videos of Japanese HIPHOP">
             <div class="px-8 py-4">
               <p class="card-text">
                 日本語ラップファンのためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を時系列で表示。(2018/12)
@@ -117,7 +117,7 @@
               <i class="fab fa-bitcoin text-2.5rem text-bitcoin-chart mr-4"></i>
               <div class="portfolio-card-title">Bitcoin Chart</div>
             </div>
-            <img class="w-full" src="/images/bitcoin_chart.png" alt="Bitcoin chart">
+            <img class="w-full" src="/portfolio/images/bitcoin_chart.png" alt="Bitcoin chart">
             <div class="px-8 py-4">
               <p class="card-text">
                 ビットコインの取引所ごとの価格差に着目し、グラフで価格を可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。(since 2018/7)
@@ -137,7 +137,7 @@
               <i class="fas fa-glass-whiskey card-avatar text-white bg-orange-darker"></i>
               <div class="portfolio-card-title">ウィスキー蒸留所NAVI</div>
             </div>
-            <img class="w-full" src="/images/whisky_distilleries.png" alt="Japanese whisky distilleries">
+            <img class="w-full" src="/portfolio/images/whisky_distilleries.png" alt="Japanese whisky distilleries">
             <div class="px-8 py-4">
               <p class="card-text">
                 国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができます。(2018/5)
@@ -157,13 +157,13 @@
     <h1 class="w-full text-center pt-5 pb-5">OTHERS</h1>
     <div>
       <a href="https://ccculture.net/">
-        <img class="w-full" src="/images/blog.png" alt="Blog about travel in China">
+        <img class="w-full" src="/portfolio/images/blog.png" alt="Blog about travel in China">
       </a>
       <a href="https://note.mu/panda_programm/n/n5135b0294d85">
-        <img class="w-full" src="/images/talks.png" alt="Giving a lightening talk">
+        <img class="w-full" src="/portfolio/images/talks.png" alt="Giving a lightening talk">
       </a>
       <a href="https://note.mu/panda_programm">
-        <img class="w-full" src="/images/note.png" alt="Profile page on a website">
+        <img class="w-full" src="/portfolio/images/note.png" alt="Profile page on a website">
       </a>
     </div>
   </div>
@@ -189,48 +189,88 @@
     </div>
   </div>
   <script>
-    const labels = ["Japanese", "PHP/Laravel", "React", "Python", "Node.js", "Elm"];
-    const colors = ['#CC1F1A', '#5661B3', '#61dafb', '#F2D024', '#794ACF', '#EB5286'];
-    const color = Chart.helpers.color;
-    const ctx = document.getElementById("languages");
-    const languageSkillChart = new Chart(ctx, {
-      type: 'horizontalBar',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: "Language Skill",
-          data: [100, 70, 70, 50, 30, 20],
-          backgroundColor: [
-            color(colors[0]).alpha(0.5).rgbString(),
-            color(colors[1]).alpha(0.5).rgbString(),
-            color(colors[2]).alpha(0.5).rgbString(),
-            color(colors[3]).alpha(0.5).rgbString(),
-            color(colors[4]).alpha(0.5).rgbString(),
-            color(colors[5]).alpha(0.5).rgbString(),
-            ],
-          borderColor: colors,
-          borderWidth: 1.5,
+    const languages = [
+      {
+        name: "Japanese",
+        skill: 100,
+        color: "#CC1F1A"
+      },
+      {
+        name: "PHP/Laravel",
+        skill: 80,
+        color: "#5661B3"
+      },
+      {
+        name: "React",
+        skill: 70,
+        color: "#61dafb"
+      },
+      {
+        name: "Python",
+        skill: 50,
+        color: "#F2D024"
+      },
+      {
+        name: "Node.js",
+        skill: 30,
+        color: "#794ACF"
+      },
+      {
+        name: "Elm",
+        skill: 20,
+        color: "#12bbad"
+      }
+    ];
+    
+    let names = [],
+        skills = [],
+        colors = [];
+
+    languages.map(language => {
+      names.push(language.name);
+      skills.push(language.skill);
+      colors.push(language.color);
+    });
+
+    const helperColor = Chart.helpers.color;
+    const backgroundColor = colors.map(color => helperColor(color).alpha(0.65).rgbString());
+
+    const type = 'horizontalBar';
+    const data = {
+      labels: names,
+      datasets: [{
+        label: "Skill",
+        data: skills,
+        backgroundColor: backgroundColor,
+        borderColor: colors,
+        borderWidth: 1.5,
+      }],
+    }
+    const options = {
+      responsive: true,
+      legend: {
+        display: false
+     },
+      scales: {
+        xAxes: [{
+          ticks: {
+            min: 0,
+            max: 100
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            fontSize: 16
+          }
         }],
       },
-      options: {
-        responsive: true,
-        legend: {
-          display: false
-       },
-        scales: {
-          xAxes: [{
-            ticks: {
-              min: 0,
-              max: 100
-            }
-          }],
-          yAxes: [{
-            ticks: {
-              fontSize: 16
-            }
-          }],
-        },
-      }
+    }
+
+    const ctx = document.getElementById("languages");
+    const languageSkillChart = new Chart(ctx, {
+      type: type,
+      data: data,
+      options: options
     });
   </script>
 </body>

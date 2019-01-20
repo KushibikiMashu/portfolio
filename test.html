@@ -6,6 +6,16 @@
   <title>Mashu Kushibiki - Portfolio</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css"></head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+  <style>
+    
+#languages {
+  max-width: 620px;
+  max-height: 310px;
+  min-height: 300px;
+}
+
+  </style>
 <body>
   <div class="intro-container bg-linear-intro min-h-614 md:min-h-700 max-h-700">
     <div class="max-w-xl mx-auto justify-center my-auto">
@@ -70,12 +80,11 @@
       </div>
     </section>
     <div class="languages-container">
-      <div class="pt-5 pb-5">
-        <h1 class="text-center">LANGUAGES</h1>
+      <div class="pt-5 pb-5 languages-cont">
+        <h1 class="section-title">LANGUAGES</h1>
+          <!-- <div id="languagesa" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div> -->
+          <canvas class="mx-auto" id="languages" max-width="310" max-height="310"></canvas>
       </div>
-    </div>
-    <div class="languages-container">
-      <h1 class="w-full text-center pt-5 pb-5">DEVELOPMENT SKILLS</h1>
     </div>
     <section>
       <h1 class="section-title">PORTFOLIO</h1>
@@ -169,6 +178,49 @@
     </div>
   </div>
   <script>
+    const labels = ["Japanese", "PHP/Laravel", "React", "Python", "Node.js", "Elm"];
+    const colors = ['#CC1F1A', '#5661B3', '#61dafb', '#F2D024', '#794ACF', '#EB5286'];
+    const color = Chart.helpers.color;
+    const ctx = document.getElementById("languages");
+    const languageSkillChart = new Chart(ctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Language Skill",
+          data: [100, 70, 70, 50, 30, 20],
+          backgroundColor: [
+            color(colors[0]).alpha(0.5).rgbString(),
+            color(colors[1]).alpha(0.5).rgbString(),
+            color(colors[2]).alpha(0.5).rgbString(),
+            color(colors[3]).alpha(0.5).rgbString(),
+            color(colors[4]).alpha(0.5).rgbString(),
+            color(colors[5]).alpha(0.5).rgbString(),
+            ],
+          borderColor: colors,
+          borderWidth: 1.5,
+        }],
+      },
+      options: {
+        responsive: true,
+        legend: {
+          display: false
+       },
+        scales: {
+          xAxes: [{
+            ticks: {
+              min: 0,
+              max: 100
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontSize: 16
+            }
+          }],
+        },
+      }
+    });
   </script>
 </body>
 </html>

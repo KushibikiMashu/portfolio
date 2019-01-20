@@ -101,7 +101,7 @@
 }
 
 .card {
-  @apply max-w-sm w-5/6 rounded overflow-hidden shadow mx-auto border border-grey-light;
+  @apply max-w-sm w-5/6 rounded overflow-hidden mx-auto border border-grey-light;
 }
 
 @screen md {

@@ -129,6 +129,8 @@ let colors = {
   'pink-lightest': '#ffebef',
 
   'turquoise': '#6DD5ED',
+  'bitcoin-chart': '#12bbad',
+
   "twitter": "#55acee",
   "facebook": "#3b5998",
   "linkedin": "#0077B5",
@@ -495,7 +497,6 @@ module.exports = {
   width: {
     'auto': 'auto',
     'px': '1px',
-    '120px': '120px',
     '136px': '136px',
     '320px': '320px',
     '1': '0.25rem',
@@ -549,11 +550,8 @@ module.exports = {
     'auto': 'auto',
     'px': '1px',
     '74px': '74px',
-    '128px': '128px',
     '136px': '136px',
-    '220px': '220px',
     '320px': '320px',
-    '614px': '614px',
     '1': '0.25rem',
     '2': '0.5rem',
     '3': '0.75rem',

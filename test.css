@@ -115,7 +115,7 @@
 }
 
 .portfolio-card-title {
-  @apply font-bold text-xl mb-1;
+  @apply font-bold text-xl mb-1 text-grey-darkest;
 }
 
 .card-avatar {

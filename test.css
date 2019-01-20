@@ -111,7 +111,7 @@
 }
 
 .about-card-title {
-  @apply font-bold text-xl py-4 text-center;
+  @apply font-bold text-2xl py-4 text-center;
 }
 
 .portfolio-card-title {

@@ -548,6 +548,7 @@ module.exports = {
   height: {
     'auto': 'auto',
     'px': '1px',
+    '74px': '74px',
     '128px': '128px',
     '136px': '136px',
     '220px': '220px',

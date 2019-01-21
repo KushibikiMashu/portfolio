@@ -4,18 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mashu Kushibiki - Portfolio</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css"></head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-  <style>
-    
-#languages {
-  max-width: 620px;
-  max-height: 310px;
-  min-height: 300px;
-}
-
-  </style>
 <body>
   <div class="intro-container bg-linear-intro min-h-614 md:min-h-700 max-h-700">
     <div class="max-w-xl mx-auto justify-center my-auto">
@@ -28,9 +19,9 @@
       </div>
       <div class="relative mt-2">
         <div class="round text-center text-center lg:text-right">
-          <img class="w-320px md:w-128 h-320px md:h-128 w-rem rounded-full" src="/portfolio/images/me.jpg" alt="Picture of myself">
+          <img class="w-320px md:w-128 h-320px md:h-128 w-rem rounded-full" src="/images/me.jpg" alt="Picture of myself">
           <a href="https://twitter.com/Panda_Program">
-            <img class="hidden lg:block w-136px h-136px rounded-full absolute pin-b md:pin-r bg-white border-solid" src="/portfolio/images/panda.png" alt="Painting of panda">
+            <img class="hidden lg:block w-136px h-136px rounded-full absolute pin-b md:pin-r bg-white border-solid" src="/images/panda.png" alt="Painting of panda">
           </a>
         </div>
         <div class="base-font text-center lg:text-left absolute pin-b hidden lg:block">
@@ -47,7 +38,7 @@
     </div>
   </div>
   <div class="max-w-xl mx-auto container">
-    <section>
+    <section class="py-6">
       <h1 class="section-title">ABOUT</h1>
       <div class="card-container">
         <div class="card md:mx-3">
@@ -79,23 +70,21 @@
         </div>
       </div>
     </section>
-    <div class="languages-container">
-      <div class="pt-5 pb-5 languages-cont">
-        <h1 class="section-title">LANGUAGES</h1>
-          <!-- <div id="languagesa" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div> -->
-          <canvas class="mx-auto" id="languages" max-width="310" max-height="310"></canvas>
-      </div>
-    </div>
-    <section>
+    <section class="py-6">
+      <h1 class="section-title">LANGUAGES</h1>
+        <!-- <div id="languagesa" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div> -->
+        <canvas class="mx-auto" id="languages" max-width="310" max-height="310"></canvas>
+    </section>
+    <section class="py-6">
       <h1 class="section-title">PORTFOLIO</h1>
       <div class="card-container">
-        <div class="card hover:shadow-lg md:mx-3">
+        <div class="card hover:shadow-lg my-5 md:my-0 md:mx-3">
           <a class="no-underline" href="#">
             <div class="flex items-center h-74px py-3 px-4">
               <i class="fas fa-music card-avatar text-white bg-blue-darkest"></i>
               <div class="portfolio-card-title">HIPSTY</div>
             </div>
-            <img class="w-full" src="/portfolio/images/hipsty.png" alt="Music videos of Japanese HIPHOP">
+            <img class="w-full" src="/images/hipsty.png" alt="Music videos of Japanese HIPHOP">
             <div class="px-8 py-4">
               <p class="card-text">
                 日本語ラップファンのためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を時系列で表示。(2018/12)
@@ -111,13 +100,13 @@
             </div>
           </a>
         </div>
-        <div class="card hover:shadow-lg mt-8 md:mt-0 md:mx-3">
+        <div class="card hover:shadow-lg my-5 md:my-0 md:mx-3">
           <a class="no-underline" href="#">
             <div class="flex items-center h-74px py-3 px-4">
               <i class="fab fa-bitcoin text-2.5rem text-bitcoin-chart mr-4"></i>
               <div class="portfolio-card-title">Bitcoin Chart</div>
             </div>
-            <img class="w-full" src="/portfolio/images/bitcoin_chart.png" alt="Bitcoin chart">
+            <img class="w-full" src="/images/bitcoin_chart.png" alt="Bitcoin chart">
             <div class="px-8 py-4">
               <p class="card-text">
                 ビットコインの取引所ごとの価格差に着目し、グラフで価格を可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。(since 2018/7)
@@ -131,13 +120,13 @@
             </div>
           </a>
         </div>
-        <div class="card hover:shadow-lg mt-8 md:mt-0 md:mx-3">
+        <div class="card hover:shadow-lg my-5 md:my-0 md:mx-3">
           <a class="no-underline" href="#">
             <div class="flex items-center h-74px py-3 px-4">
               <i class="fas fa-glass-whiskey card-avatar text-white bg-orange-darker"></i>
               <div class="portfolio-card-title">ウィスキー蒸留所NAVI</div>
             </div>
-            <img class="w-full" src="/portfolio/images/whisky_distilleries.png" alt="Japanese whisky distilleries">
+            <img class="w-full" src="/images/whisky_distilleries.png" alt="Japanese whisky distilleries">
             <div class="px-8 py-4">
               <p class="card-text">
                 国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができます。(2018/5)
@@ -152,41 +141,57 @@
         </div>
       </div>
     </section>
-  </div>
-  <div>
-    <h1 class="w-full text-center pt-5 pb-5">OTHERS</h1>
-    <div>
-      <a href="https://ccculture.net/">
-        <img class="w-full" src="/portfolio/images/blog.png" alt="Blog about travel in China">
-      </a>
-      <a href="https://note.mu/panda_programm/n/n5135b0294d85">
-        <img class="w-full" src="/portfolio/images/talks.png" alt="Giving a lightening talk">
-      </a>
-      <a href="https://note.mu/panda_programm">
-        <img class="w-full" src="/portfolio/images/note.png" alt="Profile page on a website">
-      </a>
+    <section class="py-6">
+    <h1 class="section-title">OTHERS</h1>
+    <div class="others-container">
+      <div class="mx-3 my-5 md:my-3 text-center">
+        <a class="no-underline" href="https://ccculture.net/">
+          <img class="w-64 h-64 mx-auto rounded-full border border-grey-light hover:shadow-lg" src="/images/blog.png" alt="Blog about travel in China">
+        </a>
+      </div>
+      <div class="mx-3 my-5 md:my-3 text-center">
+        <a class="no-underline" href="https://note.mu/panda_programm/n/n5135b0294d85">
+          <img class="w-64 h-64 rounded-full border border-grey-light hover:shadow-lg" src="/images/lightning_talk.jpg" alt="Giving a lightning talk">
+        </a>
+      </div>
+      <div class="mx-3 my-5 md:my-3 text-center">
+        <a class="no-underline" href="https://note.mu/panda_programm">
+          <img class="w-64 h-64 rounded-full border border-grey-light hover:shadow-lg" src="/images/note_profile.png" alt="Profile page on a website">
+        </a>
+      </div>
     </div>
+    </section>
   </div>
   <div class="bg-grey-lighter">
-    <h1 class="w-full text-center py-4 text-3xl md:text-2xl text-grey-darkest">CONTACT</h1>
-    <div class="text-center">
-      <a class="no-underline" href="#">
-        <i class="fab fa-twitter-square text-twitter text-5xl mx-4"></i>
-      </a>
-      <a class="no-underline" href="#">
-        <i class="fab fa-facebook text-facebook text-5xl mx-4"></i>
-      </a>
-      <a class="no-underline" href="#">
-        <i class="fab fa-linkedin text-linkedin text-5xl mx-4"></i>
-      </a>
-      <a class="no-underline" href="#">
-        <i class="fab fa-github text-github text-5xl mx-4"></i>
-      </a>
-    </div>
-    <div class="text-center pt-4 pb-3 text-grey-darker">
-      <p class="text-base md:text-sm">by MASHU KUSHIBIKI</p>
-      <p class="text-base md:text-sm">created with Elm</p>
-    </div>
+    <section>
+      <h1 class="w-full text-center py-4 text-3xl md:text-2xl text-grey-darkest">CONTACT</h1>
+      <div class="text-center">
+        <a class="no-underline" href="#">
+          <span class="text-twitter text-5xl mx-2">
+            <i class="fab fa-twitter-square"></i>
+          </span>
+        </a>
+        <a class="no-underline" href="#">
+          <span class="text-facebook text-5xl mx-2">
+            <i class="fab fa-facebook"></i>
+          </span>
+        </a>
+        <a class="no-underline" href="#">
+          <span class="text-linkedin text-5xl mx-2">
+            <i class="fab fa-linkedin"></i>
+          </span>
+        </a>
+        <a class="no-underline" href="#">
+          <span class="text-github text-5xl mx-2">
+            <i class="fab fa-github-square"></i>
+          </span>
+        </a>
+      </div>
+      <div class="text-center pt-4 pb-3 text-grey-darker">
+        <p class="text-base md:text-sm">by MASHU KUSHIBIKI</p>
+        <p class="text-base md:text-sm">created with Elm</p>
+      </div>
+    </section>
   </div>
   <script>
     const languages = [

@@ -1,65 +1,6 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/preflight";
- */
 @tailwind preflight;
-
-/**
- * This injects any component classes registered by plugins.
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/components";
- */
 @tailwind components;
-
-/**
- * Here you would add any of your custom component classes; stuff that you'd
- * want loaded *before* the utilities so that the utilities could still
- * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "components/buttons";
- * @import "components/forms";
- */
-
-/**
- * This injects all of Tailwind's utility classes, generated based on your
- * config file.
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/utilities";
- */
 @tailwind utilities;
-
-/**
- * Here you would add any custom utilities you need that don't come out of the
- * box with Tailwind.
- *
- * Example :
- *
- * .bg-pattern-graph-paper { ... }
- * .skew-45 { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "utilities/background-patterns";
- * @import "utilities/skew-transforms";
- */
 
 .bg-linear-intro {
   background: linear-gradient(90.1deg, rgba(172, 182, 229, 0.66) 0.06%, rgba(134, 253, 232, 0.8) 99.94%, rgba(109, 213, 237, 0.75) 99.94%, rgba(109, 213, 237, 0.66) 99.94%);
@@ -101,7 +42,7 @@
 }
 
 .card {
-  @apply my-5 max-w-sm w-5/6 rounded overflow-hidden mx-auto border border-grey-light;
+  @apply mx-auto my-5 max-w-sm w-5/6 rounded overflow-hidden border border-grey-light;
 }
 
 @screen md {
@@ -111,11 +52,11 @@
 }
 
 .about-card-title {
-  @apply font-bold text-2xl py-4 text-center;
+  @apply py-4 font-bold text-2xl text-center;
 }
 
 .portfolio-card-title {
-  @apply font-bold text-xl mb-1 text-grey-darkest;
+  @apply mb-1 font-bold text-xl text-grey-darkest;
 }
 
 .card-avatar {

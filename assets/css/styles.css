@@ -6527,6 +6527,8 @@ table {
 }
 
 .card {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   max-width: 30rem;
   width: 83.33333%;
   border-radius: .25rem;
@@ -6539,6 +6541,10 @@ table {
 
 @media (min-width: 768px) {
   .card {
+    margin-left: .75rem;
+    margin-right: .75rem;
+    margin-top: 0;
+    margin-bottom: 0;
     width: 33.33333%;
   }
 }
@@ -6589,6 +6595,30 @@ table {
   color: #606f7b;
   margin-right: .25rem;
   margin-top: .25rem;
+}
+
+#languages {
+  max-width: 620px;
+  max-height: 310px;
+  min-height: 300px;
+}
+
+@media (min-width: 768px) {
+  .others-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}
+
+.other-image {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: #dae1e7;
+  hover: shadow-lg;
 }
 
 @media (min-width: 576px) {

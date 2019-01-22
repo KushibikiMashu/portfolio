@@ -20,7 +20,7 @@
       </div>
       <div class="relative mt-2">
         <div class="round text-center text-center lg:text-right">
-          <img class="w-320px md:w-128 h-320px md:h-128 w-rem rounded-full" src="/images/me.jpg" alt="Picture of myself">
+          <img class="w-320px md:w-128 h-320px md:h-128 w-rem rounded-full" src="/images/myself.jpg" alt="Picture of myself">
           <a href="https://twitter.com/Panda_Program">
             <img class="hidden lg:block w-136px h-136px rounded-full absolute pin-b md:pin-r bg-white border-solid" src="/images/panda.png" alt="Painting of panda">
           </a>
@@ -72,8 +72,7 @@
       </div>
     </section>
     <section class="py-6">
-      <h1 class="section-title">LANGUAGES</h1>
-        <!-- <div id="languagesa" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div> -->
+      <h1 class="section-title">LANGUAGE SKILLS</h1>
         <canvas class="mx-auto" id="languages" max-width="310" max-height="310"></canvas>
     </section>
     <section class="py-6">
@@ -249,18 +248,19 @@
     const data = {
       labels: names,
       datasets: [{
-        label: "Skill",
+        label: "Programming Skill",
         data: skills,
         backgroundColor: backgroundColor,
         borderColor: colors,
         borderWidth: 1.5,
       }],
     }
+
     const options = {
       responsive: true,
       legend: {
         display: false
-     },
+      },
       scales: {
         xAxes: [{
           ticks: {

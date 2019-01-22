@@ -2,16 +2,105 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mashu Kushibiki - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="main.js"></script>
+    <meta name="description" content="Portfolio">
+    <meta name="author" content="Mashu Kushibiki">
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="/assets/js/main.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script>
     var app = Elm.Main.init({
       node: document.getElementById('root'),
+    });
+
+    const languages = [
+      {
+        name: "Japanese",
+        skill: 100,
+        color: "#CC1F1A"
+      },
+      {
+        name: "PHP/Laravel",
+        skill: 80,
+        color: "#5661B3"
+      },
+      {
+        name: "React",
+        skill: 70,
+        color: "#61dafb"
+      },
+      {
+        name: "Python",
+        skill: 50,
+        color: "#F2D024"
+      },
+      {
+        name: "Node.js",
+        skill: 30,
+        color: "#794ACF"
+      },
+      {
+        name: "Elm",
+        skill: 20,
+        color: "#12bbad"
+      }
+    ];
+    
+    let names = [],
+        skills = [],
+        colors = [];
+
+    languages.map(language => {
+      names.push(language.name);
+      skills.push(language.skill);
+      colors.push(language.color);
+    });
+
+    const helperColor = Chart.helpers.color;
+    const backgroundColor = colors.map(color => helperColor(color).alpha(0.65).rgbString());
+
+    const type = 'horizontalBar';
+    const data = {
+      labels: names,
+      datasets: [{
+        label: "Programming Skill",
+        data: skills,
+        backgroundColor: backgroundColor,
+        borderColor: colors,
+        borderWidth: 1.5,
+      }],
+    }
+
+    const options = {
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          ticks: {
+            min: 0,
+            max: 100
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            fontSize: 16
+          }
+        }],
+      },
+    }
+
+    const ctx = document.getElementById("languages");
+    const languageSkillChart = new Chart(ctx, {
+      type: type,
+      data: data,
+      options: options
     });
     </script>
   </body>

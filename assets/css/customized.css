@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .bg-linear-intro {
-  background: linear-gradient(90.1deg, rgba(172, 182, 229, 0.66) 0.06%, rgba(134, 253, 232, 0.8) 99.94%, rgba(109, 213, 237, 0.75) 99.94%, rgba(109, 213, 237, 0.66) 99.94%);
+  background: linear-gradient(115.78deg, #384FBB 0.01%, rgba(160, 204, 230, 0.938135) 48.15%, rgba(51, 241, 235, 0.8) 94.73%);
 }
 
 .base-font {
@@ -14,21 +14,6 @@
 
 .rotate-1\/8 {
   transform: rotate(-45deg);
-}
-
-.stroke-w-1 {
-  text-stroke: 1px #FFF;
-  -webkit-text-stroke: 1px #FFF;
-}
-
-.stroke-w-2 {
-  text-stroke: 2px #FFF;
-  -webkit-text-stroke: 2px #FFF;
-}
-
-.stroke-w-3 {
-  text-stroke: 3px #FFF;
-  -webkit-text-stroke: 3px #FFF;
 }
 
 .section-title {

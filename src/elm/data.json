@@ -65,12 +65,12 @@
       "link": "https://www.facebook.com/mashu.kushibiki"
     },
     {
-      "name": "linkedIn",
+      "name": "linkedin",
       "icon": "fab fa-linkedin",
       "link": "https://www.linkedin.com/in/mashu-kushibiki"
     },
     {
-      "name": "gitHub",
+      "name": "github",
       "icon": "fab fa-github-square",
       "link": "https://github.com/KushibikiMashu"
     }

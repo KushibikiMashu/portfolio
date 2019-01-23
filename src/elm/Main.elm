@@ -152,8 +152,28 @@ displayItems item =
 
 viewContacts : List Contact -> Html Msg
 viewContacts contacts =
-    div [] (List.map displayContact contacts)
+    div [] 
+        [ div [ class "bg-grey-lighter text-center" ] 
+            [ h1 [ class "w-full py-4 text-3xl md:text-2xl text-grey-darkest" ] [ text "CONTACT" ]
+            , div [] (List.map viewContact contacts)
+            , div [ class "pt-4 pb-3 text-grey-darker" ]
+                [ p [ class "text-base md:text-sm" ] [ text "by MASHU KUSHIBIKI" ]
+                , p [ class "text-base md:text-sm" ] [ text "created with Elm" ]
+                ]
+            ]
+        ]
 
+viewContact : Contact -> Html Msg
+viewContact contact =
+    let 
+        link = contact.link
+        className = "text-" ++ contact.name ++ " text-5xl mx-4"
+        icon = contact.icon
+    in
+        a [ class "no-underline", href link ]
+          [ span [ class className ]
+              [ i [ class icon ] [] ]
+          ]
 
 displayContact : Contact -> Html Msg
 displayContact contact =
@@ -165,7 +185,7 @@ displayContact contact =
 getProfile : Cmd Msg
 getProfile =
     Http.get
-    { url = "http://localhost:8000/src/data.json"
+    { url = "http://localhost:8000/src/elm/data.json"
     -- 後でurlは変更する。相対パスで指定できると良い
     , expect = Http.expectJson GotProfile profileDecoder
     }

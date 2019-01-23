@@ -6434,15 +6434,6 @@ table {
   color: #3d4852;
 }
 
-@media (min-width: 768px) {
-  .card-container {
-    display: flex;
-    align-items: flex-start;
-    margin-left: .5rem;
-    margin-right: .5rem;
-  }
-}
-
 .card {
   margin-left: auto;
   margin-right: auto;
@@ -6454,16 +6445,6 @@ table {
   overflow: hidden;
   border-width: 1px;
   border-color: #dae1e7;
-}
-
-@media (min-width: 768px) {
-  .card {
-    margin-left: .75rem;
-    margin-right: .75rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    width: 33.33333%;
-  }
 }
 
 .about-card-title {
@@ -6493,12 +6474,6 @@ table {
   font-size: 1rem;
 }
 
-@media (min-width: 768px) {
-  .card-text {
-    font-size: .875rem;
-  }
-}
-
 .tooltip {
   display: inline-block;
   background-color: #f1f5f8;
@@ -6520,13 +6495,12 @@ table {
   min-height: 300px;
 }
 
-@media (min-width: 768px) {
-  .others-container {
-    display: flex;
-    justify-content: space-between;
-    margin-left: .5rem;
-    margin-right: .5rem;
-  }
+.other-item {
+  margin-left: .75rem;
+  margin-right: .75rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
 }
 
 .other-image {
@@ -6535,7 +6509,56 @@ table {
   border-radius: 9999px;
   border-width: 1px;
   border-color: #dae1e7;
-  hover: shadow-lg;
+}
+
+.other-text {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #606f7b;
+  font-size: 1.125rem;
+}
+
+.footer-icon {
+  font-size: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    display: flex;
+    align-items: flex-start;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+
+  .card {
+    margin-left: .75rem;
+    margin-right: .75rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 33.33333%;
+  }
+
+  .card-text {
+    font-size: .875rem;
+  }
+
+  .others-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+
+  .other-item {
+    margin-top: .75rem;
+    margin-bottom: .75rem;
+  }
+
+  .other-text {
+    padding-bottom: 0;
+  }
 }
 
 @media (min-width: 576px) {

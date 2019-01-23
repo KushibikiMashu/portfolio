@@ -119,6 +119,7 @@ viewApp model profile =
         div []
             [ viewIntro intro
             , viewSections sections
+            , viewOthers
             , viewContacts contacts
             ]
 
@@ -130,24 +131,29 @@ viewIntro intro =
 
 viewSections : List Section -> Html Msg
 viewSections sections =
-    div [] (List.map displaySection sections)
+    div [] (List.map viewSection sections)
 
 
-displaySection : Section -> Html Msg
-displaySection section =
+viewSection : Section -> Html Msg
+viewSection section =
     let
         title = section.title
         items = section.items
     in
         div []
             [ div [] [ text title ]
-            , div [] (List.map displayItems items)
+            , div [] (List.map viewItems items)
             ]
 
 
-displayItems : Item -> Html Msg
-displayItems item =
+viewItems : Item -> Html Msg
+viewItems item =
     div [] [ text item.title ]
+
+
+viewOthers : Html Msg
+viewOthers =
+    div [] []
 
 
 viewContacts : List Contact -> Html Msg
@@ -163,17 +169,19 @@ viewContacts contacts =
             ]
         ]
 
+
 viewContact : Contact -> Html Msg
 viewContact contact =
     let 
         link = contact.link
-        className = "text-" ++ contact.name ++ " text-5xl mx-4"
+        className = "text-" ++ contact.name ++ " footer-icon"
         icon = contact.icon
     in
         a [ class "no-underline", href link ]
           [ span [ class className ]
               [ i [ class icon ] [] ]
           ]
+
 
 displayContact : Contact -> Html Msg
 displayContact contact =

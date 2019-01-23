@@ -5914,7 +5914,7 @@ var elm$http$Http$get = function (r) {
 var author$project$Main$getProfile = elm$http$Http$get(
 	{
 		expect: A2(elm$http$Http$expectJson, author$project$Main$GotProfile, author$project$Main$profileDecoder),
-		url: 'http://localhost:8000/src/data.json'
+		url: 'http://localhost:8000/src/elm/data.json'
 	});
 var author$project$Main$init = function (_n0) {
 	return _Utils_Tuple2(author$project$Main$Loading, author$project$Main$getProfile);
@@ -5956,16 +5956,53 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
-var elm$html$Html$div = _VirtualDom_node('div');
-var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var author$project$Main$displayContact = function (contact) {
+var elm$html$Html$a = _VirtualDom_node('a');
+var elm$html$Html$i = _VirtualDom_node('i');
+var elm$html$Html$span = _VirtualDom_node('span');
+var elm$json$Json$Encode$string = _Json_wrap;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+var elm$html$Html$Attributes$href = function (url) {
 	return A2(
-		elm$html$Html$div,
-		_List_Nil,
+		elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var author$project$Main$viewContact = function (contact) {
+	var link = contact.link;
+	var icon = contact.icon;
+	var className = 'text-' + (contact.name + ' footer-icon');
+	return A2(
+		elm$html$Html$a,
 		_List_fromArray(
 			[
-				elm$html$Html$text(contact.name)
+				elm$html$Html$Attributes$class('no-underline'),
+				elm$html$Html$Attributes$href(link)
+			]),
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$span,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class(className)
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$i,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class(icon)
+							]),
+						_List_Nil)
+					]))
 			]));
 };
 var elm$core$List$map = F2(
@@ -5982,11 +6019,70 @@ var elm$core$List$map = F2(
 			_List_Nil,
 			xs);
 	});
+var elm$html$Html$div = _VirtualDom_node('div');
+var elm$html$Html$h1 = _VirtualDom_node('h1');
+var elm$html$Html$p = _VirtualDom_node('p');
+var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var author$project$Main$viewContacts = function (contacts) {
 	return A2(
 		elm$html$Html$div,
 		_List_Nil,
-		A2(elm$core$List$map, author$project$Main$displayContact, contacts));
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('bg-grey-lighter text-center')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$h1,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('w-full py-4 text-3xl md:text-2xl text-grey-darkest')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('CONTACT')
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_Nil,
+						A2(elm$core$List$map, author$project$Main$viewContact, contacts)),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('pt-4 pb-3 text-grey-darker')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$p,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('text-base md:text-sm')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('by MASHU KUSHIBIKI')
+									])),
+								A2(
+								elm$html$Html$p,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('text-base md:text-sm')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('created with Elm')
+									]))
+							]))
+					]))
+			]));
 };
 var author$project$Main$viewIntro = function (intro) {
 	return A2(
@@ -5997,7 +6093,8 @@ var author$project$Main$viewIntro = function (intro) {
 				elm$html$Html$text(intro.title)
 			]));
 };
-var author$project$Main$displayItems = function (item) {
+var author$project$Main$viewOthers = A2(elm$html$Html$div, _List_Nil, _List_Nil);
+var author$project$Main$viewItems = function (item) {
 	return A2(
 		elm$html$Html$div,
 		_List_Nil,
@@ -6006,7 +6103,7 @@ var author$project$Main$displayItems = function (item) {
 				elm$html$Html$text(item.title)
 			]));
 };
-var author$project$Main$displaySection = function (section) {
+var author$project$Main$viewSection = function (section) {
 	var title = section.title;
 	var items = section.items;
 	return A2(
@@ -6024,14 +6121,14 @@ var author$project$Main$displaySection = function (section) {
 				A2(
 				elm$html$Html$div,
 				_List_Nil,
-				A2(elm$core$List$map, author$project$Main$displayItems, items))
+				A2(elm$core$List$map, author$project$Main$viewItems, items))
 			]));
 };
 var author$project$Main$viewSections = function (sections) {
 	return A2(
 		elm$html$Html$div,
 		_List_Nil,
-		A2(elm$core$List$map, author$project$Main$displaySection, sections));
+		A2(elm$core$List$map, author$project$Main$viewSection, sections));
 };
 var author$project$Main$viewApp = F2(
 	function (model, profile) {
@@ -6045,6 +6142,7 @@ var author$project$Main$viewApp = F2(
 				[
 					author$project$Main$viewIntro(intro),
 					author$project$Main$viewSections(sections),
+					author$project$Main$viewOthers,
 					author$project$Main$viewContacts(contacts)
 				]));
 	});

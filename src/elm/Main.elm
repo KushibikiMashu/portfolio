@@ -51,7 +51,7 @@ type alias Intro =
     { className : String
     , title : String
     , subtitle : String
-    , avator : String
+    , icon : String
     }
 
 
@@ -126,7 +126,62 @@ viewApp model profile =
 
 viewIntro : Intro -> Html Msg
 viewIntro intro =
-    div [] [ text intro.title ]
+    let 
+        title = intro.title
+        subtitle = intro.subtitle
+        icon = intro.icon
+    in
+        div [ class "intro-container" ] 
+            [ div [ class "max-w-xl mx-auto text-center pt-16" ] 
+                [ div []
+                    [ span [ class "intro-title" ] [ text "Love Creating" ]
+                    , br [] []
+                    , span [ class "intro-title" ] [ text "Web Apps" ]
+                    ]
+                , div [ class "absolute pin-r pin-l pin-b pb-12" ]
+                    [ div [ class "py-2 md:py-4" ]
+                        [ img [ class "w-24 xl:w-32", src "/assets/icon/code.svg" ] [] ]
+                    , div [] 
+                        [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
+                        , br [ class "block lg:hidden" ] []
+                        , span [ class "intro-subtitle" ] [ text "KUSHIBIKI" ]
+                        ]
+                    ]
+                ]
+            ]
+
+
+--viewIntroTitles : List String(Title型にする) -> Html Msg
+--viewIntroTitles title =
+--    let
+--        first = List.head title
+--        second = List.tail title
+--        className = title.class
+--    in
+            
+--    [ div []
+--        [ span [ class "intro-title" ] [ text first ]
+--        , br [ class className ] []
+--        , span [ class "intro-title" ] [ text second ]
+--        ]
+--    ]
+--"intro": {
+--  "title": {
+--    "className": "",
+--    "words": [
+--      "Love Creating",
+--      "Web Apps"
+--    ]
+--  },
+--  "subtitle": {
+--    "className": "block lg:hidden",
+--    "words": [
+--      "I’M MASHU",
+--      "KUSHIBIKI"
+--    ]
+--  },
+--  "icon": "/assets/icon/code.svg"
+--},
 
 
 viewSections : List Section -> Html Msg
@@ -153,6 +208,11 @@ viewItems item =
 
 viewOthers : Html Msg
 viewOthers =
+    div [] []
+
+
+viewOthersItem : List String -> Html Msg
+viewOthersItem item =
     div [] []
 
 
@@ -213,7 +273,7 @@ introDecoder =
         (field "className" string)
         (field "title" string)
         (field "subtitle" string)
-        (field "avator" string)
+        (field "icon" string)
 
 
 sectionDecoder : Decoder Section

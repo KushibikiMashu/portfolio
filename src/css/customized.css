@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-linear-intro {
+.intro-container {
+  @apply h-screen min-h-614;
   background: linear-gradient(115.78deg, #384FBB 0.01%, rgba(160, 204, 230, 0.938135) 48.15%, rgba(51, 241, 235, 0.8) 94.73%);
+}
+
+.intro-title {
+  @apply text-white text-5xl leading-tight;
+}
+
+.intro-subtitle {
+  @apply text-white text-3xl base-font;
 }
 
 .base-font {
@@ -67,6 +76,10 @@
 }
 
 @screen md {
+  .intro-title {
+    @apply text-4rem leading-normal;
+  }
+
   .card-container {
     @apply flex items-start mx-2;
   }

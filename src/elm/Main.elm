@@ -119,6 +119,7 @@ viewApp model profile =
         div []
             [ viewIntro intro
             , viewSections sections
+            , viewLanguage
             , viewOthers
             , viewContacts contacts
             ]
@@ -144,7 +145,7 @@ viewIntro intro =
                     , div [] 
                         [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
                         , br [ class "block lg:hidden" ] []
-                        , span [ class "intro-subtitle" ] [ text "KUSHIBIKI" ]
+                        , span [ class "intro-subtitle" ] [ text " KUSHIBIKI" ]
                         ]
                     ]
                 ]
@@ -214,6 +215,14 @@ viewOthers =
 viewOthersItem : List String -> Html Msg
 viewOthersItem item =
     div [] []
+
+
+viewLanguage : Html Msg
+viewLanguage =
+    div [ class "py-6" ]
+        [ h1 [ class "section-title" ] [ text "LANGUAGE SKILLS" ]
+        , canvas [ class "mx-auto", id "languages" ] []
+        ]
 
 
 viewContacts : List Contact -> Html Msg

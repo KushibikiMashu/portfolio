@@ -3,7 +3,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode exposing (Decoder, map2, map3, map4, field, string, list)
+import Json.Decode exposing (Decoder, map3, map4, map5, map6, field, string, int, list)
 
 -- 設計
 -- アプリケーションは関数の集合体である
@@ -32,17 +32,20 @@ main =
 type Model
     = Failure
     | Loading
-    | Succsess Profile
+    | Succsess Portfolio
 
 
 init : () -> (Model, Cmd Msg)
 init _ =
-    (Loading, getProfile)
+    (Loading, getPortfolio)
 
 
-type alias Profile =
+type alias Portfolio =
     { intro : Intro
-    , sections : List Section
+    , info : List Info
+    , skills : List Skill
+    , websites : List Website
+    , others : List Other
     , contacts : List Contact
     }
 
@@ -55,15 +58,38 @@ type alias Intro =
     }
 
 
-type alias Section =
+type alias Info =
     { title : String
-    , items : List Item
+    , description : Description
+    , icon : String
     }
 
 
-type alias Item =
+type alias Description =
+    { ja : String
+    , en : String
+    , ch : String
+    }
+
+
+type alias Skill =
+    { name : String
+    , level : Int
+    , color : String
+    }
+
+
+type alias Website =
     { title : String
-    , description : String
+    , description : Description
+    , tech : List String
+    , image : String
+    , link : String
+    }
+
+
+type alias Other =
+    { title : String
     , image : String
     , link : String
     }
@@ -79,16 +105,16 @@ type alias Contact =
 -- UPDATE
 
 type Msg
-    = GotProfile (Result Http.Error Profile)
+    = GotPortfolio (Result Http.Error Portfolio)
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
-        GotProfile result ->
+        GotPortfolio result ->
             case result of
-                Ok profile ->
-                    (Succsess profile, Cmd.none)
+                Ok portfolio ->
+                    (Succsess portfolio, Cmd.none)
 
                 Err _ ->
                     (Failure, Cmd.none)
@@ -105,22 +131,18 @@ view model =
         Loading ->
             div [] [ text "Now Loading..." ]
 
-        Succsess profile ->
-            div [] [ viewApp model profile ]
+        Succsess portfolio ->
+            div [] [ viewApp model portfolio ]
 
 
-viewApp : Model -> Profile -> Html Msg
-viewApp model profile =
+viewApp : Model -> Portfolio -> Html Msg
+viewApp model portfolio =
     let
-        intro = profile.intro
-        sections = profile.sections
-        contacts = profile.contacts
+        intro = portfolio.intro
+        contacts = portfolio.contacts
     in
         div []
             [ viewIntro intro
-            , viewSections sections
-            , viewLanguage
-            , viewOthers
             , viewContacts contacts
             ]
 
@@ -141,7 +163,7 @@ viewIntro intro =
                     ]
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
                     [ div [ class "py-2 md:py-4" ]
-                        [ img [ class "w-24 xl:w-32", src "/assets/icon/code.svg" ] [] ]
+                        [ img [ class "w-24 xl:w-32", src icon ] [] ]
                     , div [] 
                         [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
                         , br [ class "block lg:hidden" ] []
@@ -152,68 +174,16 @@ viewIntro intro =
             ]
 
 
---viewIntroTitles : List String(Title型にする) -> Html Msg
---viewIntroTitles title =
---    let
---        first = List.head title
---        second = List.tail title
---        className = title.class
---    in
-            
---    [ div []
---        [ span [ class "intro-title" ] [ text first ]
---        , br [ class className ] []
---        , span [ class "intro-title" ] [ text second ]
---        ]
---    ]
---"intro": {
---  "title": {
---    "className": "",
---    "words": [
---      "Love Creating",
---      "Web Apps"
---    ]
---  },
---  "subtitle": {
---    "className": "block lg:hidden",
---    "words": [
---      "I’M MASHU",
---      "KUSHIBIKI"
---    ]
---  },
---  "icon": "/assets/icon/code.svg"
---},
-
-
-viewSections : List Section -> Html Msg
-viewSections sections =
-    div [] (List.map viewSection sections)
-
-
-viewSection : Section -> Html Msg
-viewSection section =
+viewDescription : Description -> Html Msg
+viewDescription description =
     let
-        title = section.title
-        items = section.items
+        ja = description.ja
     in
-        div []
-            [ div [] [ text title ]
-            , div [] (List.map viewItems items)
-            ]
-
-
-viewItems : Item -> Html Msg
-viewItems item =
-    div [] [ text item.title ]
-
+        div [ class "" ] [ text ja ]
+            
 
 viewOthers : Html Msg
 viewOthers =
-    div [] []
-
-
-viewOthersItem : List String -> Html Msg
-viewOthersItem item =
     div [] []
 
 
@@ -247,32 +217,30 @@ viewContact contact =
         icon = contact.icon
     in
         a [ class "no-underline", href link ]
-          [ span [ class className ]
-              [ i [ class icon ] [] ]
-          ]
-
-
-displayContact : Contact -> Html Msg
-displayContact contact =
-    div [] [ text contact.name ]
+            [ span [ class className ]
+                [ i [ class icon ] [] ]
+            ]
 
 
 -- HTTP
 
-getProfile : Cmd Msg
-getProfile =
+getPortfolio : Cmd Msg
+getPortfolio =
     Http.get
     { url = "http://localhost:8000/src/elm/data.json"
     -- 後でurlは変更する。相対パスで指定できると良い
-    , expect = Http.expectJson GotProfile profileDecoder
+    , expect = Http.expectJson GotPortfolio portfolioDecoder
     }
 
 
-profileDecoder : Decoder Profile
-profileDecoder =
-    map3 Profile
+portfolioDecoder : Decoder Portfolio
+portfolioDecoder =
+    map6 Portfolio
         (field "intro" introDecoder)
-        (field "sections" (list sectionDecoder) )
+        (field "info" (list infoDecoder) )
+        (field "skills" (list skillDecoder) )
+        (field "websites" (list websiteDecoder) )
+        (field "others" (list otherDecoder) )
         (field "contacts" (list contactDecoder) )
 
 
@@ -285,18 +253,44 @@ introDecoder =
         (field "icon" string)
 
 
-sectionDecoder : Decoder Section
-sectionDecoder =
-    map2 Section
+infoDecoder : Decoder Info
+infoDecoder =
+    map3 Info
         (field "title" string)
-        (field "items" (list itemDecoder) )
+        (field "description" descriptionDecoder)
+        (field "icon" string)
 
 
-itemDecoder : Decoder Item
-itemDecoder =
-    map4 Item
+descriptionDecoder : Decoder Description
+descriptionDecoder =
+    map3 Description
+        (field "ja" string)
+        (field "en" string)
+        (field "ch" string)
+
+
+skillDecoder : Decoder Skill
+skillDecoder =
+    map3 Skill
+        (field "name" string)
+        (field "level" int)
+        (field "color" string)
+
+
+websiteDecoder : Decoder Website
+websiteDecoder =
+    map5 Website
         (field "title" string)
-        (field "description" string)
+        (field "description" descriptionDecoder)
+        (field "tech" (list string) )
+        (field "image" string)
+        (field "link" string)
+
+
+otherDecoder : Decoder Other
+otherDecoder =
+    map3 Other
+        (field "title" string)
         (field "image" string)
         (field "link" string)
 

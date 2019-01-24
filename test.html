@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="about-card-title">Interests</div>
+          <div class="about-card-title">Favorites</div>
           <i class="fas fa-star py-2 md:py-4 w-full text-4rem text-center text-yellow-dark"></i>
           <div class="px-8 py-6">
             <p class="card-text md:h-48">
@@ -207,43 +207,43 @@
     const languages = [
       {
         name: "Japanese",
-        skill: 100,
+        level: 100,
         color: "#CC1F1A"
       },
       {
         name: "PHP/Laravel",
-        skill: 80,
+        level: 80,
         color: "#5661B3"
       },
       {
         name: "React",
-        skill: 70,
+        level: 70,
         color: "#61dafb"
       },
       {
         name: "Python",
-        skill: 50,
+        level: 50,
         color: "#F2D024"
       },
       {
         name: "Node.js",
-        skill: 30,
+        level: 30,
         color: "#794ACF"
       },
       {
         name: "Elm",
-        skill: 20,
+        level: 20,
         color: "#12bbad"
       }
     ];
     
     let names = [],
-        skills = [],
+        levels = [],
         colors = [];
 
     languages.map(language => {
       names.push(language.name);
-      skills.push(language.skill);
+      levels.push(language.level);
       colors.push(language.color);
     });
 
@@ -255,7 +255,7 @@
       labels: names,
       datasets: [{
         label: "Programming Skill",
-        data: skills,
+        data: levels,
         backgroundColor: backgroundColor,
         borderColor: colors,
         borderWidth: 1.5,

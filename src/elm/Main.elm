@@ -155,10 +155,13 @@ viewApp model portfolio =
     in
         div []
             [ viewIntro intro
-            --, view info
-            --, view skills
-            --, view websites
-            , viewOthers others
+            , div [ class "max-w-xl mx-auto container" ]
+                [
+                --, view info
+                --, view skills
+                --, view websites
+                viewOthers others
+                ]
             , viewContacts contacts
             ]
 

@@ -209,9 +209,9 @@ viewLanguage =
 viewOthers : List Other -> Html Msg
 viewOthers others =
     div [ class "py-6" ] 
-            [ h1 [ class "section-title" ] [ text "OTHERS" ]
-            , div [ class "others-container" ] (List.map viewOther others)
-            ]
+        [ h1 [ class "section-title" ] [ text "OTHERS" ]
+        , div [ class "others-container" ] (List.map viewOther others)
+        ]
 
 
 
@@ -235,6 +235,7 @@ viewOther other =
             [ a [ class "no-underline", href link ]
                 [ img [ class "other-image hover:shadow-lg", src imageSrc, alt imageAlt ] []
                 ]
+            , div [ class "other-text" ] [ text title ]
             ]
 
 
@@ -255,7 +256,7 @@ viewContacts contacts =
     div [] 
         [ div [ class "bg-grey-lighter text-center" ] 
             [ h1 [ class "w-full py-4 text-3xl md:text-2xl text-grey-darkest" ] [ text "CONTACT" ]
-            , div [] (List.map2 viewContact contacts classes)
+            , div [] (List.map viewContact contacts )
             , div [ class "pt-4 pb-3 text-grey-darker" ]
                 [ p [ class "text-base md:text-sm" ] [ text "by MASHU KUSHIBIKI" ]
                 , p [ class "text-base md:text-sm" ] [ text "created with Elm" ]
@@ -264,8 +265,8 @@ viewContacts contacts =
         ]
 
 
-viewContact : Contact -> String -> Html Msg
-viewContact contact classesa =
+viewContact : Contact -> Html Msg
+viewContact contact =
     let 
         icon = contact.icon
         className = "footer-icon " ++ contact.color
@@ -274,13 +275,8 @@ viewContact contact classesa =
         a [ class "no-underline", href link ]
             [ span [ class className ]
                 [ i [ class icon ] [] ]
-            , div [] [ text classesa ]
             ]
 
-
-classes : List String
-classes =
-    ["a", "b", "c", "d"]
 
 -- HTTP
 

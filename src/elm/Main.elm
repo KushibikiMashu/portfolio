@@ -3,7 +3,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode exposing (Decoder, map3, map4, map5, map6, field, string, int, list)
+import Json.Decode exposing (Decoder, map2, map3, map4, map5, map6, field, string, int, list)
 
 -- 設計
 -- アプリケーションは関数の集合体である
@@ -65,13 +65,6 @@ type alias Info =
     }
 
 
-type alias Description =
-    { ja : String
-    , en : String
-    , ch : String
-    }
-
-
 type alias Skill =
     { name : String
     , level : Int
@@ -83,14 +76,15 @@ type alias Website =
     { title : String
     , description : Description
     , tech : List String
-    , image : String
+    , image : Image
+    , icon : String
     , link : String
     }
 
 
 type alias Other =
     { title : String
-    , image : String
+    , image : Image
     , link : String
     }
 
@@ -98,7 +92,21 @@ type alias Other =
 type alias Contact =
     { name : String
     , icon : String
+    , color : String
     , link : String
+    }
+
+
+type alias Description =
+    { ja : String
+    , en : String
+    , ch : String
+    }
+
+
+type alias Image =
+    { src : String
+    , alt : String
     }
 
 
@@ -139,10 +147,18 @@ viewApp : Model -> Portfolio -> Html Msg
 viewApp model portfolio =
     let
         intro = portfolio.intro
+        info = portfolio.info
+        skills = portfolio.skills
+        websites = portfolio.websites
+        others = portfolio.others
         contacts = portfolio.contacts
     in
         div []
             [ viewIntro intro
+            --, view info
+            --, view skills
+            --, view websites
+            , viewOthers others
             , viewContacts contacts
             ]
 
@@ -180,11 +196,6 @@ viewDescription description =
         ja = description.ja
     in
         div [ class "" ] [ text ja ]
-            
-
-viewOthers : Html Msg
-viewOthers =
-    div [] []
 
 
 viewLanguage : Html Msg
@@ -195,12 +206,56 @@ viewLanguage =
         ]
 
 
+viewOthers : List Other -> Html Msg
+viewOthers others =
+    div [ class "py-6" ] 
+            [ h1 [ class "section-title" ] [ text "OTHERS" ]
+            , div [ class "others-container" ] (List.map viewOther others)
+            ]
+
+
+
+    -- viewWebsite
+    --div [ class "py-6" ] 
+    --        [ h1 [ class "section-title" ] [ text "PORTFOLIO" ]
+    --        , div [ class "card-container" ] (List.map viewOther others)
+    --        ]
+
+
+viewOther : Other -> Html Msg
+viewOther other =
+    let
+        title = other.title
+        imageSrc = other.image.src
+        imageAlt = other.image.alt
+        link = other.link
+
+    in
+        div [ class "other-item" ] 
+            [ a [ class "no-underline", href link ]
+                [ img [ class "other-image hover:shadow-lg", src imageSrc, alt imageAlt ] []
+                ]
+            ]
+
+
+
+-- viewWebsite
+        --div [ class "card hover:shadow-lg my-5 md:my-0" ]
+        --    [ a [ class "no-underline", href link ]
+        --        [ div [ class "flex items-center h-74px py-3 px-4" ]
+        --            [ span [ class "card-avatar text-white bg-blue-darkest" ]
+        --                [ i [ class "fas fa-music" ] [] ]
+        --            ]
+        --        ]
+        --    ]
+
+
 viewContacts : List Contact -> Html Msg
 viewContacts contacts =
     div [] 
         [ div [ class "bg-grey-lighter text-center" ] 
             [ h1 [ class "w-full py-4 text-3xl md:text-2xl text-grey-darkest" ] [ text "CONTACT" ]
-            , div [] (List.map viewContact contacts)
+            , div [] (List.map2 viewContact contacts classes)
             , div [ class "pt-4 pb-3 text-grey-darker" ]
                 [ p [ class "text-base md:text-sm" ] [ text "by MASHU KUSHIBIKI" ]
                 , p [ class "text-base md:text-sm" ] [ text "created with Elm" ]
@@ -209,18 +264,23 @@ viewContacts contacts =
         ]
 
 
-viewContact : Contact -> Html Msg
-viewContact contact =
+viewContact : Contact -> String -> Html Msg
+viewContact contact classesa =
     let 
-        link = contact.link
-        className = "text-" ++ contact.name ++ " footer-icon"
         icon = contact.icon
+        className = "footer-icon " ++ contact.color
+        link = contact.link
     in
         a [ class "no-underline", href link ]
             [ span [ class className ]
                 [ i [ class icon ] [] ]
+            , div [] [ text classesa ]
             ]
 
+
+classes : List String
+classes =
+    ["a", "b", "c", "d"]
 
 -- HTTP
 
@@ -261,14 +321,6 @@ infoDecoder =
         (field "icon" string)
 
 
-descriptionDecoder : Decoder Description
-descriptionDecoder =
-    map3 Description
-        (field "ja" string)
-        (field "en" string)
-        (field "ch" string)
-
-
 skillDecoder : Decoder Skill
 skillDecoder =
     map3 Skill
@@ -279,11 +331,12 @@ skillDecoder =
 
 websiteDecoder : Decoder Website
 websiteDecoder =
-    map5 Website
+    map6 Website
         (field "title" string)
         (field "description" descriptionDecoder)
         (field "tech" (list string) )
-        (field "image" string)
+        (field "image" imageDecoder)
+        (field "icon" string)
         (field "link" string)
 
 
@@ -291,16 +344,32 @@ otherDecoder : Decoder Other
 otherDecoder =
     map3 Other
         (field "title" string)
-        (field "image" string)
+        (field "image" imageDecoder)
         (field "link" string)
 
 
 contactDecoder : Decoder Contact
 contactDecoder =
-    map3 Contact
+    map4 Contact
         (field "name" string)
         (field "icon" string)
+        (field "color" string)
         (field "link" string)
+
+
+descriptionDecoder : Decoder Description
+descriptionDecoder =
+    map3 Description
+        (field "ja" string)
+        (field "en" string)
+        (field "ch" string)
+
+
+imageDecoder : Decoder Image
+imageDecoder =
+    map2 Image
+        (field "src" string)
+        (field "alt" string)
 
 
 -- SUBSCRIPTIONS

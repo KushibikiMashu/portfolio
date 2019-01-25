@@ -75,7 +75,11 @@
         "ch": ""
       },
       "tech": ["Laravel", "React", "Material-UI", "Docker", "EC2", "Route53"],
-      "image": "/assets/images/hipsty.png",
+      "image": {
+        "src": "/assets/images/hipsty.png",
+        "alt": ""
+      },
+      "icon": "",
       "link": "https://hipsty.net"
     },
     {
@@ -86,7 +90,11 @@
         "ch": ""
       },
       "tech": ["PHP", "Bootstrap 4", "Highcharts", "MySQL"],
-      "image": "/assets/images/bitcoin_chart.png",
+      "image": {
+        "src": "/assets/images/bitcoin_chart.png",
+        "alt": ""
+      },
+      "icon": "",
       "link": "https://bitcoin-chart.info"
     },
     {
@@ -97,46 +105,63 @@
         "ch": ""
       },
       "tech": ["HTML", "Bootstrap 4", "jQuery"],
-      "image": "/assets/images/whisky_distilleries.png",
+      "image": {
+        "src": "/assets/images/whisky_distilleries.png",
+        "alt": ""
+      },
+      "icon": "",
       "link": "https://japanese-whisky-nav.net"
     }
   ],
   "others" : [
     {
-      "title": "",
-      "image": "",
-      "link": ""
+      "title": "Tech Blog",
+      "image": {
+        "src": "/assets/images/qiita.png",
+        "alt": "Profile page of my tech blog"
+      },
+      "link": "https://qiita.com/Panda_Program"
     },
     {
-      "title": "",
-      "image": "",
-      "link": ""
+      "title": "Lightning Talk",
+      "image": {
+        "src": "/assets/images/lightning_talk.jpg",
+        "alt": "Giving a lightning talk"
+      },
+      "link": "https://note.mu/panda_programm/n/n5135b0294d85"
     },
     {
-      "title": "",
-      "image": "",
-      "link": ""
+      "title": "Travel Blog",
+      "image": {
+        "src": "/assets/images/blog.png",
+        "alt": "Blog about travel in China"
+      },
+      "link": "https://ccculture.net/"
     }
   ],
   "contacts": [
     {
-      "name": "twitter",
+      "name": "Twitter",
       "icon": "fab fa-twitter-square",
+      "color": "text-twitter",
       "link": "https://twitter.com/Panda_Program"
     },
     {
-      "name": "facebook",
+      "name": "Facebook",
       "icon": "fab fa-facebook",
+      "color": "text-facebook",
       "link": "https://www.facebook.com/mashu.kushibiki"
     },
     {
-      "name": "linkedin",
+      "name": "LinkedIn",
       "icon": "fab fa-linkedin",
+      "color": "text-linkedin",
       "link": "https://www.linkedin.com/in/mashu-kushibiki"
     },
     {
-      "name": "github",
+      "name": "GitHub",
       "icon": "fab fa-github-square",
+      "color": "text-github",
       "link": "https://github.com/KushibikiMashu"
     }
   ]

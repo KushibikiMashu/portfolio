@@ -158,9 +158,9 @@ viewApp model portfolio =
             , div [ class "max-w-xl mx-auto container" ]
                 [
                 --, view info
-                --, view skills
-                --, view websites
-                viewOthers others
+                viewSkills
+                , viewWebsites websites
+                ,viewOthers others
                 ]
             , viewContacts contacts
             ]
@@ -195,18 +195,71 @@ viewIntro intro =
 
 viewDescription : Description -> Html Msg
 viewDescription description =
+    -- msgを受け取って case 文で分岐する
     let
         ja = description.ja
+        en = description.en
+        ch = description.ch
     in
         div [ class "" ] [ text ja ]
 
 
-viewLanguage : Html Msg
-viewLanguage =
+viewSkills : Html Msg
+viewSkills =
     div [ class "py-6" ]
         [ h1 [ class "section-title" ] [ text "LANGUAGE SKILLS" ]
         , canvas [ class "mx-auto", id "languages" ] []
         ]
+
+
+viewWebsites : List Website -> Html Msg
+viewWebsites websites =
+    div [ class "py-6" ] 
+        [ h1 [ class "section-title" ] [ text "PORTFOLIO" ]
+        , div [ class "card-container" ] (List.map2 viewWebsite websites websiteIconColors)
+        ]
+
+
+viewWebsite : Website -> String -> Html Msg
+viewWebsite website iconColor =
+    let
+        title = website.title
+        tech = website.tech
+        description = website.description
+        imageSrc = website.image.src
+        imageAlt = website.image.alt
+        link = website.link
+        icon = website.icon
+    in
+        div [ class "card hover:shadow-lg my-5 md:my-0" ]
+            [ a [ class "no-underline", href link ]
+                [ div [ class "flex items-center h-74px py-3 px-4" ]
+                    [ span [ class iconColor ]
+                        [ i [ class icon ] [] ]
+                    , div [ class "portfolio-card-title" ] [ text title ]
+                    ]
+                ]
+                , img [ class "w-full", src imageSrc, alt imageAlt ] []
+                , div [ class "px-8 py-4" ]
+                    [ p [ class "card-text" ] [ viewDescription description ] ]
+                , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech tech)
+            ]
+
+
+websiteIconColors : List String
+websiteIconColors =
+    [ "card-avatar text-white bg-blue-darkest"
+    , "text-2.5rem text-bitcoin-chart mr-4"
+    , "card-avatar text-white bg-orange-darker"
+    ]
+
+
+viewTech : String -> Html Msg
+viewTech tech =
+    let
+        tag = "#" ++ tech
+    in
+        span [ class "tooltip" ] [ text tag ]
 
 
 viewOthers : List Other -> Html Msg
@@ -217,14 +270,6 @@ viewOthers others =
         ]
 
 
-
-    -- viewWebsite
-    --div [ class "py-6" ] 
-    --        [ h1 [ class "section-title" ] [ text "PORTFOLIO" ]
-    --        , div [ class "card-container" ] (List.map viewOther others)
-    --        ]
-
-
 viewOther : Other -> Html Msg
 viewOther other =
     let
@@ -232,7 +277,6 @@ viewOther other =
         imageSrc = other.image.src
         imageAlt = other.image.alt
         link = other.link
-
     in
         div [ class "other-item" ] 
             [ a [ class "no-underline", href link ]
@@ -240,18 +284,6 @@ viewOther other =
                 ]
             , div [ class "other-text" ] [ text title ]
             ]
-
-
-
--- viewWebsite
-        --div [ class "card hover:shadow-lg my-5 md:my-0" ]
-        --    [ a [ class "no-underline", href link ]
-        --        [ div [ class "flex items-center h-74px py-3 px-4" ]
-        --            [ span [ class "card-avatar text-white bg-blue-darkest" ]
-        --                [ i [ class "fas fa-music" ] [] ]
-        --            ]
-        --        ]
-        --    ]
 
 
 viewContacts : List Contact -> Html Msg

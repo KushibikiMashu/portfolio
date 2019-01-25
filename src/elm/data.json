@@ -77,9 +77,9 @@
       "tech": ["Laravel", "React", "Material-UI", "Docker", "EC2", "Route53"],
       "image": {
         "src": "/assets/images/hipsty.png",
-        "alt": ""
+        "alt": "Music videos of Japanese HIPHOP"
       },
-      "icon": "",
+      "icon": "fas fa-music",
       "link": "https://hipsty.net"
     },
     {
@@ -92,9 +92,9 @@
       "tech": ["PHP", "Bootstrap 4", "Highcharts", "MySQL"],
       "image": {
         "src": "/assets/images/bitcoin_chart.png",
-        "alt": ""
+        "alt": "Bitcoin chart"
       },
-      "icon": "",
+      "icon": "fab fa-bitcoin",
       "link": "https://bitcoin-chart.info"
     },
     {
@@ -107,9 +107,9 @@
       "tech": ["HTML", "Bootstrap 4", "jQuery"],
       "image": {
         "src": "/assets/images/whisky_distilleries.png",
-        "alt": ""
+        "alt": "Japanese whisky distilleries"
       },
-      "icon": "",
+      "icon": "fas fa-glass-whiskey",
       "link": "https://japanese-whisky-nav.net"
     }
   ],

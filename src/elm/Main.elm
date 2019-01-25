@@ -156,11 +156,10 @@ viewApp model portfolio =
         div []
             [ viewIntro intro
             , div [ class "max-w-xl mx-auto container" ]
-                [
-                --, view info
-                viewSkills
+                [ viewInfo info
+                , viewSkills skills
                 , viewWebsites websites
-                ,viewOthers others
+                , viewOthers others
                 ]
             , viewContacts contacts
             ]
@@ -193,6 +192,37 @@ viewIntro intro =
             ]
 
 
+viewInfo : List Info -> Html Msg
+viewInfo info =
+    div [ class "pb-6" ]
+        [ h1 [ class "section-title" ] [ text "ABOUT" ]
+        , div [ class "card-container" ] (List.map2 viewInfoItem info infoClassNames)
+        ]
+
+
+viewInfoItem : Info -> String -> Html Msg
+viewInfoItem info infoClassName =
+    let
+        title = info.title
+        description = info.description
+        icon = info.icon            
+    in
+    div [ class "card" ]
+        [ div [ class "about-card-title" ] [ text title ]
+        , i [ class infoClassName ] []
+        , div [ class "px-8 py-6" ]
+            [ p [ class "card-text md:h-48" ] [ viewDescription description ] ]
+        ]
+
+
+infoClassNames : List String
+infoClassNames =
+    [ "fas fa-shoe-prints py-6 w-full text-center text-4rem md:text-5xl rotate-1/8 text-red-darker"
+    , "fas fa-code py-2 md:py-4 w-full text-4rem text-center text-blue-dark"
+    , "fas fa-star py-2 md:py-4 w-full text-4rem text-center text-yellow-dark" 
+    ]
+
+
 viewDescription : Description -> Html Msg
 viewDescription description =
     -- msgを受け取って case 文で分岐する
@@ -204,8 +234,8 @@ viewDescription description =
         div [ class "" ] [ text ja ]
 
 
-viewSkills : Html Msg
-viewSkills =
+viewSkills : List Skill -> Html Msg
+viewSkills skills =
     div [ class "py-6" ]
         [ h1 [ class "section-title" ] [ text "LANGUAGE SKILLS" ]
         , canvas [ class "mx-auto", id "languages" ] []
@@ -216,12 +246,12 @@ viewWebsites : List Website -> Html Msg
 viewWebsites websites =
     div [ class "py-6" ] 
         [ h1 [ class "section-title" ] [ text "PORTFOLIO" ]
-        , div [ class "card-container" ] (List.map2 viewWebsite websites websiteIconColors)
+        , div [ class "card-container" ] (List.map2 viewWebsiteItem websites websiteIconColors)
         ]
 
 
-viewWebsite : Website -> String -> Html Msg
-viewWebsite website iconColor =
+viewWebsiteItem : Website -> String -> Html Msg
+viewWebsiteItem website iconColor =
     let
         title = website.title
         tech = website.tech

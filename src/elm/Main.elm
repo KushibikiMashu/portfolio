@@ -144,25 +144,17 @@ view model =
 
 
 viewApp : Model -> Portfolio -> Html Msg
-viewApp model portfolio =
-    let
-        intro = portfolio.intro
-        info = portfolio.info
-        skills = portfolio.skills
-        websites = portfolio.websites
-        others = portfolio.others
-        contacts = portfolio.contacts
-    in
+viewApp model (portfolio as p) =
         div []
-            [ viewIntro intro
+            [ viewIntro p.intro
             , div [ class "max-w-xl mx-auto container" ]
                 [ viewFlags
-                , viewInfo info
-                , viewSkills skills
-                , viewWebsites websites
-                , viewOthers others
+                , viewInfo p.info
+                , viewSkills p.skills
+                , viewWebsites p.websites
+                , viewOthers p.others
                 ]
-            , viewContacts contacts
+            , viewContacts p.contacts
             ]
 
 
@@ -201,7 +193,6 @@ viewFlags =
         ]
     
 
-
 viewFlag : String -> String -> Html Msg
 viewFlag className flag =
     li [ class className ] [ text flag ]
@@ -233,35 +224,28 @@ viewInfo info =
 viewInfoItem : Info -> String -> Html Msg
 viewInfoItem info infoClassName =
     let
-        title = info.title
-        description = info.description
-        icon = info.icon            
+        className = info.icon ++ " " ++ infoClassName
     in
-    div [ class "card" ]
-        [ div [ class "about-card-title" ] [ text title ]
-        , i [ class infoClassName ] []
-        , div [ class "px-8 py-6" ]
-            [ p [ class "card-text md:h-48" ] [ viewDescription description ] ]
-        ]
+        div [ class "card" ]
+            [ div [ class "about-card-title" ] [ text info.title ]
+            , i [ class className ] []
+            , div [ class "px-8 py-6" ]
+                [ p [ class "card-text md:h-48" ] [ viewDescription info.description ] ]
+            ]
 
 
 infoClassNames : List String
 infoClassNames =
-    [ "fas fa-shoe-prints py-6 w-full text-center text-4rem md:text-5xl rotate-1/8 text-red-darker"
-    , "fas fa-code py-2 md:py-4 w-full text-4rem text-center text-blue-dark"
-    , "fas fa-star py-2 md:py-4 w-full text-4rem text-center text-yellow-dark" 
+    [ "py-6 w-full text-center text-4rem md:text-5xl rotate-1/8 text-red-darker"
+    , "py-2 md:py-4 w-full text-4rem text-center text-blue-dark"
+    , "py-2 md:py-4 w-full text-4rem text-center text-yellow-dark" 
     ]
 
 
 viewDescription : Description -> Html Msg
-viewDescription description =
+viewDescription (description as d) =
     -- msgを受け取って case 文で分岐する
-    let
-        ja = description.ja
-        en = description.en
-        ch = description.ch
-    in
-        div [ class "" ] [ text ja ]
+        div [ class "" ] [ text d.ja ]
 
 
 viewSkills : List Skill -> Html Msg
@@ -281,28 +265,23 @@ viewWebsites websites =
 
 
 viewWebsiteItem : Website -> String -> Html Msg
-viewWebsiteItem website iconColor =
+viewWebsiteItem (website as w) iconColor =
     let
-        title = website.title
-        tech = website.tech
-        description = website.description
-        imageSrc = website.image.src
-        imageAlt = website.image.alt
-        link = website.link
-        icon = website.icon
+        imageSrc = w.image.src
+        imageAlt = w.image.alt
     in
         div [ class "card hover:shadow-lg my-5 md:my-0" ]
-            [ a [ class "no-underline", href link ]
+            [ a [ class "no-underline", href w.link ]
                 [ div [ class "flex items-center h-74px py-3 px-4" ]
                     [ span [ class iconColor ]
-                        [ i [ class icon ] [] ]
-                    , div [ class "portfolio-card-title" ] [ text title ]
+                        [ i [ class w.icon ] [] ]
+                    , div [ class "portfolio-card-title" ] [ text w.title ]
                     ]
                 ]
                 , img [ class "w-full", src imageSrc, alt imageAlt ] []
                 , div [ class "px-8 py-4" ]
-                    [ p [ class "card-text" ] [ viewDescription description ] ]
-                , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech tech)
+                    [ p [ class "card-text" ] [ viewDescription w.description ] ]
+                , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech w.tech)
             ]
 
 
@@ -331,18 +310,16 @@ viewOthers others =
 
 
 viewOther : Other -> Html Msg
-viewOther other =
+viewOther (other as o) =
     let
-        title = other.title
-        imageSrc = other.image.src
-        imageAlt = other.image.alt
-        link = other.link
+        imageSrc = o.image.src
+        imageAlt = o.image.alt
     in
         div [ class "other-item" ] 
-            [ a [ class "no-underline", href link ]
+            [ a [ class "no-underline", href o.link ]
                 [ img [ class "other-image hover:shadow-lg", src imageSrc, alt imageAlt ] []
                 ]
-            , div [ class "other-text" ] [ text title ]
+            , div [ class "other-text" ] [ text o.title ]
             ]
 
 
@@ -361,15 +338,13 @@ viewContacts contacts =
 
 
 viewContact : Contact -> Html Msg
-viewContact contact =
+viewContact (contact as c) =
     let 
-        icon = contact.icon
-        className = "footer-icon " ++ contact.color
-        link = contact.link
+        className = "footer-icon" ++ " " ++ c.color
     in
-        a [ class "no-underline", href link ]
+        a [ class "no-underline", href c.link ]
             [ span [ class className ]
-                [ i [ class icon ] [] ]
+                [ i [ class c.icon ] [] ]
             ]
 
 

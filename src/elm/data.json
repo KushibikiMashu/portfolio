@@ -16,9 +16,9 @@
       "icon": "fas fa-shoe-prints"
     },
     {
-      "title": "Skills",
+      "title": "Experiences",
       "description": {
-        "ja": "PHP(Laravel, WordPress, Yii), React。英語(TOEIC 850)、中国語(HSK筆記6級、口試中級)。簿記3級、FASS検定Aランク。このサイトはElmとTailwind CSSで作成しています。",
+        "ja": "PHP(Laravel, WordPress, Yii), React/Redux(Flow, Proptypes)。Python(Jupyter Notebook, pandas, matplotlib, word2vec), Node.js, AWS Lambda, EC2. Selenium, Puppeteer, Nightwatch. Docker, Vagrant JS英語(TOEIC 850)、中国語(HSK筆記6級、口試中級)。簿記3級、FASS検定Aランク。このサイトはElmとTailwind CSSで作成しています。",
         "en": "",
         "ch": ""
       },

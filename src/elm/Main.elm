@@ -174,7 +174,7 @@ viewIntro intro =
                     ]
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
                     [ div [ class "py-2 md:py-4" ]
-                        [ img [ class "w-24 xl:w-32", src icon ] [] ]
+                        [ img [ class "w-24 xl:w-32", src intro.icon ] [] ]
                     , div [] 
                         [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
                         , br [ class "block lg:hidden" ] []
@@ -353,8 +353,7 @@ viewContact (contact as c) =
 getPortfolio : Cmd Msg
 getPortfolio =
     Http.get
-    { url = "http://localhost:8000/src/elm/data.json"
-    -- 後でurlは変更する。相対パスで指定できると良い
+    { url = "/src/elm/data.json"
     , expect = Http.expectJson GotPortfolio portfolioDecoder
     }
 
@@ -443,3 +442,7 @@ imageDecoder =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
+
+-- PORT
+
+port languageSkills : List Skill -> Cmd msg

@@ -6410,8 +6410,24 @@ table {
   z-index: auto;
 }
 
-.bg-linear-intro {
+.intro-container {
+  height: 100vh;
+  min-height: 614px;
   background: linear-gradient(115.78deg, #384fbb .01%, rgba(160, 204, 230, .938135) 48.15%, rgba(51, 241, 235, .8) 94.73%);
+}
+
+.intro-title {
+  color: #fff;
+  font-size: 3rem;
+  line-height: 1.25;
+}
+
+.intro-subtitle {
+  color: #fff;
+  font-size: 1.875rem;
+  font-family: Noto Sans JP;
+  font-style: normal;
+  line-height: normal;
 }
 
 .base-font {
@@ -6489,7 +6505,7 @@ table {
   margin-top: .25rem;
 }
 
-#languages {
+.langage-skills-chart {
   max-width: 620px;
   max-height: 310px;
   min-height: 300px;
@@ -6525,6 +6541,11 @@ table {
 }
 
 @media (min-width: 768px) {
+  .intro-title {
+    font-size: 4rem;
+    line-height: 1.5;
+  }
+
   .card-container {
     display: flex;
     align-items: flex-start;

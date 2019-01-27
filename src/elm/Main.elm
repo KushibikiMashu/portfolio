@@ -7,16 +7,6 @@ import Html.Events exposing (..)
 import Http
 import Json.Decode exposing (Decoder, map2, map3, map4, map5, map6, field, string, int, list)
 
--- 設計
--- アプリケーションは関数の集合体である
--- 過度な共通化は避ける
--- 共通化できるところは後からわかる
--- コンポーネント思考をしない
--- 関数は一つのことだけをする
-
--- update
--- クリックされる
--- 多言語化対応で利用する？
 
 -- MAIN
 
@@ -261,7 +251,6 @@ infoClassNames =
 
 viewDescription : Description -> Html Msg
 viewDescription (description as d) =
-    -- msgを受け取って case 文で分岐する
         div [ class "" ] [ text d.ja ]
 
 
@@ -272,7 +261,6 @@ viewSkills skills =
             [ text "LANGUAGE"
             , lgNewLine
             , text " SKILLS" ]
-        , div [ id "here" ] [ div [ id "here2" ] [] ]
         , canvas [ class "langage-skills-chart mx-auto", id "language-skills" ] []
         ]
 

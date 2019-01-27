@@ -140,13 +140,19 @@ view : Model -> Html Msg
 view model =
     case model of
         Failure ->
-            div [] [ text "Can't load JSON file."]
+            div []
+                [ text "Can't load JSON file. Something is wrong with GitHub Pages server."
+                , newLine
+                , text "Please contact and "
+                , a [ href "https://twitter.com/Panda_Program" ] [ text "let me know." ]
+                ]
 
         Loading ->
-            div [] [ text "Now Loading..." ]
+            div [] []
 
         Succsess portfolio ->
-            div [] [ viewApp model portfolio ]
+            div [] 
+            [ viewApp model portfolio ]
 
 
 viewApp : Model -> Portfolio -> Html Msg
@@ -205,7 +211,7 @@ viewFlags =
         [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
             (List.map2 viewFlag flagClassNames flags)
         ]
-    
+
 
 viewFlag : String -> String -> Html Msg
 viewFlag className flag =
@@ -266,7 +272,8 @@ viewSkills skills =
             [ text "LANGUAGE"
             , lgNewLine
             , text " SKILLS" ]
-        , canvas [ class "langage-skills-chart mx-auto", id "language_skills" ] []
+        , div [ id "here" ] [ div [ id "here2" ] [] ]
+        , canvas [ class "langage-skills-chart mx-auto", id "language-skills" ] []
         ]
 
 

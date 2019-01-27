@@ -53,7 +53,7 @@
   @apply inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-1 mt-1;
 }
 
-#languages {
+.langage-skills-chart {
   max-width: 620px;
   max-height: 310px;
   min-height: 300px;

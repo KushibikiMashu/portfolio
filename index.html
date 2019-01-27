@@ -14,65 +14,67 @@
   <body>
     <div id="root"></div>
     <script type="text/javascript">
-    var app = Elm.Main.init({
-      node: document.getElementById('root')
-    });
-
-    app.ports.languageSkillsToJs.subscribe(function(skills){
-      var names = [],
-          levels = [],
-          colors = [];
-
-      skills.map(skill => {
-        names.push(skill.name);
-        levels.push(skill.level);
-        colors.push(skill.color);
+      var app = Elm.Main.init({
+        node: document.getElementById('root')
       });
 
-      var helperColor = Chart.helpers.color;
-      var backgroundColor = colors.map(function(color){
-        return helperColor(color).alpha(0.65).rgbString();
-      });
+      app.ports.languageSkillsToJs.subscribe(function(skills){
+        var names = [],
+            levels = [],
+            colors = [];
 
-      var type = 'horizontalBar';
-      var data = {
-        labels: names,
-        datasets: [{
-          label: "Language Skills",
-          data: levels,
-          backgroundColor: backgroundColor,
-          borderColor: colors,
-          borderWidth: 1.5,
-        }],
-      }
+        skills.map(skill => {
+          names.push(skill.name);
+          levels.push(skill.level);
+          colors.push(skill.color);
+        });
 
-      var options = {
-        responsive: true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
-            ticks: {
-              min: 0,
-              max: 100
-            }
+        var helperColor = Chart.helpers.color;
+        var backgroundColor = colors.map(function(color){
+          return helperColor(color).alpha(0.65).rgbString();
+        });
+
+        var type = 'horizontalBar';
+        var data = {
+          labels: names,
+          datasets: [{
+            label: "Language Skills",
+            data: levels,
+            backgroundColor: backgroundColor,
+            borderColor: colors,
+            borderWidth: 1.5,
           }],
-          yAxes: [{
-            ticks: {
-              fontSize: 16
-            }
-          }],
-        },
-      }
+        }
 
-      var ctx = document.getElementById('language_skills');
-      var languageSkillChart = new Chart(ctx, {
-        type: type,
-        data: data,
-        options: options
-      });
-    });
+        var options = {
+          responsive: true,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                min: 0,
+                max: 100
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                fontSize: 16
+              }
+            }],
+          },
+        }
+
+        setTimeout(function(){
+          var ctx = document.getElementById('language-skills');
+          var languageSkillChart = new Chart(ctx, {
+            type: type,
+            data: data,
+            options: options
+          })
+        }, 50)
+      })
     </script>
   </body>
 </html>

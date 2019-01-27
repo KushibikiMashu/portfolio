@@ -1,3 +1,5 @@
+port module Main exposing (..)
+
 import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -122,10 +124,14 @@ update msg model =
         GotPortfolio result ->
             case result of
                 Ok portfolio ->
-                    (Succsess portfolio, Cmd.none)
+                    ( Succsess portfolio
+                    , (languageSkillsToJs portfolio.skills)
+                    )
 
                 Err _ ->
-                    (Failure, Cmd.none)
+                    (Failure
+                    , Cmd.none
+                    )
 
 
 -- VIEW
@@ -169,7 +175,7 @@ viewIntro intro =
             [ div [ class "max-w-xl mx-auto text-center pt-16" ] 
                 [ div []
                     [ span [ class "intro-title" ] [ text "Love Creating" ]
-                    , br [] []
+                    , newLine
                     , span [ class "intro-title" ] [ text "Web Apps" ]
                     ]
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
@@ -177,12 +183,20 @@ viewIntro intro =
                         [ img [ class "w-24 xl:w-32", src intro.icon ] [] ]
                     , div [] 
                         [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
-                        , br [ class "block lg:hidden" ] []
+                        , lgNewLine
                         , span [ class "intro-subtitle" ] [ text " KUSHIBIKI" ]
                         ]
                     ]
                 ]
             ]
+
+
+newLine : Html Msg
+newLine = br [] []
+
+
+lgNewLine : Html Msg
+lgNewLine = br [ class "block lg:hidden" ] []
 
 
 viewFlags : Html Msg
@@ -205,12 +219,9 @@ flagClassNames =
     , "text-3xl px-2"
     ]
 
+
 flags : List String
-flags =
-    [ "🇯🇵"
-    , "🇬🇧"
-    , "🇨🇳"
-    ]
+flags = [ "🇯🇵", "🇬🇧", "🇨🇳"]
 
 
 viewInfo : List Info -> Html Msg
@@ -251,8 +262,11 @@ viewDescription (description as d) =
 viewSkills : List Skill -> Html Msg
 viewSkills skills =
     div [ class "py-6" ]
-        [ h1 [ class "section-title" ] [ text "LANGUAGE SKILLS" ]
-        , canvas [ class "mx-auto", id "languages" ] []
+        [ h1 [ class "section-title" ] 
+            [ text "LANGUAGE"
+            , lgNewLine
+            , text " SKILLS" ]
+        , canvas [ class "langage-skills-chart mx-auto", id "language_skills" ] []
         ]
 
 
@@ -443,6 +457,7 @@ subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
 
+
 -- PORT
 
-port languageSkills : List Skill -> Cmd msg
+port languageSkillsToJs : List Skill -> Cmd msg

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -13,94 +13,65 @@
   </head>
   <body>
     <div id="root"></div>
-    <script>
+    <script type="text/javascript">
     var app = Elm.Main.init({
-      node: document.getElementById('root'),
+      node: document.getElementById('root')
     });
 
-    const languages = [
-      {
-        name: "Japanese",
-        skill: 100,
-        color: "#CC1F1A"
-      },
-      {
-        name: "PHP/Laravel",
-        skill: 80,
-        color: "#5661B3"
-      },
-      {
-        name: "React",
-        skill: 70,
-        color: "#61dafb"
-      },
-      {
-        name: "Python",
-        skill: 50,
-        color: "#F2D024"
-      },
-      {
-        name: "Node.js",
-        skill: 30,
-        color: "#794ACF"
-      },
-      {
-        name: "Elm",
-        skill: 20,
-        color: "#12bbad"
+    app.ports.languageSkillsToJs.subscribe(function(skills){
+      var names = [],
+          levels = [],
+          colors = [];
+
+      skills.map(skill => {
+        names.push(skill.name);
+        levels.push(skill.level);
+        colors.push(skill.color);
+      });
+
+      var helperColor = Chart.helpers.color;
+      var backgroundColor = colors.map(function(color){
+        return helperColor(color).alpha(0.65).rgbString();
+      });
+
+      var type = 'horizontalBar';
+      var data = {
+        labels: names,
+        datasets: [{
+          label: "Language Skills",
+          data: levels,
+          backgroundColor: backgroundColor,
+          borderColor: colors,
+          borderWidth: 1.5,
+        }],
       }
-    ];
-    
-    let names = [],
-        skills = [],
-        colors = [];
 
-    languages.map(language => {
-      names.push(language.name);
-      skills.push(language.skill);
-      colors.push(language.color);
-    });
+      var options = {
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            ticks: {
+              min: 0,
+              max: 100
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontSize: 16
+            }
+          }],
+        },
+      }
 
-    const helperColor = Chart.helpers.color;
-    const backgroundColor = colors.map(color => helperColor(color).alpha(0.65).rgbString());
-
-    const type = 'horizontalBar';
-    const data = {
-      labels: names,
-      datasets: [{
-        label: "Programming Skill",
-        data: skills,
-        backgroundColor: backgroundColor,
-        borderColor: colors,
-        borderWidth: 1.5,
-      }],
-    }
-
-    const options = {
-      responsive: true,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          ticks: {
-            min: 0,
-            max: 100
-          }
-        }],
-        yAxes: [{
-          ticks: {
-            fontSize: 16
-          }
-        }],
-      },
-    }
-
-    const ctx = document.getElementById("languages");
-    const languageSkillChart = new Chart(ctx, {
-      type: type,
-      data: data,
-      options: options
+      var ctx = document.getElementById('language_skills');
+      var languageSkillChart = new Chart(ctx, {
+        type: type,
+        data: data,
+        options: options
+      });
     });
     </script>
   </body>

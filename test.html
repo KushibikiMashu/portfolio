@@ -4,42 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mashu Kushibiki - Portfolio</title>
-  <link rel="stylesheet" href="/assets/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 </head>
 <body>
-  <div class="intro-container bg-linear-intro min-h-614 md:min-h-700 max-h-700">
-    <div class="max-w-xl mx-auto justify-center my-auto">
-      <div class="self-start pt-4">
-        <ul class="flex justify-end px-3 py-3 list-reset leading-narrow">
-          <li class="text-3xl pr-2">🇯🇵</li>
-          <li class="text-3xl px-2 border-l border-r border-solid border-grey-dark">🇬🇧</li>
-          <li class="text-3xl px-2">🇨🇳</li>
-        </ul>
-      </div>
-      <div class="relative mt-2">
-        <div class="round text-center text-center lg:text-right">
-          <img class="w-320px md:w-128 h-320px md:h-128 w-rem rounded-full" src="/images/myself.jpg" alt="Picture of myself">
-          <a href="https://twitter.com/Panda_Program">
-            <img class="hidden lg:block w-136px h-136px rounded-full absolute pin-b md:pin-r bg-white border-solid" src="/images/panda.png" alt="Painting of panda">
-          </a>
-        </div>
-        <div class="base-font text-center lg:text-left absolute pin-b hidden lg:block">
-          <span class="font-black text-4rem leading-tight stroke-w-2 tracking-tight">I’M MASHU KUSHIBIKI</span>
-          <br>
-          <span class="font-black text-5xl leading-tight stroke-w-2 tracking-tight">Love Creating Web Apps</span>
-        </div>
-      </div>
-      <div class="base-font text-center lg:text-left py-5 pt:mt-0 block lg:hidden">
-        <span class="font-black text-5xl leading-tight stroke-w-1 tracking-tight">I’M MASHU KUSHIBIKI</span>
+  <div class="intro-container">
+    <div class="max-w-xl mx-auto text-center pt-16">
+      <div>
+        <span class="intro-title">Love Creating</span>
         <br>
-        <span class="font-black text-3xl leading-tight stroke-w-1 tracking-tight">Love Creating Web Apps</span>
+        <span class="intro-title">Web Apps</span>
+      </div>
+      <div class="absolute pin-r pin-l pin-b pb-12">
+        <div class="py-2 md:py-4">
+          <img class="w-24 xl:w-32" src="/assets/icon/code.svg">
+        </div>
+        <div>
+          <span class="intro-subtitle">
+            I’M MASHU
+          </span>
+          <br class="block lg:hidden">
+          <span class="intro-subtitle">
+            KUSHIBIKI
+          </span>
+        </div>
       </div>
     </div>
   </div>
   <div class="max-w-xl mx-auto container">
-    <section class="py-6">
+    <div class="justify-center my-auto self-start pt-4">
+      <ul class="flex justify-end px-3 pt-3 list-reset leading-narrow">
+        <li class="text-3xl pr-2">🇯🇵</li>
+        <li class="text-3xl px-2 border-l border-r border-solid border-grey-dark">🇬🇧</li>
+        <li class="text-3xl px-2">🇨🇳</li>
+      </ul>
+    </div>
+    <section class="pb-6">
       <h1 class="section-title">ABOUT</h1>
       <div class="card-container">
         <div class="card">
@@ -51,7 +52,7 @@
             </p>
           </div>
         </div>
-        <div class="card mt-8 md:mt-0">
+        <div class="card">
           <div class="about-card-title">Skills</div>
           <i class="fas fa-code py-2 md:py-4 w-full text-4rem text-center text-blue-dark"></i>
           <div class="px-8 py-6">
@@ -60,8 +61,8 @@
             </p>
           </div>
         </div>
-        <div class="card mt-8 md:mt-0">
-          <div class="about-card-title">Interest</div>
+        <div class="card">
+          <div class="about-card-title">Favorites</div>
           <i class="fas fa-star py-2 md:py-4 w-full text-4rem text-center text-yellow-dark"></i>
           <div class="px-8 py-6">
             <p class="card-text md:h-48">
@@ -73,7 +74,7 @@
     </section>
     <section class="py-6">
       <h1 class="section-title">LANGUAGE SKILLS</h1>
-        <canvas class="mx-auto" id="languages" max-width="310" max-height="310"></canvas>
+      <canvas class="langage-skills-chart mx-auto" id="languages"></canvas>
     </section>
     <section class="py-6">
       <h1 class="section-title">PORTFOLIO</h1>
@@ -86,7 +87,7 @@
               </span>
               <div class="portfolio-card-title">HIPSTY</div>
             </div>
-            <img class="w-full" src="/images/hipsty.png" alt="Music videos of Japanese HIPHOP">
+            <img class="w-full" src="/assets/images/hipsty.png" alt="Music videos of Japanese HIPHOP">
             <div class="px-8 py-4">
               <p class="card-text">
                 日本語ラップファンのためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を時系列で表示。(2018/12)
@@ -110,7 +111,7 @@
               </span>
               <div class="portfolio-card-title">Bitcoin Chart</div>
             </div>
-            <img class="w-full" src="/images/bitcoin_chart.png" alt="Bitcoin chart">
+            <img class="w-full" src="/assets/images/bitcoin_chart.png" alt="Bitcoin chart">
             <div class="px-8 py-4">
               <p class="card-text">
                 ビットコインの取引所ごとの価格差に着目し、グラフで価格を可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。(since 2018/7)
@@ -132,7 +133,7 @@
               </span>
               <div class="portfolio-card-title">ウィスキー蒸留所NAVI</div>
             </div>
-            <img class="w-full" src="/images/whisky_distilleries.png" alt="Japanese whisky distilleries">
+            <img class="w-full" src="/assets/images/whisky_distilleries.png" alt="Japanese whisky distilleries">
             <div class="px-8 py-4">
               <p class="card-text">
                 国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができます。(2018/5)
@@ -150,49 +151,52 @@
     <section class="py-6">
       <h1 class="section-title">OTHERS</h1>
       <div class="others-container">
-        <div class="mx-3 my-5 md:my-3 text-center">
-          <a class="no-underline" href="https://ccculture.net/">
-            <img class="w-64 h-64 mx-auto rounded-full border border-grey-light hover:shadow-lg" src="/images/blog.png" alt="Blog about travel in China">
+        <div class="other-item">
+          <a class="no-underline" href="https://qiita.com/Panda_Program">
+            <img class="other-image hover:shadow-lg" src="/assets/images/qiita.png" alt="Tech blog">
           </a>
+          <div class="other-text">Tech Blog</div>
         </div>
-        <div class="mx-3 my-5 md:my-3 text-center">
+        <div class="other-item">
           <a class="no-underline" href="https://note.mu/panda_programm/n/n5135b0294d85">
-            <img class="w-64 h-64 rounded-full border border-grey-light hover:shadow-lg" src="/images/lightning_talk.jpg" alt="Giving a lightning talk">
+            <img class="other-image hover:shadow-lg" src="/assets/images/lightning_talk.jpg" alt="Giving a lightning talk">
           </a>
+          <div class="other-text">Lightning Talk</div>
         </div>
-        <div class="mx-3 my-5 md:my-3 text-center">
-          <a class="no-underline" href="https://note.mu/panda_programm">
-            <img class="w-64 h-64 rounded-full border border-grey-light hover:shadow-lg" src="/images/note_profile.png" alt="Profile page on a website">
+        <div class="other-item">
+          <a class="no-underline" href="https://ccculture.net/">
+            <img class="other-image hover:shadow-lg" src="/assets/images/blog.png" alt="Blog about travel in China">
           </a>
+          <div class="other-text">Travel Blog</div>
         </div>
       </div>
     </section>
   </div>
-  <footer class="bg-grey-lighter">
-    <h1 class="w-full text-center py-4 text-3xl md:text-2xl text-grey-darkest">CONTACT</h1>
-    <div class="text-center">
+  <footer class="bg-grey-lighter text-center">
+    <h1 class="w-full py-4 text-3xl md:text-2xl text-grey-darkest">CONTACT</h1>
+    <div>
       <a class="no-underline" href="#">
-        <span class="text-twitter text-5xl mx-2">
+        <span class="text-twitter footer-icon">
           <i class="fab fa-twitter-square"></i>
         </span>
       </a>
       <a class="no-underline" href="#">
-        <span class="text-facebook text-5xl mx-2">
+        <span class="text-facebook footer-icon">
           <i class="fab fa-facebook"></i>
         </span>
       </a>
       <a class="no-underline" href="#">
-        <span class="text-linkedin text-5xl mx-2">
+        <span class="text-linkedin footer-icon">
           <i class="fab fa-linkedin"></i>
         </span>
       </a>
       <a class="no-underline" href="#">
-        <span class="text-github text-5xl mx-2">
+        <span class="text-github footer-icon">
           <i class="fab fa-github-square"></i>
         </span>
       </a>
     </div>
-    <div class="text-center pt-4 pb-3 text-grey-darker">
+    <div class="pt-4 pb-3 text-grey-darker">
       <p class="text-base md:text-sm">by MASHU KUSHIBIKI</p>
       <p class="text-base md:text-sm">created with Elm</p>
     </div>
@@ -201,43 +205,43 @@
     const languages = [
       {
         name: "Japanese",
-        skill: 100,
+        level: 100,
         color: "#CC1F1A"
       },
       {
         name: "PHP/Laravel",
-        skill: 80,
+        level: 80,
         color: "#5661B3"
       },
       {
         name: "React",
-        skill: 70,
+        level: 70,
         color: "#61dafb"
       },
       {
         name: "Python",
-        skill: 50,
+        level: 50,
         color: "#F2D024"
       },
       {
         name: "Node.js",
-        skill: 30,
+        level: 30,
         color: "#794ACF"
       },
       {
         name: "Elm",
-        skill: 20,
+        level: 20,
         color: "#12bbad"
       }
     ];
     
     let names = [],
-        skills = [],
+        levels = [],
         colors = [];
 
     languages.map(language => {
       names.push(language.name);
-      skills.push(language.skill);
+      levels.push(language.level);
       colors.push(language.color);
     });
 
@@ -249,7 +253,7 @@
       labels: names,
       datasets: [{
         label: "Programming Skill",
-        data: skills,
+        data: levels,
         backgroundColor: backgroundColor,
         borderColor: colors,
         borderWidth: 1.5,

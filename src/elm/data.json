@@ -10,7 +10,7 @@
       "title": "Career",
       "description": {
         "ja": "1991年生まれ。2015年京都大学法学部卒業。伊藤忠商事に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ執筆。ブログ制作でプログラミングに目覚め、独学した後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてサーバーサイドエンジニアとして働いている。",
-        "en": "My name is Mashu Kushibiki. I was born in Japan in 1991. I graduated from Kyoto Univ. and started to work in the account department for Itochu corp (a trading company). After quitting the job in 2017, I learned programming by myself. Now I work as a software programmer in Tokyo.",
+        "en": "",
         "ch": ""
       },
       "icon": "fas fa-shoe-prints"
@@ -28,7 +28,7 @@
       "title": "Favorites",
       "description": {
         "ja": "プログラミング・日本語ラップ・ウィスキー・旅行（国内・海外）・歴史・伝統・思想・哲学・企業分析・水泳・英語・中国茶・食べ歩き・カフェ巡り・新しい技術。何より学ぶことが好き。",
-        "en": "Programming web apps. Listening to Japanese HIPHOP. Drinking whiskies, beer and Chinese tea. Traveling in Japan and abroad. Studying about history, culture and tradition. Talking about philosophy and comedy.  Experiencing new technologies. Especially I love learning something new!",
+        "en": "Programming web apps. Listening to Japanese HIPHOP. Studying about history, culture and tradition. Talking about philosophy and comedy. Drinking whiskies, beer and Chinese tea. Traveling. Experiencing new technologies. Above all, I love learning something new!",
         "ch": ""
       },
       "icon": "fas fa-star"
@@ -101,7 +101,7 @@
       "title": "ウィスキー蒸留所NAVI",
       "description": {
         "ja": "国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができる。レスポンシブ対応済みのサイト。",
-        "en": "This site is listing famous whisky distilleries in Japan. You can check them all at once and can reserve a tour through this site.",
+        "en": "This site lists famous whisky distilleries in Japan. You can check them all at once and can reserve a tour through this site.",
         "ch": ""
       },
       "tech": ["HTML", "Bootstrap 4", "jQuery"],

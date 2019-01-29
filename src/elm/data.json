@@ -10,7 +10,7 @@
       "title": "Career",
       "description": {
         "ja": "1991年生まれ。2015年京都大学法学部卒業。伊藤忠商事に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ執筆。ブログ制作でプログラミングに目覚め、独学した後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてサーバーサイドエンジニアとして働いている。",
-        "en": "",
+        "en": "My name is Mashu Kushibiki. I was born in Japan in 1991. I graduated from Kyoto Univ. and started to work in the account department for Itochu corp (a trading company). After quitting the job in 2017, I learned programming by myself. Now I work as a software programmer in Tokyo.",
         "ch": ""
       },
       "icon": "fas fa-shoe-prints"
@@ -19,7 +19,7 @@
       "title": "Experiences",
       "description": {
         "ja": "PHP (Laravel, WordPress, Yii). JavaScript (React / Redux / Flow, Node.js). Python (Jupyter Notebook, Pandas, matplotlib, Word2vec). CSS (Bootstrap 4). AWS (Lambda, Cloud Watch, EC2, Route53, KMS). Docker, Vagrant. Selenium, Puppeteer etc.このサイトはElmとTailwind CSSで作成しています。",
-        "en": "",
+        "en": "This site is made with Elm and Tailwind CSS.",
         "ch": ""
       },
       "icon": "fas fa-code"
@@ -28,7 +28,7 @@
       "title": "Favorites",
       "description": {
         "ja": "プログラミング・日本語ラップ・ウィスキー・旅行（国内・海外）・歴史・伝統・思想・哲学・企業分析・水泳・英語・中国茶・食べ歩き・カフェ巡り・新しい技術。何より学ぶことが好き。",
-        "en": "",
+        "en": "Programming web apps. Listening to Japanese HIPHOP. Drinking whiskies, beer and Chinese tea. Traveling in Japan and abroad. Studying about history, culture and tradition. Talking about philosophy and comedy.  Experiencing new technologies. Especially I love learning something new!",
         "ch": ""
       },
       "icon": "fas fa-star"
@@ -71,7 +71,7 @@
       "title": "HIPSTY",
       "description": {
         "ja": "日本語ラップ好きな人のためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を新着順で表示。動画の一覧をジャンル毎に切り替えできる。",
-        "en": "",
+        "en": "This web app is for Japanese HIPHOP lovers to find new music videos. This program calls YouTube API to fetch new data every five minutes.",
         "ch": ""
       },
       "tech": ["Laravel", "React", "Material-UI", "Docker", "EC2"],
@@ -86,7 +86,7 @@
       "title": "Bitcoin Chart",
       "description": {
         "ja": "ビットコインの取引所ごとの価格差に着目し、価格をグラフで可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。暴落時の価格も記録されている。",
-        "en": "",
+        "en": "You can see a chart of bitcoin price since 4/19/2018 on this site. I expected traders to practice arbitrage in the cryptocurrency market.",
         "ch": ""
       },
       "tech": ["PHP", "Bootstrap 4", "Highcharts", "MySQL"],
@@ -101,7 +101,7 @@
       "title": "ウィスキー蒸留所NAVI",
       "description": {
         "ja": "国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができる。レスポンシブ対応済みのサイト。",
-        "en": "",
+        "en": "This site is listing famous whisky distilleries in Japan. You can check them all at once and can reserve a tour through this site.",
         "ch": ""
       },
       "tech": ["HTML", "Bootstrap 4", "jQuery"],

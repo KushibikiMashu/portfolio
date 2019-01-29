@@ -46,7 +46,7 @@
 }
 
 .card-text {
-  @apply text-grey-darker text-base;
+  @apply text-grey-darker text-base leading-normal;
 }
 
 .tooltip {

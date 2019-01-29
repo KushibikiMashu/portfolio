@@ -9,7 +9,7 @@
     {
       "title": "Career",
       "description": {
-        "ja": "1991年生まれ、2015年京都大学法学部卒業、2015年伊藤忠商事に経理として入社、2017年に退社し、海外旅行へ。独学でプログラミングを学んだ後、2018年1月よりエンジニアとして転職。10月より現在、都内のIT企業にてサーバーサイドエンジニアとして働く。",
+        "ja": "1991年生まれ。2015年京都大学法学部卒業。伊藤忠商事に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ執筆。ブログ制作でプログラミングに目覚め、独学した後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてサーバーサイドエンジニアとして働いている。",
         "en": "",
         "ch": ""
       },
@@ -18,7 +18,7 @@
     {
       "title": "Experiences",
       "description": {
-        "ja": "PHP(Laravel, WordPress, Yii), React/Redux(Flow, Proptypes)。Python(Jupyter Notebook, pandas, matplotlib, word2vec), Node.js, AWS Lambda, EC2. Selenium, Puppeteer, Nightwatch. Docker, Vagrant JS英語(TOEIC 850)、中国語(HSK筆記6級、口試中級)。簿記3級、FASS検定Aランク。このサイトはElmとTailwind CSSで作成しています。",
+        "ja": "PHP (Laravel, WordPress, Yii). JavaScript (React / Redux / Flow, Node.js). Python (Jupyter Notebook, Pandas, matplotlib, Word2vec). CSS (Bootstrap 4). AWS (Lambda, Cloud Watch, EC2, Route53, KMS). Docker, Vagrant. Selenium, Puppeteer etc.このサイトはElmとTailwind CSSで作成しています。",
         "en": "",
         "ch": ""
       },
@@ -27,7 +27,7 @@
     {
       "title": "Favorites",
       "description": {
-        "ja": "プログラミング・日本語ラップ・ウィスキー・旅行・歴史・哲学・企業分析・水泳・英語・食べ歩き・カフェ巡り。何より学ぶことが好き。",
+        "ja": "プログラミング・日本語ラップ・ウィスキー・旅行（国内・海外）・歴史・伝統・思想・哲学・企業分析・水泳・英語・中国茶・食べ歩き・カフェ巡り・新しい技術。何より学ぶことが好き。",
         "en": "",
         "ch": ""
       },
@@ -70,11 +70,11 @@
     {
       "title": "HIPSTY",
       "description": {
-        "ja": "日本語ラップファンのためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を時系列で表示。(2018/12)",
+        "ja": "日本語ラップ好きな人のためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を新着順で表示。動画の一覧をジャンル毎に切り替えできる。",
         "en": "",
         "ch": ""
       },
-      "tech": ["Laravel", "React", "Material-UI", "Docker", "EC2", "Route53"],
+      "tech": ["Laravel", "React", "Material-UI", "Docker", "EC2"],
       "image": {
         "src": "/assets/images/hipsty.png",
         "alt": "Music videos of Japanese HIPHOP"
@@ -85,7 +85,7 @@
     {
       "title": "Bitcoin Chart",
       "description": {
-        "ja": "ビットコインの取引所ごとの価格差に着目し、グラフで価格を可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。(since 2018/7)",
+        "ja": "ビットコインの取引所ごとの価格差に着目し、価格をグラフで可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。暴落時の価格も記録されている。",
         "en": "",
         "ch": ""
       },
@@ -100,7 +100,7 @@
     {
       "title": "ウィスキー蒸留所NAVI",
       "description": {
-        "ja": "国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができます。(2018/5)",
+        "ja": "国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができる。レスポンシブ対応済みのサイト。",
         "en": "",
         "ch": ""
       },

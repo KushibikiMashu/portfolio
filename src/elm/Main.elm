@@ -25,12 +25,16 @@ type Model
     = Failure
     | Loading
     | Succsess Portfolio
+    | English
 
 
 init : () -> (Model, Cmd Msg)
 init _ =
     (Loading, getPortfolio)
 
+
+port languageSkillsToJs : List Skill -> Cmd msg
+    
 
 type alias Portfolio =
     { intro : Intro
@@ -57,6 +61,13 @@ type alias Info =
     }
 
 
+type alias Description =
+    { ja : String
+    , en : String
+    , ch : String
+    }
+
+
 type alias Skill =
     { name : String
     , level : Int
@@ -71,6 +82,12 @@ type alias Website =
     , image : Image
     , icon : String
     , link : String
+    }
+
+
+type alias Image =
+    { src : String
+    , alt : String
     }
 
 
@@ -89,23 +106,12 @@ type alias Contact =
     }
 
 
-type alias Description =
-    { ja : String
-    , en : String
-    , ch : String
-    }
-
-
-type alias Image =
-    { src : String
-    , alt : String
-    }
-
-
 -- UPDATE
 
 type Msg
     = GotPortfolio (Result Http.Error Portfolio)
+    | LoadAgain
+    | SetEnglish 
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -123,6 +129,13 @@ update msg model =
                     , Cmd.none
                     )
 
+        LoadAgain ->
+            (Loading, getPortfolio)
+
+        SetEnglish ->
+            (English, Cmd.none) 
+
+
 
 -- VIEW
 
@@ -133,20 +146,21 @@ view model =
             div []
                 [ text "Can't load JSON file. Something is wrong with GitHub Pages server."
                 , newLine
-                , text "Please contact and "
-                , a [ href "https://twitter.com/Panda_Program" ] [ text "let me know." ]
+                , button [ onClick LoadAgain ] [ text "Try again?" ]
                 ]
 
         Loading ->
             div [] []
 
         Succsess portfolio ->
-            div [] 
-            [ viewApp model portfolio ]
+            div [] [ viewApp portfolio ]
+
+        English ->
+            div [] [ text "English" ]
 
 
-viewApp : Model -> Portfolio -> Html Msg
-viewApp model (portfolio as p) =
+viewApp : Portfolio -> Html Msg
+viewApp (portfolio as p) =
         div []
             [ viewIntro p.intro
             , div [ class "max-w-xl mx-auto container" ]
@@ -217,7 +231,7 @@ flagClassNames =
 
 
 flags : List String
-flags = [ "🇯🇵", "🇬🇧", "🇨🇳"]
+flags = [ "🇯🇵", "🇬🇧", "🇨🇳" ]
 
 
 viewInfo : List Info -> Html Msg
@@ -452,7 +466,3 @@ subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
 
-
--- PORT
-
-port languageSkillsToJs : List Skill -> Cmd msg

@@ -20,7 +20,7 @@
       "description": {
         "ja": "PHP (Laravel, WordPress, Yii). JavaScript (React / Redux / Flow, Node.js). Python (Jupyter Notebook, Pandas, matplotlib, Word2vec). CSS (Bootstrap 4). AWS (Lambda, Cloud Watch, EC2, Route53, KMS). Docker, Vagrant. Selenium, Puppeteer etc.このサイトはElmとTailwind CSSで作成しています。",
         "en": "This site is made with Elm and Tailwind CSS.",
-        "ch": ""
+        "ch": "我用Elm和Tailwind CSS制成这张网页。"
       },
       "icon": "fas fa-code"
     },

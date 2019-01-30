@@ -25,7 +25,6 @@ type Model
     = Failure
     | Loading
     | Succsess Portfolio
-    | English
 
 
 init : () -> (Model, Cmd Msg)
@@ -34,23 +33,26 @@ init _ =
 
 
 port languageSkillsToJs : List Skill -> Cmd msg
+
+
+type alias App =
+    { language : Language
+    , portfolio : Portfolio
+    }
+
+
+type Language
+    = English
+    | Japanese
+    | Chinese
     
 
 type alias Portfolio =
-    { intro : Intro
-    , info : List Info
+    { info : List Info
     , skills : List Skill
     , websites : List Website
     , others : List Other
     , contacts : List Contact
-    }
-
-
-type alias Intro =
-    { className : String
-    , title : String
-    , subtitle : String
-    , icon : String
     }
 
 
@@ -111,11 +113,10 @@ type alias Contact =
 type Msg
     = GotPortfolio (Result Http.Error Portfolio)
     | LoadAgain
-    | SetEnglish 
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
-update msg model =
+update msg model =            
     case msg of
         GotPortfolio result ->
             case result of
@@ -131,10 +132,6 @@ update msg model =
 
         LoadAgain ->
             (Loading, getPortfolio)
-
-        SetEnglish ->
-            (English, Cmd.none) 
-
 
 
 -- VIEW
@@ -155,14 +152,11 @@ view model =
         Succsess portfolio ->
             div [] [ viewApp portfolio ]
 
-        English ->
-            div [] [ text "English" ]
-
 
 viewApp : Portfolio -> Html Msg
 viewApp (portfolio as p) =
         div []
-            [ viewIntro p.intro
+            [ viewTop
             , div [ class "max-w-xl mx-auto container" ]
                 [ viewFlags
                 , viewInfo p.info
@@ -174,13 +168,8 @@ viewApp (portfolio as p) =
             ]
 
 
-viewIntro : Intro -> Html Msg
-viewIntro intro =
-    let 
-        title = intro.title
-        subtitle = intro.subtitle
-        icon = intro.icon
-    in
+viewTop : Html Msg
+viewTop =
         div [ class "intro-container" ] 
             [ div [ class "max-w-xl mx-auto text-center pt-16" ] 
                 [ div []
@@ -190,7 +179,7 @@ viewIntro intro =
                     ]
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
                     [ div [ class "py-2 md:py-4" ]
-                        [ img [ class "w-24 xl:w-32", src intro.icon ] [] ]
+                        [ img [ class "w-24 xl:w-32", src "/assets/icon/code.svg" ] [] ]
                     , div [] 
                         [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
                         , lgNewLine
@@ -383,22 +372,12 @@ getPortfolio =
 
 portfolioDecoder : Decoder Portfolio
 portfolioDecoder =
-    map6 Portfolio
-        (field "intro" introDecoder)
+    map5 Portfolio
         (field "info" (list infoDecoder) )
         (field "skills" (list skillDecoder) )
         (field "websites" (list websiteDecoder) )
         (field "others" (list otherDecoder) )
         (field "contacts" (list contactDecoder) )
-
-
-introDecoder : Decoder Intro
-introDecoder =
-    map4 Intro
-        (field "className" string)
-        (field "title" string)
-        (field "subtitle" string)
-        (field "icon" string)
 
 
 infoDecoder : Decoder Info

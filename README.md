@@ -1,6 +1,8 @@
 # My Portfolio
 
-Special thanks
+https://kushibikimashu.github.io/portfolio/
+
+Special Thanks😂
 
 Elm - A delightful language for reliable webapps<br>
 https://elm-lang.org/

@@ -6424,7 +6424,7 @@ var author$project$Main$viewTop = A2(
 	elm$html$Html$div,
 	_List_fromArray(
 		[
-			elm$html$Html$Attributes$class('intro-container')
+			elm$html$Html$Attributes$class('top-container')
 		]),
 	_List_fromArray(
 		[
@@ -6445,7 +6445,7 @@ var author$project$Main$viewTop = A2(
 							elm$html$Html$span,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('intro-title')
+									elm$html$Html$Attributes$class('top-title')
 								]),
 							_List_fromArray(
 								[
@@ -6456,7 +6456,7 @@ var author$project$Main$viewTop = A2(
 							elm$html$Html$span,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('intro-title')
+									elm$html$Html$Attributes$class('top-title')
 								]),
 							_List_fromArray(
 								[
@@ -6497,7 +6497,7 @@ var author$project$Main$viewTop = A2(
 									elm$html$Html$span,
 									_List_fromArray(
 										[
-											elm$html$Html$Attributes$class('intro-subtitle')
+											elm$html$Html$Attributes$class('top-subtitle')
 										]),
 									_List_fromArray(
 										[
@@ -6508,7 +6508,7 @@ var author$project$Main$viewTop = A2(
 									elm$html$Html$span,
 									_List_fromArray(
 										[
-											elm$html$Html$Attributes$class('intro-subtitle')
+											elm$html$Html$Attributes$class('top-subtitle')
 										]),
 									_List_fromArray(
 										[

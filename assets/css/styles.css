@@ -6414,19 +6414,19 @@ table {
   z-index: auto;
 }
 
-.intro-container {
+.top-container {
   height: 100vh;
   min-height: 614px;
   background: linear-gradient(115.78deg, #384fbb .01%, rgba(160, 204, 230, .938135) 48.15%, rgba(51, 241, 235, .8) 94.73%);
 }
 
-.intro-title {
+.top-title {
   color: #fff;
   font-size: 3rem;
   line-height: 1.25;
 }
 
-.intro-subtitle {
+.top-subtitle {
   color: #fff;
   font-size: 1.875rem;
   font-family: Noto Sans JP;
@@ -6546,7 +6546,7 @@ table {
 }
 
 @media (min-width: 768px) {
-  .intro-title {
+  .top-title {
     font-size: 4rem;
     line-height: 1.5;
   }

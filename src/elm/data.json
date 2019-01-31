@@ -1,16 +1,10 @@
 {
-  "intro": {
-    "className": "className",
-    "title": "Love Creating Web Apps",
-    "subtitle": "I’M MASHU KUSHIBIKI",
-    "icon": "/portfolio/assets/icon/code.svg"
-  },
   "info": [
     {
       "title": "Career",
       "description": {
         "ja": "1991年生まれ。2015年京都大学法学部卒業。伊藤忠商事に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ執筆。ブログ制作でプログラミングに目覚め、独学した後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてサーバーサイドエンジニアとして働いている。",
-        "en": "",
+        "en": "Mashu Kushibiki: Born in Japan in 1991. Graduated from Kyoto Univ in 2015. Worked in the account department for Itochu corp (a trading company) until 2017. Self-taught programming during the break. Now working as a software programmer in Tokyo since 2018.",
         "ch": ""
       },
       "icon": "fas fa-shoe-prints"
@@ -56,14 +50,14 @@
       "color": "#F2D024"
     },
     {
-      "name": "Node.js",
+      "name": "Elm",
       "level": 30,
-      "color": "#794ACF"
+      "color": "#12bbad"
     },
     {
-      "name": "Elm",
+      "name": "Node.js",
       "level": 20,
-      "color": "#12bbad"
+      "color": "#794ACF"
     }
   ],
   "websites": [

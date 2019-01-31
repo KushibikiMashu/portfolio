@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.intro-container {
+.top-container {
   @apply h-screen min-h-614;
   background: linear-gradient(115.78deg, #384FBB 0.01%, rgba(160, 204, 230, 0.938135) 48.15%, rgba(51, 241, 235, 0.8) 94.73%);
 }
 
-.intro-title {
+.top-title {
   @apply text-white text-5xl leading-tight;
 }
 
-.intro-subtitle {
+.top-subtitle {
   @apply text-white text-3xl base-font;
 }
 
@@ -76,7 +76,7 @@
 }
 
 @screen md {
-  .intro-title {
+  .top-title {
     @apply text-4rem leading-normal;
   }
 

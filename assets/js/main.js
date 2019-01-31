@@ -6177,41 +6177,6 @@ var author$project$Main$viewContacts = function (contacts) {
 					]))
 			]));
 };
-var author$project$Main$flagClassNames = _List_fromArray(
-	['text-3xl pr-2', 'text-3xl px-2 border-l border-r border-solid border-grey-dark', 'text-3xl px-2']);
-var author$project$Main$flags = _List_fromArray(
-	['🇯🇵', '🇬🇧', '🇨🇳']);
-var elm$html$Html$li = _VirtualDom_node('li');
-var author$project$Main$viewFlag = F2(
-	function (className, flag) {
-		return A2(
-			elm$html$Html$li,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$class(className)
-				]),
-			_List_fromArray(
-				[
-					elm$html$Html$text(flag)
-				]));
-	});
-var elm$html$Html$ul = _VirtualDom_node('ul');
-var author$project$Main$viewFlags = A2(
-	elm$html$Html$div,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$class('self-start pt-4 justify-center my-auto')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$ul,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$class('flex justify-end px-3 pt-3 list-reset leading-narrow')
-				]),
-			A3(elm$core$List$map2, author$project$Main$viewFlag, author$project$Main$flagClassNames, author$project$Main$flags))
-		]));
 var author$project$Main$infoClassNames = _List_fromArray(
 	['py-6 w-full text-center text-4rem md:text-5xl rotate-1/8 text-red-darker', 'py-2 md:py-4 w-full text-4rem text-center text-blue-dark', 'py-2 md:py-4 w-full text-4rem text-center text-yellow-dark']);
 var author$project$Main$viewDescription = function (d) {
@@ -6672,7 +6637,6 @@ var author$project$Main$viewApp = function (p) {
 					]),
 				_List_fromArray(
 					[
-						author$project$Main$viewFlags,
 						author$project$Main$viewInfo(p.aj),
 						author$project$Main$viewSkills(p.Y),
 						author$project$Main$viewWebsites(p.aH),

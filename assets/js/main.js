@@ -1858,8 +1858,8 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 		flagDecoder,
 		args,
 		impl.aU,
-		impl.a3,
-		impl.a2,
+		impl.a1,
+		impl.a0,
 		function() { return function() {} }
 	);
 });
@@ -2331,9 +2331,9 @@ var _Http_toTask = F3(function(router, toTask, request)
 		elm$core$Maybe$isJust(request.j) && _Http_track(router, xhr, request.j.a);
 
 		try {
-			xhr.open(request.h, request.a4, true);
+			xhr.open(request.h, request.a2, true);
 		} catch (e) {
-			return done(elm$http$Http$BadUrl_(request.a4));
+			return done(elm$http$Http$BadUrl_(request.a2));
 		}
 
 		_Http_configureRequest(xhr, request);
@@ -2377,9 +2377,9 @@ function _Http_toResponse(toBody, xhr)
 function _Http_toMetadata(xhr)
 {
 	return {
-		a4: xhr.responseURL,
+		a2: xhr.responseURL,
 		aC: xhr.status,
-		a1: xhr.statusText,
+		a$: xhr.statusText,
 		e: _Http_parseHeaders(xhr.getAllResponseHeaders())
 	};
 }
@@ -2475,14 +2475,14 @@ function _Http_track(router, xhr, tracker)
 	xhr.upload.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2(elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, elm$http$Http$Sending({
-			a0: event.loaded,
+			a_: event.loaded,
 			X: event.total
 		}))));
 	});
 	xhr.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2(elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, elm$http$Http$Receiving({
-			a_: event.loaded,
+			aY: event.loaded,
 			X: event.lengthComputable ? elm$core$Maybe$Just(event.total) : elm$core$Maybe$Nothing
 		}))));
 	});
@@ -4059,10 +4059,10 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 		flagDecoder,
 		args,
 		impl.aU,
-		impl.a3,
-		impl.a2,
+		impl.a1,
+		impl.a0,
 		function(sendToApp, initialModel) {
-			var view = impl.a5;
+			var view = impl.a3;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -4095,11 +4095,11 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		flagDecoder,
 		args,
 		impl.aU,
-		impl.a3,
-		impl.a2,
+		impl.a1,
+		impl.a0,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.J && impl.J(sendToApp)
-			var view = impl.a5;
+			var view = impl.a3;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -4168,8 +4168,8 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.aW;
-	var onUrlRequest = impl.aX;
+	var onUrlChange = impl.aV;
+	var onUrlRequest = impl.aW;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
@@ -4203,9 +4203,9 @@ function _Browser_application(impl)
 		{
 			return A3(impl.aU, flags, _Browser_getUrl(), key);
 		},
-		a5: impl.a5,
 		a3: impl.a3,
-		a2: impl.a2
+		a1: impl.a1,
+		a0: impl.a0
 	});
 }
 
@@ -5928,7 +5928,7 @@ var elm$http$Http$cmdMap = F2(
 					h: r.h,
 					i: r.i,
 					j: r.j,
-					a4: r.a4
+					a2: r.a2
 				});
 		}
 	});
@@ -5951,16 +5951,16 @@ var elm$http$Http$subscription = _Platform_leaf('Http');
 var elm$http$Http$request = function (r) {
 	return elm$http$Http$command(
 		elm$http$Http$Request(
-			{v: false, aK: r.aK, aP: r.aP, e: r.e, h: r.h, i: r.i, j: r.j, a4: r.a4}));
+			{v: false, aK: r.aK, aP: r.aP, e: r.e, h: r.h, i: r.i, j: r.j, a2: r.a2}));
 };
 var elm$http$Http$get = function (r) {
 	return elm$http$Http$request(
-		{aK: elm$http$Http$emptyBody, aP: r.aP, e: _List_Nil, h: 'GET', i: elm$core$Maybe$Nothing, j: elm$core$Maybe$Nothing, a4: r.a4});
+		{aK: elm$http$Http$emptyBody, aP: r.aP, e: _List_Nil, h: 'GET', i: elm$core$Maybe$Nothing, j: elm$core$Maybe$Nothing, a2: r.a2});
 };
 var author$project$Main$getPortfolio = elm$http$Http$get(
 	{
 		aP: A2(elm$http$Http$expectJson, author$project$Main$GotPortfolio, author$project$Main$portfolioDecoder),
-		a4: '/portfolio/src/elm/data.json'
+		a2: '/portfolio/src/elm/data.json'
 	});
 var author$project$Main$init = function (_n0) {
 	return _Utils_Tuple2(author$project$Main$Loading, author$project$Main$getPortfolio);
@@ -6177,41 +6177,6 @@ var author$project$Main$viewContacts = function (contacts) {
 					]))
 			]));
 };
-var author$project$Main$flagClassNames = _List_fromArray(
-	['text-3xl pr-2', 'text-3xl px-2 border-l border-r border-solid border-grey-dark', 'text-3xl px-2']);
-var author$project$Main$flags = _List_fromArray(
-	['🇯🇵', '🇬🇧', '🇨🇳']);
-var elm$html$Html$li = _VirtualDom_node('li');
-var author$project$Main$viewFlag = F2(
-	function (className, flag) {
-		return A2(
-			elm$html$Html$li,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$class(className)
-				]),
-			_List_fromArray(
-				[
-					elm$html$Html$text(flag)
-				]));
-	});
-var elm$html$Html$ul = _VirtualDom_node('ul');
-var author$project$Main$viewFlags = A2(
-	elm$html$Html$div,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$class('self-start pt-4 justify-center my-auto')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$ul,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$class('flex justify-end px-3 pt-3 list-reset leading-narrow')
-				]),
-			A3(elm$core$List$map2, author$project$Main$viewFlag, author$project$Main$flagClassNames, author$project$Main$flags))
-		]));
 var author$project$Main$infoClassNames = _List_fromArray(
 	['py-6 w-full text-center text-4rem md:text-5xl rotate-1/8 text-red-darker', 'py-2 md:py-4 w-full text-4rem text-center text-blue-dark', 'py-2 md:py-4 w-full text-4rem text-center text-yellow-dark']);
 var author$project$Main$viewDescription = function (d) {
@@ -6672,7 +6637,6 @@ var author$project$Main$viewApp = function (p) {
 					]),
 				_List_fromArray(
 					[
-						author$project$Main$viewFlags,
 						author$project$Main$viewInfo(p.aj),
 						author$project$Main$viewSkills(p.Y),
 						author$project$Main$viewWebsites(p.aH),
@@ -6930,6 +6894,6 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$element = _Browser_element;
 var author$project$Main$main = elm$browser$Browser$element(
-	{aU: author$project$Main$init, a2: author$project$Main$subscriptions, a3: author$project$Main$update, a5: author$project$Main$view});
+	{aU: author$project$Main$init, a0: author$project$Main$subscriptions, a1: author$project$Main$update, a3: author$project$Main$view});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	elm$json$Json$Decode$succeed(0))(0)}});}(this));

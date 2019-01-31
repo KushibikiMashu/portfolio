@@ -179,7 +179,7 @@ viewTop =
                     ]
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
                     [ div [ class "py-2 md:py-4" ]
-                        [ img [ class "w-24 xl:w-32", src "/assets/icon/code.svg" ] [] ]
+                        [ img [ class "w-24 xl:w-32", src "/portfolio/assets/icon/code.svg" ] [] ]
                     , div [] 
                         [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
                         , lgNewLine

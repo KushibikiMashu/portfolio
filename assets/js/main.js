@@ -6484,7 +6484,7 @@ var author$project$Main$viewTop = A2(
 									_List_fromArray(
 										[
 											elm$html$Html$Attributes$class('w-24 xl:w-32'),
-											elm$html$Html$Attributes$src('/assets/icon/code.svg')
+											elm$html$Html$Attributes$src('/portfolio/assets/icon/code.svg')
 										]),
 									_List_Nil)
 								])),

@@ -3,7 +3,7 @@
     "className": "className",
     "title": "Love Creating Web Apps",
     "subtitle": "I’M MASHU KUSHIBIKI",
-    "icon": "/assets/icon/code.svg"
+    "icon": "/portfolio/assets/icon/code.svg"
   },
   "info": [
     {
@@ -76,7 +76,7 @@
       },
       "tech": ["Laravel", "React", "Material-UI", "Docker"],
       "image": {
-        "src": "/assets/images/hipsty.png",
+        "src": "/portfolio/assets/images/hipsty.png",
         "alt": "Music videos of Japanese HIPHOP"
       },
       "icon": "fas fa-music",
@@ -91,7 +91,7 @@
       },
       "tech": ["PHP", "Bootstrap 4", "Highcharts", "MySQL"],
       "image": {
-        "src": "/assets/images/bitcoin_chart.png",
+        "src": "/portfolio/assets/images/bitcoin_chart.png",
         "alt": "Bitcoin chart"
       },
       "icon": "fab fa-bitcoin",
@@ -106,7 +106,7 @@
       },
       "tech": ["HTML", "Bootstrap 4", "jQuery"],
       "image": {
-        "src": "/assets/images/whisky_distilleries.png",
+        "src": "/portfolio/assets/images/whisky_distilleries.png",
         "alt": "Japanese whisky distilleries"
       },
       "icon": "fas fa-glass-whiskey",
@@ -117,7 +117,7 @@
     {
       "title": "Tech Blog",
       "image": {
-        "src": "/assets/images/qiita.png",
+        "src": "/portfolio/assets/images/qiita.png",
         "alt": "Profile page of my tech blog"
       },
       "link": "https://qiita.com/Panda_Program"
@@ -125,7 +125,7 @@
     {
       "title": "Lightning Talk",
       "image": {
-        "src": "/assets/images/lightning_talk.jpg",
+        "src": "/portfolio/assets/images/lightning_talk.jpg",
         "alt": "Giving a lightning talk"
       },
       "link": "https://note.mu/panda_programm/n/n5135b0294d85"
@@ -133,7 +133,7 @@
     {
       "title": "Travel Blog",
       "image": {
-        "src": "/assets/images/blog.png",
+        "src": "/portfolio/assets/images/blog.png",
         "alt": "Blog about travel in China"
       },
       "link": "https://ccculture.net/"

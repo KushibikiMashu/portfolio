@@ -365,7 +365,7 @@ viewContact (contact as c) =
 getPortfolio : Cmd Msg
 getPortfolio =
     Http.get
-    { url = "/src/elm/data.json"
+    { url = "/portfolio/src/elm/data.json"
     , expect = Http.expectJson GotPortfolio portfolioDecoder
     }
 

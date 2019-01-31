@@ -74,7 +74,7 @@
         "en": "This web app is for Japanese HIPHOP lovers to find new music videos. This program calls YouTube API to fetch new data every five minutes.",
         "ch": ""
       },
-      "tech": ["Laravel", "React", "Material-UI", "Docker", "EC2"],
+      "tech": ["Laravel", "React", "Material-UI", "Docker"],
       "image": {
         "src": "/assets/images/hipsty.png",
         "alt": "Music videos of Japanese HIPHOP"

@@ -240,7 +240,7 @@ viewInfoItem info infoClassName =
             [ div [ class "about-card-title" ] [ text info.title ]
             , i [ class className ] []
             , div [ class "px-8 py-6" ]
-                [ p [ class "card-text" ] [ viewDescription info.description ] ]
+                [ p [ class "card-text md:h-210px" ] [ viewDescription info.description ] ]
             ]
 
 

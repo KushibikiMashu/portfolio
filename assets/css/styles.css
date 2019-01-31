@@ -3251,6 +3251,10 @@ table {
   height: 136px;
 }
 
+.h-210px {
+  height: 210px;
+}
+
 .h-320px {
   height: 320px;
 }
@@ -6488,6 +6492,7 @@ table {
 .card-text {
   color: #606f7b;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 .tooltip {
@@ -9294,6 +9299,10 @@ table {
 
   .sm\:h-136px {
     height: 136px;
+  }
+
+  .sm\:h-210px {
+    height: 210px;
   }
 
   .sm\:h-320px {
@@ -15154,6 +15163,10 @@ table {
     height: 136px;
   }
 
+  .md\:h-210px {
+    height: 210px;
+  }
+
   .md\:h-320px {
     height: 320px;
   }
@@ -21012,6 +21025,10 @@ table {
     height: 136px;
   }
 
+  .lg\:h-210px {
+    height: 210px;
+  }
+
   .lg\:h-320px {
     height: 320px;
   }
@@ -26868,6 +26885,10 @@ table {
 
   .xl\:h-136px {
     height: 136px;
+  }
+
+  .xl\:h-210px {
+    height: 210px;
   }
 
   .xl\:h-320px {

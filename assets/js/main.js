@@ -4489,9 +4489,9 @@ var author$project$Main$Loading = {$: 'Loading'};
 var author$project$Main$GotPortfolio = function (a) {
 	return {$: 'GotPortfolio', a: a};
 };
-var author$project$Main$Portfolio = F6(
-	function (intro, info, skills, websites, others, contacts) {
-		return {contacts: contacts, info: info, intro: intro, others: others, skills: skills, websites: websites};
+var author$project$Main$Portfolio = F5(
+	function (info, skills, websites, others, contacts) {
+		return {contacts: contacts, info: info, others: others, skills: skills, websites: websites};
 	});
 var author$project$Main$Contact = F4(
 	function (name, icon, color, link) {
@@ -5003,17 +5003,6 @@ var author$project$Main$infoDecoder = A4(
 	A2(elm$json$Json$Decode$field, 'title', elm$json$Json$Decode$string),
 	A2(elm$json$Json$Decode$field, 'description', author$project$Main$descriptionDecoder),
 	A2(elm$json$Json$Decode$field, 'icon', elm$json$Json$Decode$string));
-var author$project$Main$Intro = F4(
-	function (className, title, subtitle, icon) {
-		return {className: className, icon: icon, subtitle: subtitle, title: title};
-	});
-var author$project$Main$introDecoder = A5(
-	elm$json$Json$Decode$map4,
-	author$project$Main$Intro,
-	A2(elm$json$Json$Decode$field, 'className', elm$json$Json$Decode$string),
-	A2(elm$json$Json$Decode$field, 'title', elm$json$Json$Decode$string),
-	A2(elm$json$Json$Decode$field, 'subtitle', elm$json$Json$Decode$string),
-	A2(elm$json$Json$Decode$field, 'icon', elm$json$Json$Decode$string));
 var author$project$Main$Other = F3(
 	function (title, image, link) {
 		return {image: image, link: link, title: title};
@@ -5063,10 +5052,10 @@ var author$project$Main$websiteDecoder = A7(
 	A2(elm$json$Json$Decode$field, 'image', author$project$Main$imageDecoder),
 	A2(elm$json$Json$Decode$field, 'icon', elm$json$Json$Decode$string),
 	A2(elm$json$Json$Decode$field, 'link', elm$json$Json$Decode$string));
-var author$project$Main$portfolioDecoder = A7(
-	elm$json$Json$Decode$map6,
+var elm$json$Json$Decode$map5 = _Json_map5;
+var author$project$Main$portfolioDecoder = A6(
+	elm$json$Json$Decode$map5,
 	author$project$Main$Portfolio,
-	A2(elm$json$Json$Decode$field, 'intro', author$project$Main$introDecoder),
 	A2(
 		elm$json$Json$Decode$field,
 		'info',
@@ -5087,9 +5076,6 @@ var author$project$Main$portfolioDecoder = A7(
 		elm$json$Json$Decode$field,
 		'contacts',
 		elm$json$Json$Decode$list(author$project$Main$contactDecoder)));
-var elm$core$Basics$identity = function (x) {
-	return x;
-};
 var elm$core$Result$mapError = F2(
 	function (f, result) {
 		if (result.$ === 'Ok') {
@@ -5106,6 +5092,9 @@ var elm$core$Basics$composeR = F3(
 		return g(
 			f(x));
 	});
+var elm$core$Basics$identity = function (x) {
+	return x;
+};
 var elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
 var elm$core$Dict$empty = elm$core$Dict$RBEmpty_elm_builtin;
 var elm$core$Basics$compare = _Utils_compare;
@@ -6031,16 +6020,21 @@ var elm$core$Platform$Cmd$batch = _Platform_batch;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$Main$update = F2(
 	function (msg, model) {
-		var result = msg.a;
-		if (result.$ === 'Ok') {
-			var portfolio = result.a;
-			return _Utils_Tuple2(
-				author$project$Main$Succsess(portfolio),
-				author$project$Main$languageSkillsToJs(portfolio.skills));
+		if (msg.$ === 'GotPortfolio') {
+			var result = msg.a;
+			if (result.$ === 'Ok') {
+				var portfolio = result.a;
+				return _Utils_Tuple2(
+					author$project$Main$Succsess(portfolio),
+					author$project$Main$languageSkillsToJs(portfolio.skills));
+			} else {
+				return _Utils_Tuple2(author$project$Main$Failure, elm$core$Platform$Cmd$none);
+			}
 		} else {
-			return _Utils_Tuple2(author$project$Main$Failure, elm$core$Platform$Cmd$none);
+			return _Utils_Tuple2(author$project$Main$Loading, author$project$Main$getPortfolio);
 		}
 	});
+var author$project$Main$LoadAgain = {$: 'LoadAgain'};
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$succeed = _Json_succeed;
 var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
@@ -6224,10 +6218,7 @@ var author$project$Main$viewDescription = function (d) {
 	var description = d;
 	return A2(
 		elm$html$Html$div,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$class('')
-			]),
+		_List_Nil,
 		_List_fromArray(
 			[
 				elm$html$Html$text(d.ja)
@@ -6273,7 +6264,7 @@ var author$project$Main$viewInfoItem = F2(
 							elm$html$Html$p,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('card-text md:h-48')
+									elm$html$Html$Attributes$class('card-text md:h-210px')
 								]),
 							_List_fromArray(
 								[
@@ -6310,124 +6301,14 @@ var author$project$Main$viewInfo = function (info) {
 				A3(elm$core$List$map2, author$project$Main$viewInfoItem, info, author$project$Main$infoClassNames))
 			]));
 };
-var author$project$Main$lgNewLine = A2(
-	elm$html$Html$br,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$class('block lg:hidden')
-		]),
-	_List_Nil);
 var elm$html$Html$img = _VirtualDom_node('img');
+var elm$html$Html$Attributes$alt = elm$html$Html$Attributes$stringProperty('alt');
 var elm$html$Html$Attributes$src = function (url) {
 	return A2(
 		elm$html$Html$Attributes$stringProperty,
 		'src',
 		_VirtualDom_noJavaScriptOrHtmlUri(url));
 };
-var author$project$Main$viewIntro = function (intro) {
-	var title = intro.title;
-	var subtitle = intro.subtitle;
-	var icon = intro.icon;
-	return A2(
-		elm$html$Html$div,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$class('intro-container')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('max-w-xl mx-auto text-center pt-16')
-					]),
-				_List_fromArray(
-					[
-						A2(
-						elm$html$Html$div,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A2(
-								elm$html$Html$span,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('intro-title')
-									]),
-								_List_fromArray(
-									[
-										elm$html$Html$text('Love Creating')
-									])),
-								author$project$Main$newLine,
-								A2(
-								elm$html$Html$span,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('intro-title')
-									]),
-								_List_fromArray(
-									[
-										elm$html$Html$text('Web Apps')
-									]))
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('absolute pin-r pin-l pin-b pb-12')
-							]),
-						_List_fromArray(
-							[
-								A2(
-								elm$html$Html$div,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('py-2 md:py-4')
-									]),
-								_List_fromArray(
-									[
-										A2(
-										elm$html$Html$img,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('w-24 xl:w-32'),
-												elm$html$Html$Attributes$src(intro.icon)
-											]),
-										_List_Nil)
-									])),
-								A2(
-								elm$html$Html$div,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										elm$html$Html$span,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('intro-subtitle')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('I’M MASHU')
-											])),
-										author$project$Main$lgNewLine,
-										A2(
-										elm$html$Html$span,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('intro-subtitle')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text(' KUSHIBIKI')
-											]))
-									]))
-							]))
-					]))
-			]));
-};
-var elm$html$Html$Attributes$alt = elm$html$Html$Attributes$stringProperty('alt');
 var author$project$Main$viewOther = function (o) {
 	var other = o;
 	var imageSrc = o.image.src;
@@ -6499,6 +6380,13 @@ var author$project$Main$viewOthers = function (others) {
 				A2(elm$core$List$map, author$project$Main$viewOther, others))
 			]));
 };
+var author$project$Main$lgNewLine = A2(
+	elm$html$Html$br,
+	_List_fromArray(
+		[
+			elm$html$Html$Attributes$class('block lg:hidden')
+		]),
+	_List_Nil);
 var elm$html$Html$canvas = _VirtualDom_node('canvas');
 var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
 var author$project$Main$viewSkills = function (skills) {
@@ -6523,22 +6411,6 @@ var author$project$Main$viewSkills = function (skills) {
 						elm$html$Html$text(' SKILLS')
 					])),
 				A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$id('here')
-					]),
-				_List_fromArray(
-					[
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$id('here2')
-							]),
-						_List_Nil)
-					])),
-				A2(
 				elm$html$Html$canvas,
 				_List_fromArray(
 					[
@@ -6548,6 +6420,104 @@ var author$project$Main$viewSkills = function (skills) {
 				_List_Nil)
 			]));
 };
+var author$project$Main$viewTop = A2(
+	elm$html$Html$div,
+	_List_fromArray(
+		[
+			elm$html$Html$Attributes$class('intro-container')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('max-w-xl mx-auto text-center pt-16')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$span,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class('intro-title')
+								]),
+							_List_fromArray(
+								[
+									elm$html$Html$text('Love Creating')
+								])),
+							author$project$Main$newLine,
+							A2(
+							elm$html$Html$span,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class('intro-title')
+								]),
+							_List_fromArray(
+								[
+									elm$html$Html$text('Web Apps')
+								]))
+						])),
+					A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('absolute pin-r pin-l pin-b pb-12')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class('py-2 md:py-4')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									elm$html$Html$img,
+									_List_fromArray(
+										[
+											elm$html$Html$Attributes$class('w-24 xl:w-32'),
+											elm$html$Html$Attributes$src('/assets/icon/code.svg')
+										]),
+									_List_Nil)
+								])),
+							A2(
+							elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									elm$html$Html$span,
+									_List_fromArray(
+										[
+											elm$html$Html$Attributes$class('intro-subtitle')
+										]),
+									_List_fromArray(
+										[
+											elm$html$Html$text('I’M MASHU')
+										])),
+									author$project$Main$lgNewLine,
+									A2(
+									elm$html$Html$span,
+									_List_fromArray(
+										[
+											elm$html$Html$Attributes$class('intro-subtitle')
+										]),
+									_List_fromArray(
+										[
+											elm$html$Html$text(' KUSHIBIKI')
+										]))
+								]))
+						]))
+				]))
+		]));
 var author$project$Main$viewTech = function (tech) {
 	var tag = '#' + tech;
 	return A2(
@@ -6686,32 +6656,49 @@ var author$project$Main$viewWebsites = function (websites) {
 				A3(elm$core$List$map2, author$project$Main$viewWebsiteItem, websites, author$project$Main$websiteIconColors))
 			]));
 };
-var author$project$Main$viewApp = F2(
-	function (model, p) {
-		var portfolio = p;
+var author$project$Main$viewApp = function (p) {
+	var portfolio = p;
+	return A2(
+		elm$html$Html$div,
+		_List_Nil,
+		_List_fromArray(
+			[
+				author$project$Main$viewTop,
+				A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('max-w-xl mx-auto container')
+					]),
+				_List_fromArray(
+					[
+						author$project$Main$viewFlags,
+						author$project$Main$viewInfo(p.info),
+						author$project$Main$viewSkills(p.skills),
+						author$project$Main$viewWebsites(p.websites),
+						author$project$Main$viewOthers(p.others)
+					])),
+				author$project$Main$viewContacts(p.contacts)
+			]));
+};
+var elm$html$Html$button = _VirtualDom_node('button');
+var elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var elm$html$Html$Events$on = F2(
+	function (event, decoder) {
 		return A2(
-			elm$html$Html$div,
-			_List_Nil,
-			_List_fromArray(
-				[
-					author$project$Main$viewIntro(p.intro),
-					A2(
-					elm$html$Html$div,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$class('max-w-xl mx-auto container')
-						]),
-					_List_fromArray(
-						[
-							author$project$Main$viewFlags,
-							author$project$Main$viewInfo(p.info),
-							author$project$Main$viewSkills(p.skills),
-							author$project$Main$viewWebsites(p.websites),
-							author$project$Main$viewOthers(p.others)
-						])),
-					author$project$Main$viewContacts(p.contacts)
-				]));
+			elm$virtual_dom$VirtualDom$on,
+			event,
+			elm$virtual_dom$VirtualDom$Normal(decoder));
 	});
+var elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		elm$html$Html$Events$on,
+		'click',
+		elm$json$Json$Decode$succeed(msg));
+};
 var author$project$Main$view = function (model) {
 	switch (model.$) {
 		case 'Failure':
@@ -6722,16 +6709,15 @@ var author$project$Main$view = function (model) {
 					[
 						elm$html$Html$text('Can\'t load JSON file. Something is wrong with GitHub Pages server.'),
 						author$project$Main$newLine,
-						elm$html$Html$text('Please contact and '),
 						A2(
-						elm$html$Html$a,
+						elm$html$Html$button,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$href('https://twitter.com/Panda_Program')
+								elm$html$Html$Events$onClick(author$project$Main$LoadAgain)
 							]),
 						_List_fromArray(
 							[
-								elm$html$Html$text('let me know.')
+								elm$html$Html$text('Try again?')
 							]))
 					]));
 		case 'Loading':
@@ -6743,7 +6729,7 @@ var author$project$Main$view = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
-						A2(author$project$Main$viewApp, model, portfolio)
+						author$project$Main$viewApp(portfolio)
 					]));
 	}
 };

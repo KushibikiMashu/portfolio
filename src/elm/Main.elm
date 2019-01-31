@@ -32,9 +32,23 @@ init _ =
     (Loading, getPortfolio)
 
 
+port languageSkillsToJs : List Skill -> Cmd msg
+
+
+type alias App =
+    { language : Language
+    , portfolio : Portfolio
+    }
+
+
+type Language
+    = English
+    | Japanese
+    | Chinese
+    
+
 type alias Portfolio =
-    { intro : Intro
-    , info : List Info
+    { info : List Info
     , skills : List Skill
     , websites : List Website
     , others : List Other
@@ -42,18 +56,17 @@ type alias Portfolio =
     }
 
 
-type alias Intro =
-    { className : String
-    , title : String
-    , subtitle : String
-    , icon : String
-    }
-
-
 type alias Info =
     { title : String
     , description : Description
     , icon : String
+    }
+
+
+type alias Description =
+    { ja : String
+    , en : String
+    , ch : String
     }
 
 
@@ -74,6 +87,12 @@ type alias Website =
     }
 
 
+type alias Image =
+    { src : String
+    , alt : String
+    }
+
+
 type alias Other =
     { title : String
     , image : Image
@@ -89,27 +108,15 @@ type alias Contact =
     }
 
 
-type alias Description =
-    { ja : String
-    , en : String
-    , ch : String
-    }
-
-
-type alias Image =
-    { src : String
-    , alt : String
-    }
-
-
 -- UPDATE
 
 type Msg
     = GotPortfolio (Result Http.Error Portfolio)
+    | LoadAgain
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
-update msg model =
+update msg model =            
     case msg of
         GotPortfolio result ->
             case result of
@@ -123,6 +130,9 @@ update msg model =
                     , Cmd.none
                     )
 
+        LoadAgain ->
+            (Loading, getPortfolio)
+
 
 -- VIEW
 
@@ -133,24 +143,23 @@ view model =
             div []
                 [ text "Can't load JSON file. Something is wrong with GitHub Pages server."
                 , newLine
-                , text "Please contact and "
-                , a [ href "https://twitter.com/Panda_Program" ] [ text "let me know." ]
+                , button [ onClick LoadAgain ] [ text "Try again?" ]
                 ]
 
         Loading ->
             div [] []
 
         Succsess portfolio ->
-            div [] 
-            [ viewApp model portfolio ]
+            div [] [ viewApp portfolio ]
 
 
-viewApp : Model -> Portfolio -> Html Msg
-viewApp model (portfolio as p) =
+viewApp : Portfolio -> Html Msg
+viewApp (portfolio as p) =
         div []
-            [ viewIntro p.intro
+            [ viewTop
             , div [ class "max-w-xl mx-auto container" ]
-                [ viewInfo p.info
+                [ viewFlags
+                , viewInfo p.info
                 , viewSkills p.skills
                 , viewWebsites p.websites
                 , viewOthers p.others
@@ -159,13 +168,8 @@ viewApp model (portfolio as p) =
             ]
 
 
-viewIntro : Intro -> Html Msg
-viewIntro intro =
-    let 
-        title = intro.title
-        subtitle = intro.subtitle
-        icon = intro.icon
-    in
+viewTop : Html Msg
+viewTop =
         div [ class "intro-container" ] 
             [ div [ class "max-w-xl mx-auto text-center pt-16" ] 
                 [ div []
@@ -175,7 +179,7 @@ viewIntro intro =
                     ]
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
                     [ div [ class "py-2 md:py-4" ]
-                        [ img [ class "w-24 xl:w-32", src intro.icon ] [] ]
+                        [ img [ class "w-24 xl:w-32", src "/assets/icon/code.svg" ] [] ]
                     , div [] 
                         [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
                         , lgNewLine
@@ -192,6 +196,31 @@ newLine = br [] []
 
 lgNewLine : Html Msg
 lgNewLine = br [ class "block lg:hidden" ] []
+
+
+viewFlags : Html Msg
+viewFlags =
+    div [ class "self-start pt-4 justify-center my-auto" ]
+        [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
+            (List.map2 viewFlag flagClassNames flags)
+        ]
+
+
+viewFlag : String -> String -> Html Msg
+viewFlag className flag =
+    li [ class className ] [ text flag ]
+
+
+flagClassNames : List String
+flagClassNames =
+    [ "text-3xl pr-2"
+    , "text-3xl px-2 border-l border-r border-solid border-grey-dark"
+    , "text-3xl px-2"
+    ]
+
+
+flags : List String
+flags = [ "🇯🇵", "🇬🇧", "🇨🇳" ]
 
 
 viewInfo : List Info -> Html Msg
@@ -211,7 +240,7 @@ viewInfoItem info infoClassName =
             [ div [ class "about-card-title" ] [ text info.title ]
             , i [ class className ] []
             , div [ class "px-8 py-6" ]
-                [ p [ class "card-text md:h-48" ] [ viewDescription info.description ] ]
+                [ p [ class "card-text" ] [ viewDescription info.description ] ]
             ]
 
 
@@ -225,7 +254,7 @@ infoClassNames =
 
 viewDescription : Description -> Html Msg
 viewDescription (description as d) =
-        div [ class "" ] [ text d.ja ]
+        div [] [ text d.ja ]
 
 
 viewSkills : List Skill -> Html Msg
@@ -343,22 +372,12 @@ getPortfolio =
 
 portfolioDecoder : Decoder Portfolio
 portfolioDecoder =
-    map6 Portfolio
-        (field "intro" introDecoder)
+    map5 Portfolio
         (field "info" (list infoDecoder) )
         (field "skills" (list skillDecoder) )
         (field "websites" (list websiteDecoder) )
         (field "others" (list otherDecoder) )
         (field "contacts" (list contactDecoder) )
-
-
-introDecoder : Decoder Intro
-introDecoder =
-    map4 Intro
-        (field "className" string)
-        (field "title" string)
-        (field "subtitle" string)
-        (field "icon" string)
 
 
 infoDecoder : Decoder Info
@@ -426,7 +445,3 @@ subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
 
-
--- PORT
-
-port languageSkillsToJs : List Skill -> Cmd msg

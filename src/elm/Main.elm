@@ -158,7 +158,8 @@ viewApp (portfolio as p) =
         div []
             [ viewTop
             , div [ class "max-w-xl mx-auto container" ]
-                [ viewInfo p.info
+                [ viewFlags
+                , viewInfo p.info
                 , viewSkills p.skills
                 , viewWebsites p.websites
                 , viewOthers p.others
@@ -169,20 +170,20 @@ viewApp (portfolio as p) =
 
 viewTop : Html Msg
 viewTop =
-        div [ class "intro-container" ] 
+        div [ class "top-container" ] 
             [ div [ class "max-w-xl mx-auto text-center pt-16" ] 
                 [ div []
-                    [ span [ class "intro-title" ] [ text "Love Creating" ]
+                    [ span [ class "top-title" ] [ text "Love Creating" ]
                     , newLine
-                    , span [ class "intro-title" ] [ text "Web Apps" ]
+                    , span [ class "top-title" ] [ text "Web Apps" ]
                     ]
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
                     [ div [ class "py-2 md:py-4" ]
                         [ img [ class "w-24 xl:w-32", src "/portfolio/assets/icon/code.svg" ] [] ]
                     , div [] 
-                        [ span [ class "intro-subtitle" ] [ text "I’M MASHU" ]
+                        [ span [ class "top-subtitle" ] [ text "I’M MASHU" ]
                         , lgNewLine
-                        , span [ class "intro-subtitle" ] [ text " KUSHIBIKI" ]
+                        , span [ class "top-subtitle" ] [ text " KUSHIBIKI" ]
                         ]
                     ]
                 ]
@@ -195,6 +196,31 @@ newLine = br [] []
 
 lgNewLine : Html Msg
 lgNewLine = br [ class "block lg:hidden" ] []
+
+
+viewFlags : Html Msg
+viewFlags =
+    div [ class "self-start pt-4 justify-center my-auto" ]
+        [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
+            (List.map2 viewFlag flagClassNames flags)
+        ]
+
+
+viewFlag : String -> String -> Html Msg
+viewFlag className flag =
+    li [ class className ] [ text flag ]
+
+
+flagClassNames : List String
+flagClassNames =
+    [ "text-3xl pr-2"
+    , "text-3xl px-2 border-l border-r border-solid border-grey-dark"
+    , "text-3xl px-2"
+    ]
+
+
+flags : List String
+flags = [ "🇯🇵", "🇬🇧", "🇨🇳" ]
 
 
 viewInfo : List Info -> Html Msg
@@ -418,4 +444,3 @@ imageDecoder =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
-

@@ -24,7 +24,7 @@ main =
 type Model
     = Failure
     | Loading
-    | Succsess Portfolio
+    | Success Portfolio Locale
 
 
 init : () -> (Model, Cmd Msg)
@@ -33,6 +33,12 @@ init _ =
 
 
 port languageSkillsToJs : List Skill -> Cmd msg
+
+
+type Locale 
+    = English
+    | Japanese
+    | Chinese
 
 
 type alias Portfolio =
@@ -109,7 +115,7 @@ update msg model =
         GotPortfolio result ->
             case result of
                 Ok portfolio ->
-                    ( Succsess portfolio
+                    ( Success portfolio English
                     , (languageSkillsToJs portfolio.skills)
                     )
 
@@ -137,16 +143,17 @@ view model =
         Loading ->
             div [] []
 
-        Succsess portfolio ->
-            div [] [ viewApp portfolio ]
+
+        Success portfolio language ->
+            div [] [ viewApp portfolio language ]
 
 
-viewApp : Portfolio -> Html Msg
-viewApp (portfolio as p) =
+viewApp : Portfolio -> Locale -> Html Msg
+viewApp (portfolio as p) language =
         div []
             [ viewTop
             , div [ class "max-w-xl mx-auto container" ]
-                [ viewFlags
+                [ viewFlags p
                 , viewInfo p.info
                 , viewSkills p.skills
                 , viewWebsites p.websites
@@ -186,29 +193,15 @@ lgNewLine : Html Msg
 lgNewLine = br [ class "block lg:hidden" ] []
 
 
-viewFlags : Html Msg
-viewFlags =
+viewFlags : Portfolio -> Html Msg
+viewFlags (portfolio as p) =
     div [ class "self-start pt-4 justify-center my-auto" ]
         [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
-            (List.map2 viewFlag flagClassNames flags)
+            [   li [ class "text-3xl pr-2" ] [ text "🇬🇧" ]
+            ,   li [ class "text-3xl px-2 border-l border-r border-solid border-grey-dark" ] [ text "🇯🇵" ]
+            ,   li [ class "text-3xl px-2" ] [ text "🇨🇳" ]
+            ]
         ]
-
-
-viewFlag : String -> String -> Html Msg
-viewFlag className flag =
-    li [ class className ] [ text flag ]
-
-
-flagClassNames : List String
-flagClassNames =
-    [ "text-3xl pr-2"
-    , "text-3xl px-2 border-l border-r border-solid border-grey-dark"
-    , "text-3xl px-2"
-    ]
-
-
-flags : List String
-flags = [ "🇯🇵", "🇬🇧", "🇨🇳" ]
 
 
 viewInfo : List Info -> Html Msg
@@ -353,7 +346,7 @@ viewContact (contact as c) =
 getPortfolio : Cmd Msg
 getPortfolio =
     Http.get
-    { url = "/portfolio/src/elm/data.json"
+    { url = "/src/elm/data.json"
     , expect = Http.expectJson GotPortfolio portfolioDecoder
     }
 

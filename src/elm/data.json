@@ -3,18 +3,18 @@
     {
       "title": "Career",
       "description": {
-        "ja": "1991年生まれ。2015年京都大学法学部卒業。伊藤忠商事に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ執筆。ブログ制作でプログラミングに目覚め、独学した後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてサーバーサイドエンジニアとして働いている。",
+        "ja": "1991年生まれ。2015年京都大学法学部卒業。伊藤忠商事に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ立ち上げ。ブログ制作でプログラミングに目覚め、独学した後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてサーバーサイドエンジニアとして働いている。",
         "en": "Mashu Kushibiki: Born in Japan in 1991. Graduated from Kyoto Univ in 2015. Worked in the account department for Itochu corp (a trading company) until 2017. Self-taught programming during the break. Now working as a software programmer in Tokyo since 2018.",
-        "ch": ""
+        "ch": "我生于1991年，2015年毕业于京都大学，走进了伊藤忠商事（与中信集团签订全面战略合作的公司）工作。2017年辞职，去了国外旅游，回国后写了一些博客。通过制作自己的网站，我才发现原来程序设计有这么开心，就有了成为软件工程师的念想。用功学习后，终于实现了我的希望。我现在作为软件工程师在东京的一家企业工作（不是京东喔😂）。"
       },
       "icon": "fas fa-shoe-prints"
     },
     {
       "title": "Experiences",
       "description": {
-        "ja": "PHP (Laravel, WordPress, Yii). JavaScript (React / Redux / Flow, Node.js). Python (Jupyter Notebook, Pandas, matplotlib, Word2vec). CSS (Bootstrap 4). AWS (Lambda, Cloud Watch, EC2, Route53, KMS). Docker, Vagrant. Selenium, Puppeteer etc.このサイトはElmとTailwind CSSで作成しています。",
-        "en": "This site is made with Elm and Tailwind CSS.",
-        "ch": "我用Elm和Tailwind CSS制成这张网页。"
+        "ja": "PHP (Laravel, WordPress, Yii). JavaScript (React / Redux / Flow, Node.js). Python (Jupyter Notebook, Pandas, matplotlib, Word2vec). CSS (Bootstrap 4). AWS (Lambda, Cloud Watch, EC2, Route53, KMS). Docker, Vagrant. Selenium, Puppeteer etc. このサイトはElmとTailwind CSSで作成しています。",
+        "en": "PHP (Laravel, WordPress, Yii). JavaScript (React / Redux / Flow, Node.js). Python (Jupyter Notebook, Pandas, matplotlib, Word2vec). CSS (Bootstrap 4). AWS (Lambda, Cloud Watch, EC2, Route53, KMS). Docker, Vagrant. Selenium, Puppeteer etc. This site is made with Elm and Tailwind CSS.",
+        "ch": "PHP (Laravel, WordPress, Yii). JavaScript (React / Redux / Flow, Node.js). Python (Jupyter Notebook, Pandas, matplotlib, Word2vec). CSS (Bootstrap 4). AWS (Lambda, Cloud Watch, EC2, Route53, KMS). Docker, Vagrant. Selenium, Puppeteer etc. 我用Elm和Tailwind CSS制成这张网页。"
       },
       "icon": "fas fa-code"
     },
@@ -23,7 +23,7 @@
       "description": {
         "ja": "プログラミング・日本語ラップ・ウィスキー・旅行（国内・海外）・歴史・伝統・思想・哲学・企業分析・水泳・英語・中国茶・食べ歩き・カフェ巡り・新しい技術。何より学ぶことが好き。",
         "en": "Programming web apps. Listening to Japanese HIPHOP. Studying about history, culture and tradition. Talking about philosophy and comedy. Drinking whiskies, beer and Chinese tea. Traveling. Experiencing new technologies. Above all, I love learning something new!",
-        "ch": ""
+        "ch": "编写网络应用程序，听日本HIP HOP，研究历史、文化和传统，谈论哲学和喜剧，喝威士忌、啤酒和中国茶，旅游，体验新技术。最重要的是，我喜欢学习新东西！"
       },
       "icon": "fas fa-star"
     }
@@ -32,12 +32,12 @@
     {
       "name": "Japanese",
       "level": 100,
-      "color": "#CC1F1A"
+      "color": "#61dafb"
     },
     {
       "name": "PHP/Laravel",
       "level": 80,
-      "color": "#5661B3"
+      "color": "#61dafb"
     },
     {
       "name": "React",
@@ -47,17 +47,17 @@
     {
       "name": "Python",
       "level": 50,
-      "color": "#F2D024"
+      "color": "#61dafb"
     },
     {
       "name": "Elm",
       "level": 30,
-      "color": "#12bbad"
+      "color": "#61dafb"
     },
     {
       "name": "Node.js",
       "level": 20,
-      "color": "#794ACF"
+      "color": "#61dafb"
     }
   ],
   "websites": [
@@ -66,11 +66,11 @@
       "description": {
         "ja": "日本語ラップ好きな人のためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を新着順で表示。動画の一覧をジャンル毎に切り替えできる。",
         "en": "This web app is for Japanese HIPHOP lovers to find new music videos. This program calls YouTube API to fetch new data every five minutes.",
-        "ch": ""
+        "ch": "这个网络应用程序是为了日本HIP HOP爱好者可以找到新的音乐视频。该程序调用YouTube API每五分钟获取一次新数据。"
       },
       "tech": ["Laravel", "React", "Material-UI", "Docker"],
       "image": {
-        "src": "/portfolio/assets/images/hipsty.png",
+        "src": "/portfolio/assets/img/hipsty.png",
         "alt": "Music videos of Japanese HIPHOP"
       },
       "icon": "fas fa-music",
@@ -81,26 +81,26 @@
       "description": {
         "ja": "ビットコインの取引所ごとの価格差に着目し、価格をグラフで可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。暴落時の価格も記録されている。",
         "en": "You can see a chart of bitcoin price since 4/19/2018 on this site. I expected traders to practice arbitrage in the cryptocurrency market.",
-        "ch": ""
+        "ch": "您可以在此网站上查看自2014年4月19日以来比特币价格图表，帮助交易者在加密货币市场上实行套利。"
       },
       "tech": ["PHP", "Bootstrap 4", "Highcharts", "MySQL"],
       "image": {
-        "src": "/portfolio/assets/images/bitcoin_chart.png",
+        "src": "/portfolio/assets/img/bitcoin_chart.png",
         "alt": "Bitcoin chart"
       },
       "icon": "fab fa-bitcoin",
       "link": "https://bitcoin-chart.info"
     },
     {
-      "title": "ウィスキー蒸留所NAVI",
+      "title": "Whisky Distilleries Navi",
       "description": {
         "ja": "国内の主なウィスキー蒸留所を一覧できるサイト。各蒸留所の見学予約ページにワンクリックで遷移することができる。レスポンシブ対応済みのサイト。",
         "en": "This site lists famous whisky distilleries in Japan. You can check them all at once and can reserve a tour through this site.",
-        "ch": ""
+        "ch": "该网站列出了日本有名的威士忌酿酒厂。您可以马上查看酿酒厂的历史，并可以预订参观游览。"
       },
       "tech": ["HTML", "Bootstrap 4", "jQuery"],
       "image": {
-        "src": "/portfolio/assets/images/whisky_distilleries.png",
+        "src": "/portfolio/assets/img/whisky_distilleries.png",
         "alt": "Japanese whisky distilleries"
       },
       "icon": "fas fa-glass-whiskey",
@@ -111,7 +111,7 @@
     {
       "title": "Tech Blog",
       "image": {
-        "src": "/portfolio/assets/images/qiita.png",
+        "src": "/portfolio/assets/img/qiita.png",
         "alt": "Profile page of my tech blog"
       },
       "link": "https://qiita.com/Panda_Program"
@@ -119,7 +119,7 @@
     {
       "title": "Lightning Talk",
       "image": {
-        "src": "/portfolio/assets/images/lightning_talk.jpg",
+        "src": "/portfolio/assets/img/lightning_talk.jpg",
         "alt": "Giving a lightning talk"
       },
       "link": "https://note.mu/panda_programm/n/n5135b0294d85"
@@ -127,7 +127,7 @@
     {
       "title": "Travel Blog",
       "image": {
-        "src": "/portfolio/assets/images/blog.png",
+        "src": "/portfolio/assets/img/blog.png",
         "alt": "Blog about travel in China"
       },
       "link": "https://ccculture.net/"

@@ -4,6 +4,7 @@ import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import Html.Lazy exposing (lazy2)
 import Http
 import Json.Decode exposing (Decoder, map2, map3, map4, map5, map6, field, string, int, list)
 
@@ -19,20 +20,34 @@ main =
         }
 
 
+port languageSkillsToJs : List Skill -> Cmd msg
+
+
 -- MODEL
 
-type Model
-    = Failure
-    | Loading
-    | Succsess Portfolio
+type alias Model =
+    { portfolio : Portfolio
+    , locale : Locale
+    , error : Bool
+    }
 
 
-init : () -> (Model, Cmd Msg)
-init _ =
-    (Loading, getPortfolio)
+emptyModel : Model
+emptyModel =
+    { portfolio =
+        { info = []
+        , skills = []
+        , websites = []
+        , others = []
+        , contacts = []
+        }
+    , locale = "English"
+    , error = False
+    }
 
 
-port languageSkillsToJs : List Skill -> Cmd msg
+init : () -> ( Model, Cmd Msg )
+init _ = (emptyModel, getPortfolio)
 
 
 type alias Portfolio =
@@ -96,10 +111,16 @@ type alias Contact =
     }
 
 
+type alias Locale = String
+
+
 -- UPDATE
 
 type Msg
     = GotPortfolio (Result Http.Error Portfolio)
+    | SetEnglish
+    | SetJapanese
+    | SetChinese
     | LoadAgain
 
 
@@ -109,49 +130,64 @@ update msg model =
         GotPortfolio result ->
             case result of
                 Ok portfolio ->
-                    ( Succsess portfolio
+                    ( { model | portfolio = portfolio }
                     , (languageSkillsToJs portfolio.skills)
                     )
 
                 Err _ ->
-                    (Failure
+                    ( { model | error = True }
                     , Cmd.none
                     )
 
+        SetEnglish ->
+            ( { model | locale = "English" }
+            , Cmd.none
+            )
+
+        SetJapanese ->
+            ( { model | locale = "Japanese" }
+            , Cmd.none
+            )
+
+        SetChinese ->
+            ( { model | locale = "Chinese" }
+            , Cmd.none
+            )
+
         LoadAgain ->
-            (Loading, getPortfolio)
+            ( { model | error = False }
+            , getPortfolio
+            )
 
 
 -- VIEW
 
 view : Model -> Html Msg
-view model =
-    case model of
-        Failure ->
-            div []
-                [ text "Can't load JSON file. Something is wrong with GitHub Pages server."
-                , newLine
-                , button [ onClick LoadAgain ] [ text "Try again?" ]
-                ]
+view { portfolio, locale, error } =
+    if error == False then
+        div [] [ viewApp portfolio locale ]
 
-        Loading ->
-            div [] []
-
-        Succsess portfolio ->
-            div [] [ viewApp portfolio ]
+    else 
+        div []
+            [ text "Something is wrong with GitHub Pages."
+            , newLine
+            , text "Do you want to reload? Then "
+            , button [ onClick LoadAgain ] [ text "Click me!" ]
+            ]
 
 
-viewApp : Portfolio -> Html Msg
-viewApp (portfolio as p) =
+viewApp : Portfolio -> String -> Html Msg
+viewApp { info, websites, others, contacts } locale =
         div []
             [ viewTop
             , div [ class "max-w-xl mx-auto container" ]
-                [ viewInfo p.info
-                , viewSkills p.skills
-                , viewWebsites p.websites
-                , viewOthers p.others
+                [ viewFlags
+                , viewInfo info locale
+                , viewSkills
+                , viewWebsites websites locale
+                , viewOthers others
                 ]
-            , viewContacts p.contacts
+            , viewContacts contacts
             ]
 
 
@@ -177,32 +213,35 @@ viewTop =
             ]
 
 
-newLine : Html Msg
-newLine = br [] []
-
-
-lgNewLine : Html Msg
-lgNewLine = br [ class "block lg:hidden" ] []
-
-
-viewInfo : List Info -> Html Msg
-viewInfo info =
-    div [ class "pb-6" ]
-        [ h1 [ class "section-title" ] [ text "ABOUT" ]
-        , div [ class "card-container" ] (List.map2 viewInfoItem info infoClassNames)
+viewFlags : Html Msg
+viewFlags =
+    div [ class "self-start pt-4 justify-center my-auto" ]
+        [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
+            [   li [ class "flag mr-2", onClick SetEnglish ] [ text "🇬🇧" ]
+            ,   li [ class "flag px-2 border-l border-r border-solid border-grey-dark", onClick SetJapanese ] [ text "🇯🇵" ]
+            ,   li [ class "flag mx-2", onClick SetChinese ] [ text "🇨🇳" ]
+            ]
         ]
 
 
-viewInfoItem : Info -> String -> Html Msg
-viewInfoItem info infoClassName =
+viewInfo : List Info -> Locale -> Html Msg
+viewInfo info locale =
+    div [ class "pb-6" ]
+        [ h1 [ class "section-title" ] [ text "ABOUT" ]
+        , div [ class "card-container" ] (List.map3 viewInfoItem info infoClassNames (List.repeat 3 locale))
+        ]
+
+
+viewInfoItem : Info -> String -> Locale -> Html Msg
+viewInfoItem { title, description, icon } infoClassName locale =
     let
-        className = info.icon ++ " " ++ infoClassName
+        className = icon ++ " " ++ infoClassName
     in
         div [ class "card" ]
-            [ div [ class "about-card-title" ] [ text info.title ]
+            [ div [ class "about-card-title" ] [ text title ]
             , i [ class className ] []
             , div [ class "px-8 py-6" ]
-                [ p [ class "card-text md:h-210px" ] [ viewDescription info.description ] ]
+                [ p [ class "card-text md:h-210px" ] [ lazy2 viewDescription description locale ] ]
             ]
 
 
@@ -214,13 +253,21 @@ infoClassNames =
     ]
 
 
-viewDescription : Description -> Html Msg
-viewDescription (description as d) =
-        div [] [ text d.ja ]
+viewDescription : Description -> Locale -> Html Msg
+viewDescription { ja, en, ch } locale =
+    case locale of
+        "English" ->
+            div [] [ text en ]
+        "Japanese" ->
+            div [] [ text ja ]
+        "Chinese" ->
+            div [] [ text ch ]
+        _ ->
+            div [] [ text en ]
 
 
-viewSkills : List Skill -> Html Msg
-viewSkills skills =
+viewSkills : Html Msg
+viewSkills =
     div [ class "py-6" ]
         [ h1 [ class "section-title" ] 
             [ text "LANGUAGE"
@@ -230,32 +277,32 @@ viewSkills skills =
         ]
 
 
-viewWebsites : List Website -> Html Msg
-viewWebsites websites =
+viewWebsites : List Website -> Locale -> Html Msg
+viewWebsites websites locale =
     div [ class "py-6" ] 
         [ h1 [ class "section-title" ] [ text "PORTFOLIO" ]
-        , div [ class "card-container" ] (List.map2 viewWebsiteItem websites websiteIconColors)
+        , div [ class "card-container" ] (List.map3 viewWebsiteItem websites websiteIconColors (List.repeat 3 locale))
         ]
 
 
-viewWebsiteItem : Website -> String -> Html Msg
-viewWebsiteItem (website as w) iconColor =
+viewWebsiteItem : Website -> String -> Locale -> Html Msg
+viewWebsiteItem { title, description, tech, image, icon, link } iconColor locale =
     let
-        imageSrc = w.image.src
-        imageAlt = w.image.alt
+        imageSrc = image.src
+        imageAlt = image.alt
     in
         div [ class "card hover:shadow-lg my-5 md:my-0" ]
-            [ a [ class "no-underline", href w.link ]
+            [ a [ class "no-underline", href link ]
                 [ div [ class "flex items-center h-74px py-3 px-4" ]
                     [ span [ class iconColor ]
-                        [ i [ class w.icon ] [] ]
-                    , div [ class "portfolio-card-title" ] [ text w.title ]
+                        [ i [ class icon ] [] ]
+                    , div [ class "portfolio-card-title" ] [ text title ]
                     ]
+                    , img [ class "w-full", src imageSrc, alt imageAlt ] []
+                    , div [ class "px-8 py-4" ]
+                        [ p [ class "card-text md:h-105px" ] [ lazy2 viewDescription description locale ] ]
+                    , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech tech)
                 ]
-                , img [ class "w-full", src imageSrc, alt imageAlt ] []
-                , div [ class "px-8 py-4" ]
-                    [ p [ class "card-text" ] [ viewDescription w.description ] ]
-                , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech w.tech)
             ]
 
 
@@ -284,16 +331,16 @@ viewOthers others =
 
 
 viewOther : Other -> Html Msg
-viewOther (other as o) =
+viewOther { title, image, link } =
     let
-        imageSrc = o.image.src
-        imageAlt = o.image.alt
+        imageSrc = image.src
+        imageAlt = image.alt
     in
         div [ class "other-item" ] 
-            [ a [ class "no-underline", href o.link ]
+            [ a [ class "no-underline", href link ]
                 [ img [ class "other-image hover:shadow-lg", src imageSrc, alt imageAlt ] []
                 ]
-            , div [ class "other-text" ] [ text o.title ]
+            , div [ class "other-text" ] [ text title ]
             ]
 
 
@@ -302,7 +349,7 @@ viewContacts contacts =
     div [] 
         [ div [ class "bg-grey-lighter text-center" ] 
             [ h1 [ class "w-full py-4 text-3xl md:text-2xl text-grey-darkest" ] [ text "CONTACT" ]
-            , div [] (List.map viewContact contacts )
+            , div [] (List.map viewContact contacts)
             , div [ class "pt-4 pb-3 text-grey-darker" ]
                 [ p [ class "text-base md:text-sm" ] [ text "by MASHU KUSHIBIKI" ]
                 , p [ class "text-base md:text-sm" ] [ text "created with Elm" ]
@@ -312,14 +359,22 @@ viewContacts contacts =
 
 
 viewContact : Contact -> Html Msg
-viewContact (contact as c) =
+viewContact { icon, color, link } =
     let 
-        className = "footer-icon" ++ " " ++ c.color
+        className = "footer-icon" ++ " " ++ color
     in
-        a [ class "no-underline", href c.link ]
+        a [ class "no-underline", href link ]
             [ span [ class className ]
-                [ i [ class c.icon ] [] ]
+                [ i [ class icon ] [] ]
             ]
+
+
+newLine : Html Msg
+newLine = br [] []
+
+
+lgNewLine : Html Msg
+lgNewLine = br [ class "block lg:hidden" ] []
 
 
 -- HTTP

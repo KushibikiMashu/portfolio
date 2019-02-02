@@ -21,6 +21,10 @@
   line-height: normal;
 }
 
+.flag {
+  @apply text-3xl cursor-pointer;
+}
+
 .rotate-1\/8 {
   transform: rotate(-45deg);
 }

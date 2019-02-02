@@ -362,7 +362,20 @@ module.exports = {
   |
   */
 
-  textColors: colors,
+  textColors: {
+    'white': colors['white'],
+    'grey-light': colors['grey-light'],
+    'grey-darker': colors['grey-darker'],
+    'grey-darkest': colors['grey-darkest'],
+    'red-darker': colors['red-darker'],
+    'blue-dark': colors['blue-dark'],
+    'yellow-dark': colors['yellow-dark'],
+    'bitcoin-chart': colors['bitcoin-chart'],
+    'twitter': colors['twitter'],
+    'facebook': colors['facebook'],
+    'linkedin': colors['linkedin'],
+    'github': colors['github'],
+  },
 
 
   /*
@@ -379,7 +392,11 @@ module.exports = {
   |
   */
 
-  backgroundColors: colors,
+  backgroundColors: {
+    'blue-darkest': colors['blue-darkest'],
+    'orange-darker': colors['orange-darker'],
+    'grey-lighter': colors['grey-lighter'],
+  },
 
 
   /*
@@ -550,6 +567,7 @@ module.exports = {
     'auto': 'auto',
     'px': '1px',
     '74px': '74px',
+    '105px': '105px',
     '136px': '136px',
     '210px': '210px',
     '320px': '320px',

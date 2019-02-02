@@ -70,7 +70,7 @@
       },
       "tech": ["Laravel", "React", "Material-UI", "Docker"],
       "image": {
-        "src": "/portfolio/assets/images/hipsty.png",
+        "src": "/portfolio/assets/img/hipsty.png",
         "alt": "Music videos of Japanese HIPHOP"
       },
       "icon": "fas fa-music",
@@ -85,7 +85,7 @@
       },
       "tech": ["PHP", "Bootstrap 4", "Highcharts", "MySQL"],
       "image": {
-        "src": "/portfolio/assets/images/bitcoin_chart.png",
+        "src": "/portfolio/assets/img/bitcoin_chart.png",
         "alt": "Bitcoin chart"
       },
       "icon": "fab fa-bitcoin",
@@ -100,7 +100,7 @@
       },
       "tech": ["HTML", "Bootstrap 4", "jQuery"],
       "image": {
-        "src": "/portfolio/assets/images/whisky_distilleries.png",
+        "src": "/portfolio/assets/img/whisky_distilleries.png",
         "alt": "Japanese whisky distilleries"
       },
       "icon": "fas fa-glass-whiskey",
@@ -111,7 +111,7 @@
     {
       "title": "Tech Blog",
       "image": {
-        "src": "/portfolio/assets/images/qiita.png",
+        "src": "/portfolio/assets/img/qiita.png",
         "alt": "Profile page of my tech blog"
       },
       "link": "https://qiita.com/Panda_Program"
@@ -119,7 +119,7 @@
     {
       "title": "Lightning Talk",
       "image": {
-        "src": "/portfolio/assets/images/lightning_talk.jpg",
+        "src": "/portfolio/assets/img/lightning_talk.jpg",
         "alt": "Giving a lightning talk"
       },
       "link": "https://note.mu/panda_programm/n/n5135b0294d85"
@@ -127,7 +127,7 @@
     {
       "title": "Travel Blog",
       "image": {
-        "src": "/portfolio/assets/images/blog.png",
+        "src": "/portfolio/assets/img/blog.png",
         "alt": "Blog about travel in China"
       },
       "link": "https://ccculture.net/"

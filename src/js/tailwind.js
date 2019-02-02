@@ -367,10 +367,8 @@ module.exports = {
     'grey-light': colors['grey-light'],
     'grey-darker': colors['grey-darker'],
     'grey-darkest': colors['grey-darkest'],
-    'bg-orange-darker': colors['bg-orange-darker'],
     'red-darker': colors['red-darker'],
     'blue-dark': colors['blue-dark'],
-    'blue-darkest': colors['blue-darkest'],
     'yellow-dark': colors['yellow-dark'],
     'bitcoin-chart': colors['bitcoin-chart'],
     'twitter': colors['twitter'],
@@ -394,7 +392,11 @@ module.exports = {
   |
   */
 
-  backgroundColors: colors,
+  backgroundColors: {
+    'blue-darkest': colors['blue-darkest'],
+    'orange-darker': colors['orange-darker'],
+    'grey-lighter': colors['grey-lighter'],
+  },
 
 
   /*

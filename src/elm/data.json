@@ -32,12 +32,12 @@
     {
       "name": "Japanese",
       "level": 100,
-      "color": "#CC1F1A"
+      "color": "#61dafb"
     },
     {
       "name": "PHP/Laravel",
       "level": 80,
-      "color": "#5661B3"
+      "color": "#61dafb"
     },
     {
       "name": "React",
@@ -47,17 +47,17 @@
     {
       "name": "Python",
       "level": 50,
-      "color": "#F2D024"
+      "color": "#61dafb"
     },
     {
       "name": "Elm",
       "level": 30,
-      "color": "#12bbad"
+      "color": "#61dafb"
     },
     {
       "name": "Node.js",
       "level": 20,
-      "color": "#794ACF"
+      "color": "#61dafb"
     }
   ],
   "websites": [

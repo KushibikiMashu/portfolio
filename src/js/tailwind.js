@@ -362,7 +362,22 @@ module.exports = {
   |
   */
 
-  textColors: colors,
+  textColors: {
+    'white': colors['white'],
+    'grey-light': colors['grey-light'],
+    'grey-darker': colors['grey-darker'],
+    'grey-darkest': colors['grey-darkest'],
+    'bg-orange-darker': colors['bg-orange-darker'],
+    'red-darker': colors['red-darker'],
+    'blue-dark': colors['blue-dark'],
+    'blue-darkest': colors['blue-darkest'],
+    'yellow-dark': colors['yellow-dark'],
+    'bitcoin-chart': colors['bitcoin-chart'],
+    'twitter': colors['twitter'],
+    'facebook': colors['facebook'],
+    'linkedin': colors['linkedin'],
+    'github': colors['github'],
+  },
 
 
   /*

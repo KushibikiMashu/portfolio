@@ -130,7 +130,7 @@ update msg model =
             case result of
                 Ok portfolio ->
                     ( { model | portfolio = portfolio }
-                    , (languageSkillsToJs model.portfolio.skills)
+                    , (languageSkillsToJs portfolio.skills)
                     )
 
                 Err _ ->
@@ -217,7 +217,7 @@ viewFlags =
     div [ class "self-start pt-4 justify-center my-auto" ]
         [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
             [   li [ class "flag mr-2", onClick SetEnglish ] [ text "🇬🇧" ]
-            ,   li [ class "flag mx-2 border-l border-r border-solid border-grey-dark", onClick SetJapanese ] [ text "🇯🇵" ]
+            ,   li [ class "flag px-2 border-l border-r border-solid border-grey-dark", onClick SetJapanese ] [ text "🇯🇵" ]
             ,   li [ class "flag mx-2", onClick SetChinese ] [ text "🇨🇳" ]
             ]
         ]

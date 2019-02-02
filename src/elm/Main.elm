@@ -164,19 +164,18 @@ updatelocaleL locale =
     { localeL | language = locale }
 
 
-
 viewApp : Portfolio -> Locale -> Html Msg
-viewApp (portfolio as p) language =
+viewApp { info, websites, others, contacts } language =
         div []
             [ viewTop
             , div [ class "max-w-xl mx-auto container" ]
-                [ viewFlags p
-                , viewInfo p.info
+                [ viewFlags
+                , viewInfo info
                 , viewSkills
-                , viewWebsites p.websites
-                , viewOthers p.others
+                , viewWebsites websites
+                , viewOthers others
                 ]
-            , viewContacts p.contacts
+            , viewContacts contacts
             ]
 
 
@@ -210,8 +209,8 @@ lgNewLine : Html Msg
 lgNewLine = br [ class "block lg:hidden" ] []
 
 
-viewFlags : Portfolio -> Html Msg
-viewFlags (portfolio as p) =
+viewFlags : Html Msg
+viewFlags =
     div [ class "self-start pt-4 justify-center my-auto" ]
         [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
             [   li [ class "text-3xl pr-2", onClick SetEnglish ] [ text "🇬🇧" ]
@@ -337,7 +336,7 @@ viewContacts contacts =
     div [] 
         [ div [ class "bg-grey-lighter text-center" ] 
             [ h1 [ class "w-full py-4 text-3xl md:text-2xl text-grey-darkest" ] [ text "CONTACT" ]
-            , div [] (List.map viewContact contacts )
+            , div [] (List.map viewContact contacts)
             , div [ class "pt-4 pb-3 text-grey-darker" ]
                 [ p [ class "text-base md:text-sm" ] [ text "by MASHU KUSHIBIKI" ]
                 , p [ class "text-base md:text-sm" ] [ text "created with Elm" ]

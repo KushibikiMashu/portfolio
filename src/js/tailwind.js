@@ -550,6 +550,7 @@ module.exports = {
     'auto': 'auto',
     'px': '1px',
     '74px': '74px',
+    '105px': '105px',
     '136px': '136px',
     '210px': '210px',
     '320px': '320px',

@@ -3247,6 +3247,10 @@ table {
   height: 74px;
 }
 
+.h-105px {
+  height: 105px;
+}
+
 .h-136px {
   height: 136px;
 }
@@ -6440,6 +6444,11 @@ table {
   line-height: normal;
 }
 
+.flag {
+  font-size: 1.875rem;
+  cursor: pointer;
+}
+
 .rotate-1\/8 {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -9295,6 +9304,10 @@ table {
 
   .sm\:h-74px {
     height: 74px;
+  }
+
+  .sm\:h-105px {
+    height: 105px;
   }
 
   .sm\:h-136px {
@@ -15159,6 +15172,10 @@ table {
     height: 74px;
   }
 
+  .md\:h-105px {
+    height: 105px;
+  }
+
   .md\:h-136px {
     height: 136px;
   }
@@ -21021,6 +21038,10 @@ table {
     height: 74px;
   }
 
+  .lg\:h-105px {
+    height: 105px;
+  }
+
   .lg\:h-136px {
     height: 136px;
   }
@@ -26881,6 +26902,10 @@ table {
 
   .xl\:h-74px {
     height: 74px;
+  }
+
+  .xl\:h-105px {
+    height: 105px;
   }
 
   .xl\:h-136px {

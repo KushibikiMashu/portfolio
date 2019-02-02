@@ -19,26 +19,34 @@ main =
         }
 
 
--- MODEL
-
-type Model
-    = Failure
-    | Loading
-    | Success Portfolio
-
-
-init : () -> (Model, Cmd Msg)
-init _ =
-    (Loading, getPortfolio)
-
-
 port languageSkillsToJs : List Skill -> Cmd msg
 
 
-type Locale 
-    = English
-    | Japanese
-    | Chinese
+-- MODEL
+
+type alias Model =
+    { portfolio : Portfolio
+    , locale : Locale
+    , error : Bool
+    }
+
+
+emptyModel : Model
+emptyModel =
+    { portfolio =
+        { info = []
+        , skills = []
+        , websites = []
+        , others = []
+        , contacts = []
+        }
+    , locale = "English"
+    , error = False
+    }
+
+
+init : () -> ( Model, Cmd Msg )
+init _ = (emptyModel, getPortfolio)
 
 
 type alias Portfolio =
@@ -102,12 +110,17 @@ type alias Contact =
     }
 
 
+type alias Locale = String
+
+
 -- UPDATE
 
 type Msg
     = GotPortfolio (Result Http.Error Portfolio)
-    | LoadAgain
     | SetEnglish
+    | SetJapanese
+    | SetChinese
+    | LoadAgain
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -116,63 +129,61 @@ update msg model =
         GotPortfolio result ->
             case result of
                 Ok portfolio ->
-                    ( Success portfolio
-                    , (languageSkillsToJs portfolio.skills)
+                    ( { model | portfolio = portfolio }
+                    , (languageSkillsToJs model.portfolio.skills)
                     )
 
                 Err _ ->
-                    (Failure
+                    ( { model | error = True }
                     , Cmd.none
                     )
 
-        LoadAgain ->
-            (Loading, getPortfolio)
-
         SetEnglish ->
-            (model, Cmd.none)
+            ( { model | locale = "English" }
+            , Cmd.none
+            )
+
+        SetJapanese ->
+            ( { model | locale = "Japanese" }
+            , Cmd.none
+            )
+
+        SetChinese ->
+            ( { model | locale = "Chinese" }
+            , Cmd.none
+            )
+
+        LoadAgain ->
+            ( { model | error = False }
+            , getPortfolio
+            )
 
 
 -- VIEW
 
 view : Model -> Html Msg
-view model =
-    case model of
-        Failure ->
-            div []
-                [ text "Can't load JSON file. Something is wrong with GitHub Pages server."
-                , newLine
-                , button [ onClick LoadAgain ] [ text "Try again?" ]
-                ]
+view { portfolio, locale, error } =
+    if error == False then
+        div [] [ viewApp portfolio locale ]
 
-        Loading ->
-            div [] []
-
-
-        Success portfolio ->
-            let
-                language = localeL.language
-            in
-                div [] [ viewApp portfolio language ]
+    else 
+        div []
+            [ text "Something is wrong with GitHub Pages."
+            , newLine
+            , text "Do you want to reload? Then "
+            , button [ onClick LoadAgain ] [ text "Click me!" ]
+            ]
 
 
---localeL : Locale
-localeL = { language = English }
-
-
---updatelocaleL : Locale -> Locale
-updatelocaleL locale =
-    { localeL | language = locale }
-
-
-viewApp : Portfolio -> Locale -> Html Msg
-viewApp { info, websites, others, contacts } language =
+viewApp : Portfolio -> String -> Html Msg
+viewApp { info, websites, others, contacts } locale =
         div []
             [ viewTop
             , div [ class "max-w-xl mx-auto container" ]
                 [ viewFlags
-                , viewInfo info
+                , viewInfo info locale
                 , viewSkills
-                , viewWebsites websites
+                , viewWebsites websites locale
                 , viewOthers others
                 ]
             , viewContacts contacts
@@ -201,35 +212,27 @@ viewTop =
             ]
 
 
-newLine : Html Msg
-newLine = br [] []
-
-
-lgNewLine : Html Msg
-lgNewLine = br [ class "block lg:hidden" ] []
-
-
 viewFlags : Html Msg
 viewFlags =
     div [ class "self-start pt-4 justify-center my-auto" ]
         [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
-            [   li [ class "text-3xl pr-2", onClick SetEnglish ] [ text "🇬🇧" ]
-            ,   li [ class "text-3xl px-2 border-l border-r border-solid border-grey-dark" ] [ text "🇯🇵" ]
-            ,   li [ class "text-3xl px-2" ] [ text "🇨🇳" ]
+            [   li [ class "flag mr-2", onClick SetEnglish ] [ text "🇬🇧" ]
+            ,   li [ class "flag mx-2 border-l border-r border-solid border-grey-dark", onClick SetJapanese ] [ text "🇯🇵" ]
+            ,   li [ class "flag mx-2", onClick SetChinese ] [ text "🇨🇳" ]
             ]
         ]
 
 
-viewInfo : List Info -> Html Msg
-viewInfo info =
+viewInfo : List Info -> Locale -> Html Msg
+viewInfo info locale =
     div [ class "pb-6" ]
         [ h1 [ class "section-title" ] [ text "ABOUT" ]
-        , div [ class "card-container" ] (List.map2 viewInfoItem info infoClassNames)
+        , div [ class "card-container" ] (List.map3 viewInfoItem info infoClassNames (List.repeat 3 locale))
         ]
 
 
-viewInfoItem : Info -> String -> Html Msg
-viewInfoItem { title, description, icon } infoClassName =
+viewInfoItem : Info -> String -> Locale -> Html Msg
+viewInfoItem { title, description, icon } infoClassName locale =
     let
         className = icon ++ " " ++ infoClassName
     in
@@ -237,7 +240,7 @@ viewInfoItem { title, description, icon } infoClassName =
             [ div [ class "about-card-title" ] [ text title ]
             , i [ class className ] []
             , div [ class "px-8 py-6" ]
-                [ p [ class "card-text md:h-210px" ] [ viewDescription description ] ]
+                [ p [ class "card-text md:h-210px" ] [ viewDescription description locale ] ]
             ]
 
 
@@ -249,8 +252,17 @@ infoClassNames =
     ]
 
 
-viewDescription : Description -> Html Msg
-viewDescription { ja, en, ch } = div [] [ text ja ]
+viewDescription : Description -> Locale -> Html Msg
+viewDescription { ja, en, ch } locale =
+    case locale of
+        "English" ->
+            div [] [ text en ]
+        "Japanese" ->
+            div [] [ text ja ]
+        "Chinese" ->
+            div [] [ text ch ]
+        _ ->
+            div [] [ text en ]
 
 
 viewSkills : Html Msg
@@ -264,16 +276,16 @@ viewSkills =
         ]
 
 
-viewWebsites : List Website -> Html Msg
-viewWebsites websites =
+viewWebsites : List Website -> Locale -> Html Msg
+viewWebsites websites locale =
     div [ class "py-6" ] 
         [ h1 [ class "section-title" ] [ text "PORTFOLIO" ]
-        , div [ class "card-container" ] (List.map2 viewWebsiteItem websites websiteIconColors)
+        , div [ class "card-container" ] (List.map3 viewWebsiteItem websites websiteIconColors (List.repeat 3 locale))
         ]
 
 
-viewWebsiteItem : Website -> String -> Html Msg
-viewWebsiteItem { title, description, tech, image, icon, link } iconColor =
+viewWebsiteItem : Website -> String -> Locale -> Html Msg
+viewWebsiteItem { title, description, tech, image, icon, link } iconColor locale =
     let
         imageSrc = image.src
         imageAlt = image.alt
@@ -285,11 +297,11 @@ viewWebsiteItem { title, description, tech, image, icon, link } iconColor =
                         [ i [ class icon ] [] ]
                     , div [ class "portfolio-card-title" ] [ text title ]
                     ]
+                    , img [ class "w-full", src imageSrc, alt imageAlt ] []
+                    , div [ class "px-8 py-4" ]
+                        [ p [ class "card-text md:h-105px" ] [ viewDescription description locale ] ]
+                    , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech tech)
                 ]
-                , img [ class "w-full", src imageSrc, alt imageAlt ] []
-                , div [ class "px-8 py-4" ]
-                    [ p [ class "card-text" ] [ viewDescription description ] ]
-                , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech tech)
             ]
 
 
@@ -354,6 +366,14 @@ viewContact { icon, color, link } =
             [ span [ class className ]
                 [ i [ class icon ] [] ]
             ]
+
+
+newLine : Html Msg
+newLine = br [] []
+
+
+lgNewLine : Html Msg
+lgNewLine = br [ class "block lg:hidden" ] []
 
 
 -- HTTP

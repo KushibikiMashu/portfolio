@@ -24,7 +24,7 @@ main =
 type Model
     = Failure
     | Loading
-    | Success Portfolio Locale
+    | Success Portfolio
 
 
 init : () -> (Model, Cmd Msg)
@@ -107,6 +107,7 @@ type alias Contact =
 type Msg
     = GotPortfolio (Result Http.Error Portfolio)
     | LoadAgain
+    | SetEnglish
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -115,7 +116,7 @@ update msg model =
         GotPortfolio result ->
             case result of
                 Ok portfolio ->
-                    ( Success portfolio English
+                    ( Success portfolio
                     , (languageSkillsToJs portfolio.skills)
                     )
 
@@ -126,6 +127,9 @@ update msg model =
 
         LoadAgain ->
             (Loading, getPortfolio)
+
+        SetEnglish ->
+            (model, Cmd.none)
 
 
 -- VIEW
@@ -144,8 +148,21 @@ view model =
             div [] []
 
 
-        Success portfolio language ->
-            div [] [ viewApp portfolio language ]
+        Success portfolio ->
+            let
+                language = localeL.language
+            in
+                div [] [ viewApp portfolio language ]
+
+
+--localeL : Locale
+localeL = { language = English }
+
+
+--updatelocaleL : Locale -> Locale
+updatelocaleL locale =
+    { localeL | language = locale }
+
 
 
 viewApp : Portfolio -> Locale -> Html Msg
@@ -155,7 +172,7 @@ viewApp (portfolio as p) language =
             , div [ class "max-w-xl mx-auto container" ]
                 [ viewFlags p
                 , viewInfo p.info
-                , viewSkills p.skills
+                , viewSkills
                 , viewWebsites p.websites
                 , viewOthers p.others
                 ]
@@ -197,7 +214,7 @@ viewFlags : Portfolio -> Html Msg
 viewFlags (portfolio as p) =
     div [ class "self-start pt-4 justify-center my-auto" ]
         [ ul [ class "flex justify-end px-3 pt-3 list-reset leading-narrow" ]
-            [   li [ class "text-3xl pr-2" ] [ text "🇬🇧" ]
+            [   li [ class "text-3xl pr-2", onClick SetEnglish ] [ text "🇬🇧" ]
             ,   li [ class "text-3xl px-2 border-l border-r border-solid border-grey-dark" ] [ text "🇯🇵" ]
             ,   li [ class "text-3xl px-2" ] [ text "🇨🇳" ]
             ]
@@ -213,15 +230,15 @@ viewInfo info =
 
 
 viewInfoItem : Info -> String -> Html Msg
-viewInfoItem info infoClassName =
+viewInfoItem { title, description, icon } infoClassName =
     let
-        className = info.icon ++ " " ++ infoClassName
+        className = icon ++ " " ++ infoClassName
     in
         div [ class "card" ]
-            [ div [ class "about-card-title" ] [ text info.title ]
+            [ div [ class "about-card-title" ] [ text title ]
             , i [ class className ] []
             , div [ class "px-8 py-6" ]
-                [ p [ class "card-text md:h-210px" ] [ viewDescription info.description ] ]
+                [ p [ class "card-text md:h-210px" ] [ viewDescription description ] ]
             ]
 
 
@@ -234,12 +251,11 @@ infoClassNames =
 
 
 viewDescription : Description -> Html Msg
-viewDescription (description as d) =
-        div [] [ text d.ja ]
+viewDescription { ja, en, ch } = div [] [ text ja ]
 
 
-viewSkills : List Skill -> Html Msg
-viewSkills skills =
+viewSkills : Html Msg
+viewSkills =
     div [ class "py-6" ]
         [ h1 [ class "section-title" ] 
             [ text "LANGUAGE"
@@ -258,23 +274,23 @@ viewWebsites websites =
 
 
 viewWebsiteItem : Website -> String -> Html Msg
-viewWebsiteItem (website as w) iconColor =
+viewWebsiteItem { title, description, tech, image, icon, link } iconColor =
     let
-        imageSrc = w.image.src
-        imageAlt = w.image.alt
+        imageSrc = image.src
+        imageAlt = image.alt
     in
         div [ class "card hover:shadow-lg my-5 md:my-0" ]
-            [ a [ class "no-underline", href w.link ]
+            [ a [ class "no-underline", href link ]
                 [ div [ class "flex items-center h-74px py-3 px-4" ]
                     [ span [ class iconColor ]
-                        [ i [ class w.icon ] [] ]
-                    , div [ class "portfolio-card-title" ] [ text w.title ]
+                        [ i [ class icon ] [] ]
+                    , div [ class "portfolio-card-title" ] [ text title ]
                     ]
                 ]
                 , img [ class "w-full", src imageSrc, alt imageAlt ] []
                 , div [ class "px-8 py-4" ]
-                    [ p [ class "card-text" ] [ viewDescription w.description ] ]
-                , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech w.tech)
+                    [ p [ class "card-text" ] [ viewDescription description ] ]
+                , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech tech)
             ]
 
 
@@ -303,16 +319,16 @@ viewOthers others =
 
 
 viewOther : Other -> Html Msg
-viewOther (other as o) =
+viewOther { title, image, link } =
     let
-        imageSrc = o.image.src
-        imageAlt = o.image.alt
+        imageSrc = image.src
+        imageAlt = image.alt
     in
         div [ class "other-item" ] 
-            [ a [ class "no-underline", href o.link ]
+            [ a [ class "no-underline", href link ]
                 [ img [ class "other-image hover:shadow-lg", src imageSrc, alt imageAlt ] []
                 ]
-            , div [ class "other-text" ] [ text o.title ]
+            , div [ class "other-text" ] [ text title ]
             ]
 
 
@@ -331,13 +347,13 @@ viewContacts contacts =
 
 
 viewContact : Contact -> Html Msg
-viewContact (contact as c) =
+viewContact { icon, color, link } =
     let 
-        className = "footer-icon" ++ " " ++ c.color
+        className = "footer-icon" ++ " " ++ color
     in
-        a [ class "no-underline", href c.link ]
+        a [ class "no-underline", href link ]
             [ span [ class className ]
-                [ i [ class c.icon ] [] ]
+                [ i [ class icon ] [] ]
             ]
 
 
@@ -346,7 +362,7 @@ viewContact (contact as c) =
 getPortfolio : Cmd Msg
 getPortfolio =
     Http.get
-    { url = "/src/elm/data.json"
+    { url = "/portfolio/src/elm/data.json"
     , expect = Http.expectJson GotPortfolio portfolioDecoder
     }
 

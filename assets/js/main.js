@@ -784,11 +784,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region._.I === region.af.I)
+	if (region._.H === region.ah.H)
 	{
-		return 'on line ' + region._.I;
+		return 'on line ' + region._.H;
 	}
-	return 'on lines ' + region._.I + ' through ' + region.af.I;
+	return 'on lines ' + region._.H + ' through ' + region.ah.H;
 }
 
 
@@ -1857,9 +1857,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.aU,
+		impl.aV,
+		impl.a2,
 		impl.a1,
-		impl.a0,
 		function() { return function() {} }
 	);
 });
@@ -2321,25 +2321,25 @@ var _Http_toTask = F3(function(router, toTask, request)
 	return _Scheduler_binding(function(callback)
 	{
 		function done(response) {
-			callback(toTask(request.aP.a(response)));
+			callback(toTask(request.aQ.a(response)));
 		}
 
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener('error', function() { done(elm$http$Http$NetworkError_); });
 		xhr.addEventListener('timeout', function() { done(elm$http$Http$Timeout_); });
-		xhr.addEventListener('load', function() { done(_Http_toResponse(request.aP.b, xhr)); });
+		xhr.addEventListener('load', function() { done(_Http_toResponse(request.aQ.b, xhr)); });
 		elm$core$Maybe$isJust(request.j) && _Http_track(router, xhr, request.j.a);
 
 		try {
-			xhr.open(request.h, request.a2, true);
+			xhr.open(request.h, request.a3, true);
 		} catch (e) {
-			return done(elm$http$Http$BadUrl_(request.a2));
+			return done(elm$http$Http$BadUrl_(request.a3));
 		}
 
 		_Http_configureRequest(xhr, request);
 
-		request.aK.a && xhr.setRequestHeader('Content-Type', request.aK.a);
-		xhr.send(request.aK.b);
+		request.aN.a && xhr.setRequestHeader('Content-Type', request.aN.a);
+		xhr.send(request.aN.b);
 
 		return function() { xhr.c = true; xhr.abort(); };
 	});
@@ -2355,7 +2355,7 @@ function _Http_configureRequest(xhr, request)
 		xhr.setRequestHeader(headers.a.a, headers.a.b);
 	}
 	xhr.timeout = request.i.a || 0;
-	xhr.responseType = request.aP.d;
+	xhr.responseType = request.aQ.d;
 	xhr.withCredentials = request.v;
 }
 
@@ -2377,9 +2377,9 @@ function _Http_toResponse(toBody, xhr)
 function _Http_toMetadata(xhr)
 {
 	return {
-		a2: xhr.responseURL,
-		aC: xhr.status,
-		a$: xhr.statusText,
+		a3: xhr.responseURL,
+		aF: xhr.status,
+		a0: xhr.statusText,
 		e: _Http_parseHeaders(xhr.getAllResponseHeaders())
 	};
 }
@@ -2475,15 +2475,15 @@ function _Http_track(router, xhr, tracker)
 	xhr.upload.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2(elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, elm$http$Http$Sending({
-			a_: event.loaded,
-			X: event.total
+			a$: event.loaded,
+			Y: event.total
 		}))));
 	});
 	xhr.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2(elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, elm$http$Http$Receiving({
-			aY: event.loaded,
-			X: event.lengthComputable ? elm$core$Maybe$Just(event.total) : elm$core$Maybe$Nothing
+			aZ: event.loaded,
+			Y: event.lengthComputable ? elm$core$Maybe$Just(event.total) : elm$core$Maybe$Nothing
 		}))));
 	});
 }
@@ -2836,7 +2836,7 @@ var _VirtualDom_mapEventRecord = F2(function(func, record)
 	return {
 		o: func(record.o),
 		aa: record.aa,
-		W: record.W
+		X: record.X
 	}
 });
 
@@ -3108,7 +3108,7 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.aa;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value.W) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.X) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -4058,11 +4058,11 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.aU,
+		impl.aV,
+		impl.a2,
 		impl.a1,
-		impl.a0,
 		function(sendToApp, initialModel) {
-			var view = impl.a3;
+			var view = impl.a4;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -4094,12 +4094,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.aU,
+		impl.aV,
+		impl.a2,
 		impl.a1,
-		impl.a0,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.J && impl.J(sendToApp)
-			var view = impl.a3;
+			var divertHrefToApp = impl.I && impl.I(sendToApp)
+			var view = impl.a4;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -4107,12 +4107,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aK);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aN);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.E) && (_VirtualDom_doc.title = title = doc.E);
+				(title !== doc.D) && (_VirtualDom_doc.title = title = doc.D);
 			});
 		}
 	);
@@ -4168,12 +4168,12 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.aV;
-	var onUrlRequest = impl.aW;
+	var onUrlChange = impl.aW;
+	var onUrlRequest = impl.aX;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		J: function(sendToApp)
+		I: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4189,9 +4189,9 @@ function _Browser_application(impl)
 					var next = elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.av === next.av
-							&& curr.ai === next.ai
-							&& curr.as.a === next.as.a
+							&& curr.ax === next.ax
+							&& curr.ak === next.ak
+							&& curr.au.a === next.au.a
 						)
 							? elm$browser$Browser$Internal(next)
 							: elm$browser$Browser$External(href)
@@ -4199,13 +4199,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		aU: function(flags)
+		aV: function(flags)
 		{
-			return A3(impl.aU, flags, _Browser_getUrl(), key);
+			return A3(impl.aV, flags, _Browser_getUrl(), key);
 		},
-		a3: impl.a3,
-		a1: impl.a1,
-		a0: impl.a0
+		a4: impl.a4,
+		a2: impl.a2,
+		a1: impl.a1
 	});
 }
 
@@ -4271,17 +4271,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { aS: 'hidden', aM: 'visibilitychange' }
+		? { aT: 'hidden', aO: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { aS: 'mozHidden', aM: 'mozvisibilitychange' }
+		? { aT: 'mozHidden', aO: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { aS: 'msHidden', aM: 'msvisibilitychange' }
+		? { aT: 'msHidden', aO: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { aS: 'webkitHidden', aM: 'webkitvisibilitychange' }
-		: { aS: 'hidden', aM: 'visibilitychange' };
+		? { aT: 'webkitHidden', aO: 'webkitvisibilitychange' }
+		: { aT: 'hidden', aO: 'visibilitychange' };
 }
 
 
@@ -4362,11 +4362,11 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		aB: _Browser_getScene(),
-		aG: {
+		aD: _Browser_getScene(),
+		aJ: {
 			Q: _Browser_window.pageXOffset,
 			R: _Browser_window.pageYOffset,
-			G: _Browser_doc.documentElement.clientWidth,
+			F: _Browser_doc.documentElement.clientWidth,
 			x: _Browser_doc.documentElement.clientHeight
 		}
 	};
@@ -4377,7 +4377,7 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		G: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		F: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
 		x: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
@@ -4401,14 +4401,14 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			aB: {
-				G: node.scrollWidth,
+			aD: {
+				F: node.scrollWidth,
 				x: node.scrollHeight
 			},
-			aG: {
+			aJ: {
 				Q: node.scrollLeft,
 				R: node.scrollTop,
-				G: node.clientWidth,
+				F: node.clientWidth,
 				x: node.clientHeight
 			}
 		};
@@ -4439,17 +4439,17 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			aB: _Browser_getScene(),
-			aG: {
+			aD: _Browser_getScene(),
+			aJ: {
 				Q: x,
 				R: y,
-				G: _Browser_doc.documentElement.clientWidth,
+				F: _Browser_doc.documentElement.clientWidth,
 				x: _Browser_doc.documentElement.clientHeight
 			},
-			aN: {
+			aP: {
 				Q: x + rect.left,
 				R: y + rect.top,
-				G: rect.width,
+				F: rect.width,
 				x: rect.height
 			}
 		};
@@ -4491,11 +4491,11 @@ var author$project$Main$GotPortfolio = function (a) {
 };
 var author$project$Main$Portfolio = F5(
 	function (info, skills, websites, others, contacts) {
-		return {ad: contacts, aj: info, ap: others, Y: skills, aH: websites};
+		return {ae: contacts, al: info, ar: others, aE: skills, aK: websites};
 	});
 var author$project$Main$Contact = F4(
 	function (name, icon, color, link) {
-		return {O: color, y: icon, A: link, U: name};
+		return {N: color, y: icon, z: link, V: name};
 	});
 var elm$core$Array$branchFactor = 32;
 var elm$core$Array$Array_elm_builtin = F4(
@@ -4984,11 +4984,11 @@ var author$project$Main$contactDecoder = A5(
 	A2(elm$json$Json$Decode$field, 'link', elm$json$Json$Decode$string));
 var author$project$Main$Info = F3(
 	function (title, description, icon) {
-		return {P: description, y: icon, E: title};
+		return {O: description, y: icon, D: title};
 	});
 var author$project$Main$Description = F3(
 	function (ja, en, ch) {
-		return {aL: ch, aO: en, ak: ja};
+		return {ac: ch, ag: en, am: ja};
 	});
 var elm$json$Json$Decode$map3 = _Json_map3;
 var author$project$Main$descriptionDecoder = A4(
@@ -5005,7 +5005,7 @@ var author$project$Main$infoDecoder = A4(
 	A2(elm$json$Json$Decode$field, 'icon', elm$json$Json$Decode$string));
 var author$project$Main$Other = F3(
 	function (title, image, link) {
-		return {z: image, A: link, E: title};
+		return {P: image, z: link, D: title};
 	});
 var author$project$Main$Image = F2(
 	function (src, alt) {
@@ -5025,7 +5025,7 @@ var author$project$Main$otherDecoder = A4(
 	A2(elm$json$Json$Decode$field, 'link', elm$json$Json$Decode$string));
 var author$project$Main$Skill = F3(
 	function (name, level, color) {
-		return {O: color, am: level, U: name};
+		return {N: color, ao: level, V: name};
 	});
 var elm$json$Json$Decode$int = _Json_decodeInt;
 var author$project$Main$skillDecoder = A4(
@@ -5036,7 +5036,7 @@ var author$project$Main$skillDecoder = A4(
 	A2(elm$json$Json$Decode$field, 'color', elm$json$Json$Decode$string));
 var author$project$Main$Website = F6(
 	function (title, description, tech, image, icon, link) {
-		return {P: description, y: icon, z: image, A: link, aF: tech, E: title};
+		return {O: description, y: icon, P: image, z: link, aI: tech, D: title};
 	});
 var elm$json$Json$Decode$list = _Json_decodeList;
 var elm$json$Json$Decode$map6 = _Json_map6;
@@ -5682,7 +5682,7 @@ var elm$http$Http$resolve = F2(
 			case 3:
 				var metadata = response.a;
 				return elm$core$Result$Err(
-					elm$http$Http$BadStatus(metadata.aC));
+					elm$http$Http$BadStatus(metadata.aF));
 			default:
 				var body = response.b;
 				return A2(
@@ -5712,7 +5712,7 @@ var elm$http$Http$Request = function (a) {
 var elm$core$Task$succeed = _Scheduler_succeed;
 var elm$http$Http$State = F2(
 	function (reqs, subs) {
-		return {ay: reqs, aD: subs};
+		return {aA: reqs, aG: subs};
 	});
 var elm$http$Http$init = elm$core$Task$succeed(
 	A2(elm$http$Http$State, elm$core$Dict$empty, _List_Nil));
@@ -5787,7 +5787,7 @@ var elm$http$Http$onEffects = F4(
 				return elm$core$Task$succeed(
 					A2(elm$http$Http$State, reqs, subs));
 			},
-			A3(elm$http$Http$updateReqs, router, cmds, state.ay));
+			A3(elm$http$Http$updateReqs, router, cmds, state.aA));
 	});
 var elm$core$List$foldrHelper = F4(
 	function (fn, acc, ctr, ls) {
@@ -5907,7 +5907,7 @@ var elm$http$Http$onSelfMsg = F3(
 				A2(
 					elm$core$List$filterMap,
 					A3(elm$http$Http$maybeSend, router, tracker, progress),
-					state.aD)));
+					state.aG)));
 	});
 var elm$http$Http$Cancel = function (a) {
 	return {$: 0, a: a};
@@ -5922,13 +5922,13 @@ var elm$http$Http$cmdMap = F2(
 			return elm$http$Http$Request(
 				{
 					v: r.v,
-					aK: r.aK,
-					aP: A2(_Http_mapExpect, func, r.aP),
+					aN: r.aN,
+					aQ: A2(_Http_mapExpect, func, r.aQ),
 					e: r.e,
 					h: r.h,
 					i: r.i,
 					j: r.j,
-					a2: r.a2
+					a3: r.a3
 				});
 		}
 	});
@@ -5951,16 +5951,16 @@ var elm$http$Http$subscription = _Platform_leaf('Http');
 var elm$http$Http$request = function (r) {
 	return elm$http$Http$command(
 		elm$http$Http$Request(
-			{v: false, aK: r.aK, aP: r.aP, e: r.e, h: r.h, i: r.i, j: r.j, a2: r.a2}));
+			{v: false, aN: r.aN, aQ: r.aQ, e: r.e, h: r.h, i: r.i, j: r.j, a3: r.a3}));
 };
 var elm$http$Http$get = function (r) {
 	return elm$http$Http$request(
-		{aK: elm$http$Http$emptyBody, aP: r.aP, e: _List_Nil, h: 'GET', i: elm$core$Maybe$Nothing, j: elm$core$Maybe$Nothing, a2: r.a2});
+		{aN: elm$http$Http$emptyBody, aQ: r.aQ, e: _List_Nil, h: 'GET', i: elm$core$Maybe$Nothing, j: elm$core$Maybe$Nothing, a3: r.a3});
 };
 var author$project$Main$getPortfolio = elm$http$Http$get(
 	{
-		aP: A2(elm$http$Http$expectJson, author$project$Main$GotPortfolio, author$project$Main$portfolioDecoder),
-		a2: '/portfolio/src/elm/data.json'
+		aQ: A2(elm$http$Http$expectJson, author$project$Main$GotPortfolio, author$project$Main$portfolioDecoder),
+		a3: '/portfolio/src/elm/data.json'
 	});
 var author$project$Main$init = function (_n0) {
 	return _Utils_Tuple2(author$project$Main$Loading, author$project$Main$getPortfolio);
@@ -5971,7 +5971,7 @@ var author$project$Main$subscriptions = function (model) {
 	return elm$core$Platform$Sub$none;
 };
 var author$project$Main$Failure = {$: 0};
-var author$project$Main$Succsess = function (a) {
+var author$project$Main$Success = function (a) {
 	return {$: 2, a: a};
 };
 var elm$json$Json$Encode$int = _Json_wrap;
@@ -6007,34 +6007,39 @@ var author$project$Main$languageSkillsToJs = _Platform_outgoingPort(
 					[
 						_Utils_Tuple2(
 						'color',
-						elm$json$Json$Encode$string($.O)),
+						elm$json$Json$Encode$string($.N)),
 						_Utils_Tuple2(
 						'level',
-						elm$json$Json$Encode$int($.am)),
+						elm$json$Json$Encode$int($.ao)),
 						_Utils_Tuple2(
 						'name',
-						elm$json$Json$Encode$string($.U))
+						elm$json$Json$Encode$string($.V))
 					]));
 		}));
 var elm$core$Platform$Cmd$batch = _Platform_batch;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$Main$update = F2(
 	function (msg, model) {
-		if (!msg.$) {
-			var result = msg.a;
-			if (!result.$) {
-				var portfolio = result.a;
-				return _Utils_Tuple2(
-					author$project$Main$Succsess(portfolio),
-					author$project$Main$languageSkillsToJs(portfolio.Y));
-			} else {
-				return _Utils_Tuple2(author$project$Main$Failure, elm$core$Platform$Cmd$none);
-			}
-		} else {
-			return _Utils_Tuple2(author$project$Main$Loading, author$project$Main$getPortfolio);
+		switch (msg.$) {
+			case 0:
+				var result = msg.a;
+				if (!result.$) {
+					var portfolio = result.a;
+					return _Utils_Tuple2(
+						author$project$Main$Success(portfolio),
+						author$project$Main$languageSkillsToJs(portfolio.aE));
+				} else {
+					return _Utils_Tuple2(author$project$Main$Failure, elm$core$Platform$Cmd$none);
+				}
+			case 1:
+				return _Utils_Tuple2(author$project$Main$Loading, author$project$Main$getPortfolio);
+			default:
+				return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 		}
 	});
 var author$project$Main$LoadAgain = {$: 1};
+var author$project$Main$English = 0;
+var author$project$Main$localeL = {T: 0};
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$succeed = _Json_succeed;
 var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
@@ -6068,15 +6073,17 @@ var elm$html$Html$Attributes$href = function (url) {
 		'href',
 		_VirtualDom_noJavaScriptUri(url));
 };
-var author$project$Main$viewContact = function (c) {
-	var contact = c;
-	var className = 'footer-icon' + (' ' + c.O);
+var author$project$Main$viewContact = function (_n0) {
+	var icon = _n0.y;
+	var color = _n0.N;
+	var link = _n0.z;
+	var className = 'footer-icon' + (' ' + color);
 	return A2(
 		elm$html$Html$a,
 		_List_fromArray(
 			[
 				elm$html$Html$Attributes$class('no-underline'),
-				elm$html$Html$Attributes$href(c.A)
+				elm$html$Html$Attributes$href(link)
 			]),
 		_List_fromArray(
 			[
@@ -6092,7 +6099,7 @@ var author$project$Main$viewContact = function (c) {
 						elm$html$Html$i,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$class(c.y)
+								elm$html$Html$Attributes$class(icon)
 							]),
 						_List_Nil)
 					]))
@@ -6177,21 +6184,98 @@ var author$project$Main$viewContacts = function (contacts) {
 					]))
 			]));
 };
+var author$project$Main$SetEnglish = {$: 2};
+var elm$html$Html$li = _VirtualDom_node('li');
+var elm$html$Html$ul = _VirtualDom_node('ul');
+var elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 0, a: a};
+};
+var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			elm$virtual_dom$VirtualDom$on,
+			event,
+			elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		elm$html$Html$Events$on,
+		'click',
+		elm$json$Json$Decode$succeed(msg));
+};
+var author$project$Main$viewFlags = function (p) {
+	var portfolio = p;
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('self-start pt-4 justify-center my-auto')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$ul,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('flex justify-end px-3 pt-3 list-reset leading-narrow')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$li,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('text-3xl pr-2'),
+								elm$html$Html$Events$onClick(author$project$Main$SetEnglish)
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('🇬🇧')
+							])),
+						A2(
+						elm$html$Html$li,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('text-3xl px-2 border-l border-r border-solid border-grey-dark')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('🇯🇵')
+							])),
+						A2(
+						elm$html$Html$li,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('text-3xl px-2')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('🇨🇳')
+							]))
+					]))
+			]));
+};
 var author$project$Main$infoClassNames = _List_fromArray(
 	['py-6 w-full text-center text-4rem md:text-5xl rotate-1/8 text-red-darker', 'py-2 md:py-4 w-full text-4rem text-center text-blue-dark', 'py-2 md:py-4 w-full text-4rem text-center text-yellow-dark']);
-var author$project$Main$viewDescription = function (d) {
-	var description = d;
+var author$project$Main$viewDescription = function (_n0) {
+	var ja = _n0.am;
+	var en = _n0.ag;
+	var ch = _n0.ac;
 	return A2(
 		elm$html$Html$div,
 		_List_Nil,
 		_List_fromArray(
 			[
-				elm$html$Html$text(d.ak)
+				elm$html$Html$text(ja)
 			]));
 };
 var author$project$Main$viewInfoItem = F2(
-	function (info, infoClassName) {
-		var className = info.y + (' ' + infoClassName);
+	function (_n0, infoClassName) {
+		var title = _n0.D;
+		var description = _n0.O;
+		var icon = _n0.y;
+		var className = icon + (' ' + infoClassName);
 		return A2(
 			elm$html$Html$div,
 			_List_fromArray(
@@ -6208,7 +6292,7 @@ var author$project$Main$viewInfoItem = F2(
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text(info.E)
+							elm$html$Html$text(title)
 						])),
 					A2(
 					elm$html$Html$i,
@@ -6233,7 +6317,7 @@ var author$project$Main$viewInfoItem = F2(
 								]),
 							_List_fromArray(
 								[
-									author$project$Main$viewDescription(info.P)
+									author$project$Main$viewDescription(description)
 								]))
 						]))
 				]));
@@ -6274,10 +6358,12 @@ var elm$html$Html$Attributes$src = function (url) {
 		'src',
 		_VirtualDom_noJavaScriptOrHtmlUri(url));
 };
-var author$project$Main$viewOther = function (o) {
-	var other = o;
-	var imageSrc = o.z.Z;
-	var imageAlt = o.z.S;
+var author$project$Main$viewOther = function (_n0) {
+	var title = _n0.D;
+	var image = _n0.P;
+	var link = _n0.z;
+	var imageSrc = image.Z;
+	var imageAlt = image.S;
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
@@ -6291,7 +6377,7 @@ var author$project$Main$viewOther = function (o) {
 				_List_fromArray(
 					[
 						elm$html$Html$Attributes$class('no-underline'),
-						elm$html$Html$Attributes$href(o.A)
+						elm$html$Html$Attributes$href(link)
 					]),
 				_List_fromArray(
 					[
@@ -6313,7 +6399,7 @@ var author$project$Main$viewOther = function (o) {
 					]),
 				_List_fromArray(
 					[
-						elm$html$Html$text(o.E)
+						elm$html$Html$text(title)
 					]))
 			]));
 };
@@ -6354,37 +6440,35 @@ var author$project$Main$lgNewLine = A2(
 	_List_Nil);
 var elm$html$Html$canvas = _VirtualDom_node('canvas');
 var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
-var author$project$Main$viewSkills = function (skills) {
-	return A2(
-		elm$html$Html$div,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$class('py-6')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				elm$html$Html$h1,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('section-title')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('LANGUAGE'),
-						author$project$Main$lgNewLine,
-						elm$html$Html$text(' SKILLS')
-					])),
-				A2(
-				elm$html$Html$canvas,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('langage-skills-chart mx-auto'),
-						elm$html$Html$Attributes$id('language-skills')
-					]),
-				_List_Nil)
-			]));
-};
+var author$project$Main$viewSkills = A2(
+	elm$html$Html$div,
+	_List_fromArray(
+		[
+			elm$html$Html$Attributes$class('py-6')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			elm$html$Html$h1,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('section-title')
+				]),
+			_List_fromArray(
+				[
+					elm$html$Html$text('LANGUAGE'),
+					author$project$Main$lgNewLine,
+					elm$html$Html$text(' SKILLS')
+				])),
+			A2(
+			elm$html$Html$canvas,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('langage-skills-chart mx-auto'),
+					elm$html$Html$Attributes$id('language-skills')
+				]),
+			_List_Nil)
+		]));
 var author$project$Main$viewTop = A2(
 	elm$html$Html$div,
 	_List_fromArray(
@@ -6497,10 +6581,15 @@ var author$project$Main$viewTech = function (tech) {
 			]));
 };
 var author$project$Main$viewWebsiteItem = F2(
-	function (w, iconColor) {
-		var website = w;
-		var imageSrc = w.z.Z;
-		var imageAlt = w.z.S;
+	function (_n0, iconColor) {
+		var title = _n0.D;
+		var description = _n0.O;
+		var tech = _n0.aI;
+		var image = _n0.P;
+		var icon = _n0.y;
+		var link = _n0.z;
+		var imageSrc = image.Z;
+		var imageAlt = image.S;
 		return A2(
 			elm$html$Html$div,
 			_List_fromArray(
@@ -6514,7 +6603,7 @@ var author$project$Main$viewWebsiteItem = F2(
 					_List_fromArray(
 						[
 							elm$html$Html$Attributes$class('no-underline'),
-							elm$html$Html$Attributes$href(w.A)
+							elm$html$Html$Attributes$href(link)
 						]),
 					_List_fromArray(
 						[
@@ -6538,7 +6627,7 @@ var author$project$Main$viewWebsiteItem = F2(
 											elm$html$Html$i,
 											_List_fromArray(
 												[
-													elm$html$Html$Attributes$class(w.y)
+													elm$html$Html$Attributes$class(icon)
 												]),
 											_List_Nil)
 										])),
@@ -6550,7 +6639,7 @@ var author$project$Main$viewWebsiteItem = F2(
 										]),
 									_List_fromArray(
 										[
-											elm$html$Html$text(w.E)
+											elm$html$Html$text(title)
 										]))
 								]))
 						])),
@@ -6579,7 +6668,7 @@ var author$project$Main$viewWebsiteItem = F2(
 								]),
 							_List_fromArray(
 								[
-									author$project$Main$viewDescription(w.P)
+									author$project$Main$viewDescription(description)
 								]))
 						])),
 					A2(
@@ -6588,7 +6677,7 @@ var author$project$Main$viewWebsiteItem = F2(
 						[
 							elm$html$Html$Attributes$class('px-5 pt-2 pb-4')
 						]),
-					A2(elm$core$List$map, author$project$Main$viewTech, w.aF))
+					A2(elm$core$List$map, author$project$Main$viewTech, tech))
 				]));
 	});
 var author$project$Main$websiteIconColors = _List_fromArray(
@@ -6621,48 +6710,33 @@ var author$project$Main$viewWebsites = function (websites) {
 				A3(elm$core$List$map2, author$project$Main$viewWebsiteItem, websites, author$project$Main$websiteIconColors))
 			]));
 };
-var author$project$Main$viewApp = function (p) {
-	var portfolio = p;
-	return A2(
-		elm$html$Html$div,
-		_List_Nil,
-		_List_fromArray(
-			[
-				author$project$Main$viewTop,
-				A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('max-w-xl mx-auto container')
-					]),
-				_List_fromArray(
-					[
-						author$project$Main$viewInfo(p.aj),
-						author$project$Main$viewSkills(p.Y),
-						author$project$Main$viewWebsites(p.aH),
-						author$project$Main$viewOthers(p.ap)
-					])),
-				author$project$Main$viewContacts(p.ad)
-			]));
-};
-var elm$html$Html$button = _VirtualDom_node('button');
-var elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 0, a: a};
-};
-var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var elm$html$Html$Events$on = F2(
-	function (event, decoder) {
+var author$project$Main$viewApp = F2(
+	function (p, language) {
+		var portfolio = p;
 		return A2(
-			elm$virtual_dom$VirtualDom$on,
-			event,
-			elm$virtual_dom$VirtualDom$Normal(decoder));
+			elm$html$Html$div,
+			_List_Nil,
+			_List_fromArray(
+				[
+					author$project$Main$viewTop,
+					A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('max-w-xl mx-auto container')
+						]),
+					_List_fromArray(
+						[
+							author$project$Main$viewFlags(p),
+							author$project$Main$viewInfo(p.al),
+							author$project$Main$viewSkills,
+							author$project$Main$viewWebsites(p.aK),
+							author$project$Main$viewOthers(p.ar)
+						])),
+					author$project$Main$viewContacts(p.ae)
+				]));
 	});
-var elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		elm$html$Html$Events$on,
-		'click',
-		elm$json$Json$Decode$succeed(msg));
-};
+var elm$html$Html$button = _VirtualDom_node('button');
 var author$project$Main$view = function (model) {
 	switch (model.$) {
 		case 0:
@@ -6688,12 +6762,13 @@ var author$project$Main$view = function (model) {
 			return A2(elm$html$Html$div, _List_Nil, _List_Nil);
 		default:
 			var portfolio = model.a;
+			var language = author$project$Main$localeL.T;
 			return A2(
 				elm$html$Html$div,
 				_List_Nil,
 				_List_fromArray(
 					[
-						author$project$Main$viewApp(portfolio)
+						A2(author$project$Main$viewApp, portfolio, language)
 					]));
 	}
 };
@@ -6788,7 +6863,7 @@ var elm$core$String$contains = _String_contains;
 var elm$core$String$toInt = _String_toInt;
 var elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {ah: fragment, ai: host, aq: path, as: port_, av: protocol, aw: query};
+		return {aj: fragment, ak: host, as: path, au: port_, ax: protocol, ay: query};
 	});
 var elm$url$Url$chompBeforePath = F5(
 	function (protocol, path, params, frag, str) {
@@ -6894,6 +6969,6 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$element = _Browser_element;
 var author$project$Main$main = elm$browser$Browser$element(
-	{aU: author$project$Main$init, a0: author$project$Main$subscriptions, a1: author$project$Main$update, a3: author$project$Main$view});
+	{aV: author$project$Main$init, a1: author$project$Main$subscriptions, a2: author$project$Main$update, a4: author$project$Main$view});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	elm$json$Json$Decode$succeed(0))(0)}});}(this));

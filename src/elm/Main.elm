@@ -4,6 +4,7 @@ import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import Html.Lazy exposing (lazy2)
 import Http
 import Json.Decode exposing (Decoder, map2, map3, map4, map5, map6, field, string, int, list)
 
@@ -240,7 +241,7 @@ viewInfoItem { title, description, icon } infoClassName locale =
             [ div [ class "about-card-title" ] [ text title ]
             , i [ class className ] []
             , div [ class "px-8 py-6" ]
-                [ p [ class "card-text md:h-210px" ] [ viewDescription description locale ] ]
+                [ p [ class "card-text md:h-210px" ] [ lazy2 viewDescription description locale ] ]
             ]
 
 
@@ -299,7 +300,7 @@ viewWebsiteItem { title, description, tech, image, icon, link } iconColor locale
                     ]
                     , img [ class "w-full", src imageSrc, alt imageAlt ] []
                     , div [ class "px-8 py-4" ]
-                        [ p [ class "card-text md:h-105px" ] [ viewDescription description locale ] ]
+                        [ p [ class "card-text md:h-105px" ] [ lazy2 viewDescription description locale ] ]
                     , div [ class "px-5 pt-2 pb-4" ] (List.map viewTech tech)
                 ]
             ]

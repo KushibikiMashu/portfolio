@@ -4098,7 +4098,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.a4,
 		impl.a3,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.L && impl.L(sendToApp)
+			var divertHrefToApp = impl.K && impl.K(sendToApp)
 			var view = impl.a6;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
@@ -4173,7 +4173,7 @@ function _Browser_application(impl)
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		L: function(sendToApp)
+		K: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4569,7 +4569,7 @@ var elm$core$Set$toList = function (_n0) {
 var author$project$Main$emptyModel = {
 	I: false,
 	A: 'English',
-	K: {W: _List_Nil, X: _List_Nil, aa: _List_Nil, ad: _List_Nil, ah: _List_Nil}
+	S: {W: _List_Nil, X: _List_Nil, aa: _List_Nil, ad: _List_Nil, ah: _List_Nil}
 };
 var author$project$Main$GotPortfolio = function (a) {
 	return {$: 0, a: a};
@@ -4580,7 +4580,7 @@ var author$project$Main$Portfolio = F5(
 	});
 var author$project$Main$Contact = F4(
 	function (name, icon, color, link) {
-		return {Q: color, y: icon, z: link, Z: name};
+		return {P: color, y: icon, z: link, Z: name};
 	});
 var elm$core$Array$branchFactor = 32;
 var elm$core$Array$Array_elm_builtin = F4(
@@ -4988,7 +4988,7 @@ var author$project$Main$contactDecoder = A5(
 	A2(elm$json$Json$Decode$field, 'link', elm$json$Json$Decode$string));
 var author$project$Main$Info = F3(
 	function (title, description, icon) {
-		return {R: description, y: icon, E: title};
+		return {Q: description, y: icon, E: title};
 	});
 var author$project$Main$Description = F3(
 	function (ja, en, ch) {
@@ -5009,7 +5009,7 @@ var author$project$Main$infoDecoder = A4(
 	A2(elm$json$Json$Decode$field, 'icon', elm$json$Json$Decode$string));
 var author$project$Main$Other = F3(
 	function (title, image, link) {
-		return {S: image, z: link, E: title};
+		return {R: image, z: link, E: title};
 	});
 var author$project$Main$Image = F2(
 	function (src, alt) {
@@ -5029,7 +5029,7 @@ var author$project$Main$otherDecoder = A4(
 	A2(elm$json$Json$Decode$field, 'link', elm$json$Json$Decode$string));
 var author$project$Main$Skill = F3(
 	function (name, level, color) {
-		return {Q: color, at: level, Z: name};
+		return {P: color, at: level, Z: name};
 	});
 var elm$json$Json$Decode$int = _Json_decodeInt;
 var author$project$Main$skillDecoder = A4(
@@ -5040,7 +5040,7 @@ var author$project$Main$skillDecoder = A4(
 	A2(elm$json$Json$Decode$field, 'color', elm$json$Json$Decode$string));
 var author$project$Main$Website = F6(
 	function (title, description, tech, image, icon, link) {
-		return {R: description, y: icon, S: image, z: link, aL: tech, E: title};
+		return {Q: description, y: icon, R: image, z: link, aL: tech, E: title};
 	});
 var elm$json$Json$Decode$list = _Json_decodeList;
 var elm$json$Json$Decode$map6 = _Json_map6;
@@ -6007,7 +6007,7 @@ var author$project$Main$languageSkillsToJs = _Platform_outgoingPort(
 					[
 						_Utils_Tuple2(
 						'color',
-						elm$json$Json$Encode$string($.Q)),
+						elm$json$Json$Encode$string($.P)),
 						_Utils_Tuple2(
 						'level',
 						elm$json$Json$Encode$int($.at)),
@@ -6028,8 +6028,8 @@ var author$project$Main$update = F2(
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{K: portfolio}),
-						author$project$Main$languageSkillsToJs(model.K.ad));
+							{S: portfolio}),
+						author$project$Main$languageSkillsToJs(portfolio.ad));
 				} else {
 					return _Utils_Tuple2(
 						_Utils_update(
@@ -6099,7 +6099,7 @@ var elm$html$Html$Attributes$href = function (url) {
 };
 var author$project$Main$viewContact = function (_n0) {
 	var icon = _n0.y;
-	var color = _n0.Q;
+	var color = _n0.P;
 	var link = _n0.z;
 	var className = 'footer-icon' + (' ' + color);
 	return A2(
@@ -6261,7 +6261,7 @@ var author$project$Main$viewFlags = A2(
 					elm$html$Html$li,
 					_List_fromArray(
 						[
-							elm$html$Html$Attributes$class('flag mx-2 border-l border-r border-solid border-grey-dark'),
+							elm$html$Html$Attributes$class('flag px-2 border-l border-r border-solid border-grey-dark'),
 							elm$html$Html$Events$onClick(author$project$Main$SetJapanese)
 						]),
 					_List_fromArray(
@@ -6323,10 +6323,12 @@ var author$project$Main$viewDescription = F2(
 						]));
 		}
 	});
+var elm$virtual_dom$VirtualDom$lazy2 = _VirtualDom_lazy2;
+var elm$html$Html$Lazy$lazy2 = elm$virtual_dom$VirtualDom$lazy2;
 var author$project$Main$viewInfoItem = F3(
 	function (_n0, infoClassName, locale) {
 		var title = _n0.E;
-		var description = _n0.R;
+		var description = _n0.Q;
 		var icon = _n0.y;
 		var className = icon + (' ' + infoClassName);
 		return A2(
@@ -6370,7 +6372,7 @@ var author$project$Main$viewInfoItem = F3(
 								]),
 							_List_fromArray(
 								[
-									A2(author$project$Main$viewDescription, description, locale)
+									A3(elm$html$Html$Lazy$lazy2, author$project$Main$viewDescription, description, locale)
 								]))
 						]))
 				]));
@@ -6441,7 +6443,7 @@ var elm$html$Html$Attributes$src = function (url) {
 };
 var author$project$Main$viewOther = function (_n0) {
 	var title = _n0.E;
-	var image = _n0.S;
+	var image = _n0.R;
 	var link = _n0.z;
 	var imageSrc = image.ae;
 	var imageAlt = image.V;
@@ -6664,9 +6666,9 @@ var author$project$Main$viewTech = function (tech) {
 var author$project$Main$viewWebsiteItem = F3(
 	function (_n0, iconColor, locale) {
 		var title = _n0.E;
-		var description = _n0.R;
+		var description = _n0.Q;
 		var tech = _n0.aL;
-		var image = _n0.S;
+		var image = _n0.R;
 		var icon = _n0.y;
 		var link = _n0.z;
 		var imageSrc = image.ae;
@@ -6748,7 +6750,7 @@ var author$project$Main$viewWebsiteItem = F3(
 										]),
 									_List_fromArray(
 										[
-											A2(author$project$Main$viewDescription, description, locale)
+											A3(elm$html$Html$Lazy$lazy2, author$project$Main$viewDescription, description, locale)
 										]))
 								])),
 							A2(
@@ -6828,7 +6830,7 @@ var author$project$Main$viewApp = F2(
 	});
 var elm$html$Html$button = _VirtualDom_node('button');
 var author$project$Main$view = function (_n0) {
-	var portfolio = _n0.K;
+	var portfolio = _n0.S;
 	var locale = _n0.A;
 	var error = _n0.I;
 	return (!error) ? A2(

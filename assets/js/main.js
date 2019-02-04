@@ -6552,104 +6552,174 @@ var author$project$Main$viewSkills = A2(
 				]),
 			_List_Nil)
 		]));
-var author$project$Main$viewTop = A2(
-	elm$html$Html$div,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$class('top-container')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$div,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$class('max-w-xl mx-auto text-center pt-16')
-				]),
-			_List_fromArray(
-				[
-					A2(
-					elm$html$Html$div,
-					_List_Nil,
-					_List_fromArray(
-						[
-							A2(
-							elm$html$Html$span,
-							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('top-title')
-								]),
-							_List_fromArray(
-								[
-									elm$html$Html$text('Love Creating')
-								])),
-							author$project$Main$newLine,
-							A2(
-							elm$html$Html$span,
-							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('top-title')
-								]),
-							_List_fromArray(
-								[
-									elm$html$Html$text('Web Apps')
-								]))
-						])),
-					A2(
-					elm$html$Html$div,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$class('absolute pin-r pin-l pin-b pb-12')
-						]),
-					_List_fromArray(
-						[
-							A2(
-							elm$html$Html$div,
-							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('py-2 md:py-4')
-								]),
-							_List_fromArray(
-								[
-									A2(
-									elm$html$Html$img,
-									_List_fromArray(
-										[
-											elm$html$Html$Attributes$class('w-24 xl:w-32'),
-											elm$html$Html$Attributes$src('/portfolio/assets/icon/code.svg')
-										]),
-									_List_Nil)
-								])),
-							A2(
-							elm$html$Html$div,
-							_List_Nil,
-							_List_fromArray(
-								[
-									A2(
-									elm$html$Html$span,
-									_List_fromArray(
-										[
-											elm$html$Html$Attributes$class('top-subtitle')
-										]),
-									_List_fromArray(
-										[
-											elm$html$Html$text('I’M MASHU')
-										])),
-									author$project$Main$lgNewLine,
-									A2(
-									elm$html$Html$span,
-									_List_fromArray(
-										[
-											elm$html$Html$Attributes$class('top-subtitle')
-										]),
-									_List_fromArray(
-										[
-											elm$html$Html$text(' KUSHIBIKI')
-										]))
-								]))
-						]))
-				]))
-		]));
+var author$project$Main$viewMyName = function (locale) {
+	switch (locale) {
+		case 'English':
+			return A2(
+				elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$span,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('top-subtitle')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('I’M MASHU')
+							])),
+						author$project$Main$lgNewLine,
+						A2(
+						elm$html$Html$span,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('top-subtitle')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(' KUSHIBIKI')
+							]))
+					]));
+		case 'Japanese':
+			return A2(
+				elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$span,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('top-subtitle')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('櫛引実秀です')
+							]))
+					]));
+		case 'Chinese':
+			return A2(
+				elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$span,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('top-subtitle')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('我是栉引实秀')
+							]))
+					]));
+		default:
+			return A2(
+				elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$span,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('top-subtitle')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('I’M MASHU')
+							])),
+						author$project$Main$lgNewLine,
+						A2(
+						elm$html$Html$span,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('top-subtitle')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(' KUSHIBIKI')
+							]))
+					]));
+	}
+};
+var author$project$Main$viewTop = function (locale) {
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('top-container')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('max-w-xl mx-auto text-center pt-16')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$div,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$span,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('top-title')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Love Creating')
+									])),
+								author$project$Main$newLine,
+								A2(
+								elm$html$Html$span,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('top-title')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Web Apps')
+									]))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('absolute pin-r pin-l pin-b pb-12')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('py-2 md:py-4')
+									]),
+								_List_fromArray(
+									[
+										A2(
+										elm$html$Html$img,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$class('w-24 xl:w-32'),
+												elm$html$Html$Attributes$src('/portfolio/assets/icon/code.svg')
+											]),
+										_List_Nil)
+									])),
+								author$project$Main$viewMyName(locale)
+							]))
+					]))
+			]));
+};
 var author$project$Main$viewTech = function (tech) {
 	var tag = '#' + tech;
 	return A2(
@@ -6810,7 +6880,7 @@ var author$project$Main$viewApp = F2(
 			_List_Nil,
 			_List_fromArray(
 				[
-					author$project$Main$viewTop,
+					author$project$Main$viewTop(locale),
 					A2(
 					elm$html$Html$div,
 					_List_fromArray(

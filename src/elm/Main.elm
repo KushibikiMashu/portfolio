@@ -179,7 +179,7 @@ view { portfolio, locale, error } =
 viewApp : Portfolio -> String -> Html Msg
 viewApp { info, websites, others, contacts } locale =
         div []
-            [ viewTop
+            [ viewTop locale
             , div [ class "max-w-xl mx-auto container" ]
                 [ viewFlags
                 , viewInfo info locale
@@ -191,8 +191,8 @@ viewApp { info, websites, others, contacts } locale =
             ]
 
 
-viewTop : Html Msg
-viewTop =
+viewTop : Locale -> Html Msg
+viewTop locale =
         div [ class "top-container" ] 
             [ div [ class "max-w-xl mx-auto text-center pt-16" ] 
                 [ div []
@@ -203,14 +203,37 @@ viewTop =
                 , div [ class "absolute pin-r pin-l pin-b pb-12" ]
                     [ div [ class "py-2 md:py-4" ]
                         [ img [ class "w-24 xl:w-32", src "/portfolio/assets/icon/code.svg" ] [] ]
-                    , div [] 
-                        [ span [ class "top-subtitle" ] [ text "I’M MASHU" ]
-                        , lgNewLine
-                        , span [ class "top-subtitle" ] [ text " KUSHIBIKI" ]
-                        ]
+                    , viewMyName locale
                     ]
                 ]
             ]
+
+
+viewMyName : Locale -> Html Msg
+viewMyName locale =
+    case locale of
+        "English" ->
+            div [] 
+                [ span [ class "top-subtitle" ] [ text "I’M MASHU" ]
+                , lgNewLine
+                , span [ class "top-subtitle" ] [ text " KUSHIBIKI" ]
+                ]
+
+        "Japanese" ->
+            div [] 
+                [ span [ class "top-subtitle" ] [ text "櫛引実秀です" ] ]
+
+
+        "Chinese" ->
+            div []
+                [ span [ class "top-subtitle" ] [ text "我是栉引实秀" ] ]
+
+        _ ->
+            div [] 
+                [ span [ class "top-subtitle" ] [ text "I’M MASHU" ]
+                , lgNewLine
+                , span [ class "top-subtitle" ] [ text " KUSHIBIKI" ]
+                ]
 
 
 viewFlags : Html Msg
@@ -258,10 +281,13 @@ viewDescription { ja, en, ch } locale =
     case locale of
         "English" ->
             div [] [ text en ]
+
         "Japanese" ->
             div [] [ text ja ]
+
         "Chinese" ->
             div [] [ text ch ]
+
         _ ->
             div [] [ text en ]
 

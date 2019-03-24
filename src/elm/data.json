@@ -3,8 +3,8 @@
     {
       "title": "Career",
       "description": {
-        "ja": "1991年生まれ。2015年京都大学法学部卒業。伊藤忠商事に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ立ち上げ。ブログ制作でプログラミングに目覚め、独学した後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてサーバーサイドエンジニアとして働いている。",
-        "en": "Mashu Kushibiki: Born in Japan in 1991. Graduated from Kyoto Univ in 2015. Worked in the account department for Itochu corp (a trading company) until 2017. Self-taught programming during the break. Now working as a software programmer in Tokyo since 2018.",
+        "ja": "1991年生まれ。2015年京都大学法学部卒業。総合商社に新卒で入社し、経理として働く。2017年に退社し、海外旅行をしてブログ立ち上げ。ブログ制作を通してプログラミングに目覚め、独学の後、2018年1月より未経験からエンジニアとしてWeb制作会社に就職。現在、都内のIT企業にてエンジニアとして働いている。",
+        "en": "Mashu Kushibiki: Born in Japan in 1991. Graduated from Kyoto Univ in 2015. Worked in the account department for a trading company until 2017. Self-taught programming during the break. Now working as a software programmer in Tokyo since 2018.",
         "ch": "我生于1991年，2015年毕业于京都大学，走进了伊藤忠商事（与中信集团签订全面战略合作的公司）工作。2017年辞职，去了国外旅游，回国后写了一些博客。通过制作自己的网站，我才发现原来程序设计有这么开心，就有了成为软件工程师的念想。用功学习后，终于实现了我的希望。我现在作为软件工程师在东京的一家企业工作（不是京东喔😂）。"
       },
       "icon": "fas fa-shoe-prints"

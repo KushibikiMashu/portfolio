@@ -4568,7 +4568,7 @@ var elm$core$Set$toList = function (_n0) {
 };
 var author$project$Main$emptyModel = {
 	I: false,
-	A: 'English',
+	A: 'Japanese',
 	S: {W: _List_Nil, X: _List_Nil, aa: _List_Nil, ad: _List_Nil, ah: _List_Nil}
 };
 var author$project$Main$GotPortfolio = function (a) {
@@ -6251,22 +6251,22 @@ var author$project$Main$viewFlags = A2(
 					_List_fromArray(
 						[
 							elm$html$Html$Attributes$class('flag mr-2'),
-							elm$html$Html$Events$onClick(author$project$Main$SetEnglish)
+							elm$html$Html$Events$onClick(author$project$Main$SetJapanese)
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text('🇬🇧')
+							elm$html$Html$text('🇯🇵')
 						])),
 					A2(
 					elm$html$Html$li,
 					_List_fromArray(
 						[
 							elm$html$Html$Attributes$class('flag px-2 border-l border-r border-solid border-grey-dark'),
-							elm$html$Html$Events$onClick(author$project$Main$SetJapanese)
+							elm$html$Html$Events$onClick(author$project$Main$SetEnglish)
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text('🇯🇵')
+							elm$html$Html$text('🇬🇧')
 						])),
 					A2(
 					elm$html$Html$li,

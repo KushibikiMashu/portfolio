@@ -12,7 +12,7 @@ $ npm i
 $ ./node_modules/elm/bin/elm reactor
 ```
 
-Well done! Just access `http://localhost:8000/index.html`!
+Well done! Just access `http://localhost:8000/index.html`
 
 ### Customize
 After editing `src/elm/Main.elm`, remember to enter the command below.
@@ -27,7 +27,7 @@ Don't forget to compile when you customize `src/css/customized.css` or `src/js/t
 $ ./node_modules/.bin/tailwind build src/css/customized.css -c src/js/tailwind.js -o assets/css/styles.css
 ```
 
-## Special Thanks 😂
+## Special Thanks
 
 Elm - A delightful language for reliable webapps<br>
 https://elm-lang.org/

@@ -221,8 +221,10 @@ viewMyName locale =
 
         "Japanese" ->
             div [] 
-                [ span [ class "top-subtitle" ] [ text "櫛引実秀です" ] ]
-
+                [ span [ class "top-subtitle" ] [ text "I’M MASHU" ]
+                , lgNewLine
+                , span [ class "top-subtitle" ] [ text " KUSHIBIKI" ]
+                ]
 
         "Chinese" ->
             div []

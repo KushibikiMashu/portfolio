@@ -6596,7 +6596,18 @@ var author$project$Main$viewMyName = function (locale) {
 							]),
 						_List_fromArray(
 							[
-								elm$html$Html$text('櫛引実秀です')
+								elm$html$Html$text('I’M MASHU')
+							])),
+						author$project$Main$lgNewLine,
+						A2(
+						elm$html$Html$span,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('top-subtitle')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(' KUSHIBIKI')
 							]))
 					]));
 		case 'Chinese':

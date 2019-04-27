@@ -89,7 +89,7 @@
         "alt": "Bitcoin chart"
       },
       "icon": "fab fa-bitcoin",
-      "link": "https://bitcoin-chart.info"
+      "link": "https://bitcoin-chart.netlify.com/"
     },
     {
       "title": "Whisky Distilleries Navi",

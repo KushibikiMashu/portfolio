@@ -64,7 +64,7 @@
     {
       "title": "Creepy Nuts Fans",
       "description": {
-        "ja": "日本一のラッパーR-指定、世界一のDJ松永のユニットCreepy Nutsの最新情報が集まるサイト。彼らが出演するMusic Videoが手軽に見れる！過去のネットラジオ、インタビューもあります",
+        "ja": "日本一のラッパーR-指定、世界一のDJ松永のユニットCreepy Nutsの最新情報が集まるサイト",
         "en": "This web app is for the fans of Japanese HIP HOP Artists 'Creepy Nuts'.",
         "ch": "此网络应用程序适用于日本HIP HOP单位Creepy Nuts的粉丝。"
       },
@@ -111,10 +111,10 @@
     {
       "title": "Tech Blog",
       "image": {
-        "src": "/portfolio/assets/img/qiita.png",
-        "alt": "Profile page of my tech blog"
+        "src": "/portfolio/assets/img/techblog.png",
+        "alt": "my tech blog"
       },
-      "link": "https://qiita.com/Panda_Program"
+      "link": "http://panda-program.com/"
     },
     {
       "title": "Lightning Talk",

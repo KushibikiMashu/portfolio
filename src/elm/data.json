@@ -30,51 +30,51 @@
   ],
   "skills" : [
     {
-      "name": "Japanese",
+      "name": "React",
       "level": 100,
       "color": "#61dafb"
     },
     {
       "name": "PHP/Laravel",
+      "level": 100,
+      "color": "#61dafb"
+    },
+    {
+      "name": "Next.js",
       "level": 80,
       "color": "#61dafb"
     },
     {
-      "name": "React",
+      "name": "TypeScript",
       "level": 70,
       "color": "#61dafb"
     },
     {
-      "name": "Python",
-      "level": 50,
+      "name": "Node.js",
+      "level": 40,
       "color": "#61dafb"
     },
     {
       "name": "Elm",
       "level": 30,
       "color": "#61dafb"
-    },
-    {
-      "name": "Node.js",
-      "level": 20,
-      "color": "#61dafb"
     }
   ],
   "websites": [
     {
-      "title": "HIPSTY",
+      "title": "Creepy Nuts Fans",
       "description": {
-        "ja": "日本語ラップ好きな人のためのサイト。YouTubeのAPIを利用し、特定のチャンネルの動画を新着順で表示。動画の一覧をジャンル毎に切り替えできる。",
-        "en": "This web app is for Japanese HIPHOP lovers to find new music videos. This program calls YouTube API to fetch new data every five minutes.",
-        "ch": "这个网络应用程序是为了日本HIP HOP爱好者可以找到新的音乐视频。该程序调用YouTube API每五分钟获取一次新数据。"
+        "ja": "日本一のラッパーR-指定、世界一のDJ松永のユニットCreepy Nutsの最新情報が集まるサイト。彼らが出演するMusic Videoが手軽に見れる！過去のネットラジオ、インタビューもあります",
+        "en": "This web app is for the fans of Japanese HIP HOP Artists 'Creepy Nuts'.",
+        "ch": "此网络应用程序适用于日本HIP HOP单位Creepy Nuts的粉丝。"
       },
-      "tech": ["Laravel", "React", "Material-UI", "Docker"],
+      "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
       "image": {
-        "src": "/portfolio/assets/img/hipsty.png",
-        "alt": "Music videos of Japanese HIPHOP"
+        "src": "/portfolio/assets/img/creepynutsfans.png",
+        "alt": "Creepy Nuts Fans"
       },
       "icon": "fas fa-music",
-      "link": "https://hipsty.net"
+      "link": "https://creepynutsfans.com/"
     },
     {
       "title": "Bitcoin Chart",

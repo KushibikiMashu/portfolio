@@ -64,7 +64,7 @@
     {
       "title": "Creepy Nuts Fans",
       "description": {
-        "ja": "日本一のラッパーR-指定、世界一のDJ松永のユニットCreepy Nutsの最新情報が集まるサイト",
+        "ja": "日本一のラッパーR-指定、世界一のDJ松永のユニットCreepy Nutsの最新情報が集まるサイト。Next.js+TypeScriptで作り、Vercelにデプロイ",
         "en": "This web app is for the fans of Japanese HIP HOP Artists 'Creepy Nuts'.",
         "ch": "此网络应用程序适用于日本HIP HOP单位Creepy Nuts的粉丝。"
       },
@@ -79,11 +79,11 @@
     {
       "title": "Bitcoin Chart",
       "description": {
-        "ja": "ビットコインの取引所ごとの価格差に着目し、価格をグラフで可視化。アービトラージ（裁定取引）で利用して貰うことを想定して作成。暴落時の価格も記録されている。",
+        "ja": "ビットコインの取引所ごとの価格差に着目し、価格をグラフで可視化。GASでスクレイピングしたデータをSpreadSheetに保存。React+TypeScriptで描画している。",
         "en": "You can see a chart of bitcoin price since 4/19/2018 on this site. I expected traders to practice arbitrage in the cryptocurrency market.",
         "ch": "您可以在此网站上查看自2014年4月19日以来比特币价格图表，帮助交易者在加密货币市场上实行套利。"
       },
-      "tech": ["PHP", "Bootstrap 4", "Highcharts", "MySQL"],
+      "tech": ["React", "TypeScript", "SpreadSheet", "Google Apps Script", "Bootstrap 4", "Highcharts", "Neltify"],
       "image": {
         "src": "/portfolio/assets/img/bitcoin_chart.png",
         "alt": "Bitcoin chart"
@@ -98,7 +98,7 @@
         "en": "This site lists famous whisky distilleries in Japan. You can check them all at once and can reserve a tour through this site.",
         "ch": "该网站列出了日本有名的威士忌酿酒厂。您可以马上查看酿酒厂的历史，并可以预订参观游览。"
       },
-      "tech": ["HTML", "Bootstrap 4", "jQuery"],
+      "tech": ["HTML", "Bootstrap 4", "jQuery", "Neltify"],
       "image": {
         "src": "/portfolio/assets/img/whisky_distilleries.png",
         "alt": "Japanese whisky distilleries"
